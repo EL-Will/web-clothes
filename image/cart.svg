@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>Icons / Cart</title>
+    <desc>Created with Sketch.</desc>
+    <g id="V&amp;F-II" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="vf_icons" transform="translate(-209.000000, -586.000000)" fill="#111111" fill-rule="nonzero">
+            <g id="Icons-/-Cart" transform="translate(209.000000, 586.000000)">
+                <path d="M2,7 L2,15.5 C2,16.6045695 2.8954305,17.5 4,17.5 L16,17.5 C17.1045695,17.5 18,16.6045695 18,15.5 L18,7 L2,7 Z M10,0 C12.9730632,0 15.4410745,2.16238395 15.9170737,5.00019152 L18,5 C19.1045695,5 20,5.8954305 20,7 L20,15.5 C20,17.709139 18.209139,19.5 16,19.5 L4,19.5 C1.790861,19.5 0,17.709139 0,15.5 L0,7 C0,5.8954305 0.8954305,5 2,5 L4.08292631,5.00019152 C4.55892549,2.16238395 7.02693683,0 10,0 Z M10,2 C8.13616057,2 6.57006028,3.27477279 6.12601749,5 L13.8739825,5 C13.4299397,3.27477279 11.8638394,2 10,2 Z" id="shopping"></path>
+            </g>
+        </g>
+    </g>
+</svg>

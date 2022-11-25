@@ -1,0 +1,164 @@
+.text-Bag{
+    color: black;
+    font-weight: 500;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+}
+.text-Summary{
+    color: black;
+    font-weight: 500;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+}
+.pl-48{
+    padding-left: 48px;
+}
+.pr-48{
+    padding-left: 0px;
+    padding-right: 48px;
+}
+.mr-top-40{
+    margin-top: 40px;
+}
+.mt-20{
+    margin: 0;
+    padding: 0;
+    margin-top:20px;
+}
+/* .flex-img-infor-bag{
+    display: flex;
+} */
+/* .box-img-bag{
+    max-width: 200px;
+    height: 100%
+}
+.box-img-infor-bag{
+    max-width: 800px;
+    height: 100%
+}
+.box-infor-bag{
+    padding-left: 15px;
+    max-width: 600px;
+    height: 100%
+} */
+.flex-infor-price{
+    display: flex;
+    justify-content: space-between;
+}
+.mrt-40-delete{
+    margin-top: 40px;
+}
+.size-bag{
+    border: none;
+    color: gray;
+}
+.size-bag option{
+    color: gray;
+}
+.format-P4-bag, .format-P5-bag, .format-P2-bag, .format-P3-bag{
+    font-size: 20px;
+    color:gray;
+}
+.format-P1-bag{
+    font-size: 20px;
+}
+.flex-P5-bag{
+    margin-left: 30px;
+    display: flex;
+}
+.formatnew-P4-bag, .formatnew-P5-bag, .formatnew-P2-bag, .formatnew-P3-bag{
+    font-size: 15px;
+    color:gray;
+}
+/* @media (max-width: 960px){
+
+} */
+.inline-size-bag{
+    display: flex;
+    align-items: center;
+
+}
+.mrl-de{
+    margin-left: 10px
+}
+.mrl-de input{
+    width: 20%;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+.mrl-in{
+    margin-left: 10px;
+}
+.mrl-de button{
+    width: 20px;
+    font-size: 15px;
+    font-weight: 700;
+}
+.mrl-in button{
+    width: 20px;
+    font-size: 15px;
+    font-weight: 700;
+}
+.mrl-de button:hover{
+    background-color: gray;
+    border-radius: 4px;
+}
+.mrl-in button:hover{
+    background-color: gray;
+    border-radius: 4px;
+}
+.under-line{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid gray;
+}
+.flex-subtotal, .flex-total{
+    max-height: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.subtotal, .total, .sub-price, .total-price{
+    font-weight: 700;
+    font-size: 20px;
+}
+.price-bag{
+    font-size: 20px;
+}
+.checkout-btn{
+    width: 100%;
+    height: auto;
+    background: black;
+    border-radius: 40px;
+    text-align: center;
+    box-sizing: border-box;
+    margin-bottom: 10%;
+}
+.text-checkout-btn{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+}
+.padding-checkout{
+    padding: 20px;
+}
+.checkout-btn:hover{
+    background: rgba(0, 0, 0, 0.75);
+}
+.p-d-0{
+    padding: 0px;
+}
+.p-d-l-0{
+    padding-left: 0px;
+}
+.p-d-r-0{
+    padding-right: 0px;
+}
+.pos-text-bag{
+    text-align: right;
+}
+.hide-thumb{
+    display: none;
+}

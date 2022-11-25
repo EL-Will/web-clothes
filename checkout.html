@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/singin.css">
+    <link rel="stylesheet" href="/css/singup.css">
+    <link rel="stylesheet" href="/css/common-singup-singin.css">
+    <link rel="stylesheet" href="/css/home-page-singin-unsingin.css">
+    <link rel="stylesheet" href="/css/menshoes-common.css">
+    <link rel="stylesheet" href="/css/bag.css">
+    <link rel="stylesheet" href="/css/favotite.css">
+    <link rel="stylesheet" href="/css/checkout.css">
+</head>
+
+<body>
+    <!-- Start Header and Navabar -->
+    <header class="pre-1-header top-stack-context">
+        <nav class="row format-row">
+            <div class="flex-header-menu box-header-menu col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="pre-1-logo pre10-sm col-lg-1 col-md-1 col-sm-1 col-1">
+                    <a href="./index-login.html">
+                        <img class="pos-logo1" alt="logo"
+                            src="//upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Letter_t.svg/42px-Letter_t.svg.png"
+                            decoding="async" width="22" height="60"
+                            srcset="//upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Letter_t.svg/63px-Letter_t.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Letter_t.svg/84px-Letter_t.svg.png 2x"
+                            data-file-width="22" data-file-height="60">
+
+                    </a>
+                </div>
+                <div class="col-lg-9 col-md-9 col-sm-9 col-9">
+                </div>
+                <div class="pre-cart flex-cart col-lg-2 col-md-2 col-sm-2 col-2">
+                    <div class="pre-chat col-lg-4 col-md-4 col-sm-4 col-4">
+                    </div>
+                    <a class="pre-chat col-lg-4 col-md-4 col-sm-4 col-4" id="idChat" title="Chat">
+                        <img src="/image/chat.svg" alt="">
+                    </a>
+                    <!-- <button class="col-lg-4 col-md-4 col-sm-4 col-4" id="#" title="Leave Checkout">
+                        <img src="/image/cart.svg" alt="">
+                    </button> -->
+                    <!-- Button trigger modal -->
+                    <button type="button" class="col-lg-4 col-md-4 col-sm-4 col-4" data-toggle="modal"
+                        data-target="#exampleModal" title="Leave Checkout">
+                        <img src="/image/cart.svg" alt="">
+                    </button>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <!-- <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel"></h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div> -->
+                                <button type="button" class="close pos-close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <div class="modal-body">
+                                    <p class="format-changepass">CHANGE PASSWORD</p>
+                                    <form id="formChangePass" action="">
+                                        <div class="box-input-currentpass mb-10">
+                                            <input id="input-currentpass" type="password" placeholder="Current Password"
+                                                class="ip-pass" name="currentPassword">
+                                            <i class="fa-solid fa-eye-slash fixed-eye" id="show-current-password"></i>
+                                            <div class="error-currentpass" id="err-currentpass"></div>
+                                        </div>
+                                        <div class="box-input-newpass mb-10">
+                                            <input id="input-newpass" type="password" placeholder="New Password"
+                                                class="ip-pass" name="newPassword">
+                                            <i class="fa-solid fa-eye-slash fixed-eye-new" id="show-new-password"></i>
+                                            <div class="error-newpass" id="err-newpass"></div>
+                                        </div>
+                                        <div class="box-input-confirmpass">
+                                            <input id="input-confirmpass" type="password" placeholder="Confirm Password"
+                                                class="ip-confirmpass" name="confirmpassword">
+                                            <i class="fa-solid fa-eye-slash fixed-eye" id="show-confirm-password"></i>
+                                            <div class="error-confirm-pass" id="err-confirm-pass"></div>
+                                        </div>
+                                        <div class="box-singup-btn">
+                                            <button type="submit" id="btnChangepass">CHANGE PASSWORD</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-dark">OK</button>
+                            </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+    <div class="pre-header2 pre-header2-shadow">
+    </div>
+    <!-- End Header and Navabar -->
+    <!-- Start content -->
+    <div class="row format-row">
+        <div class="checkout-p-d-50 row format-row col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-2"></div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+                <div class="row format-row">
+                    <p class="format-text-head-checkout">How would you like to get your order?</p>
+                </div>
+                <div class="row format-row">
+                    <div class="box-deliver-it  row format-row col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="pd-farther-delivery row format-row col-lg-6 col-md-6 col-sm-6 col-6">
+                            <img src="/image/delivery.svg" class="size-image deliver-mr-30" alt="deliver it">
+                            Deliver It
+                        </div>
+                    </div>
+                </div>
+                <div class="row format-row">
+                    <p class="format-text-head-checkout form-mt-10">Enter your name and address:</p>
+                </div>
+                <form id="form-checkout" action="">
+                    <div class="row format-row box-firstname">
+                        <input type="text" placeholder="First name" class="pd-first-name box-input-firstname"
+                            name="firstname">
+                        <span id="error-first-name"></span>
+                    </div>
+                    <div class="row format-row form-mt-20 box-lastname">
+                        <input type="text" placeholder="Last name" class="pd-last-name box-input-lastname"
+                            name="lastname">
+                        <span id="error-last-name"></span>
+                    </div>
+                    <div class="row format-row form-mt-20">
+                        <div class="box-select-city">
+                            <select name="city" id="selectCity" class="select-city pd-city" required>
+                                <option value="" disabled selected class="format-color">Select City</option>
+                            </select>
+                        </div>
+                        <span id="error-city"></span>
+                    </div>
+                    <div class="row format-row form-mt-20">
+                        <div class="box-select-district">
+                            <select name="district" id="selectDistrict" class="select-district pd-district"
+                                aria-label="Select District" required>
+                                <option value="" disabled selected class="format-color">Select District</option>
+                            </select>
+                        </div>
+                        <span id="error-district"></span>
+                    </div>
+                    <div class="row format-row form-mt-20">
+                        <div class="box-select-award">
+                            <select name="ward" id="selectWard" class="select-award pd-award" aria-label="Select Ward"
+                                required>
+                                <option value="" disabled selected class="format-color">Select Ward</option>
+                            </select>
+                        </div>
+                        <span id="error-award"></span>
+                    </div>
+                    <div class="row format-row form-mt-20 box-country">
+                        <input type="text" value="Vietnam" readonly class="pd-country box-input-country" name="country">
+                        <div class="pos-circle">
+                            <span class="circle"></span>
+                        </div>
+                    </div>
+                    <div class="row format-row form-mt-20 form-mb-20">
+                        <button type="submit" class="submit-btn text-submit padding-submit-btn">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-4" style="position: relative; z-index: 1">
+                <div class="row format-row">
+                    <p class="format-text-head-checkout">In Your Bag</p>
+                </div>
+                <div class="row format-row flex-subtotal">
+                    <p class="subtotal">Subtotal</p>
+                    <div>
+                        <span class="sub-price" id="sub-price">0</span>
+                        <sup style="text-decoration: underline;">đ</sup>
+                    </div>
+                </div>
+                <div class="under-line"></div>
+                <div class="row format-row flex-total">
+                    <p class="total">Total</p>
+                    <div>
+                        <span class="total-price" id="total-price">0</span>
+                        <sup style="text-decoration: underline;">đ</sup>
+                    </div>
+                </div>
+                <div class="under-line"></div>
+                <div class="row format-row checkout-show-product">
+                    <div class="flex-img-infor-bag col-lg-12 col-md-12 col-sm-12 col-12 p-d-0 row format-row">
+                        <div class="box-img-bag col-lg-4 col-md-4 col-sm-4 col-4 p-d-l-0">
+                            <img src="./image/men-shoes/1.webp" alt="" class="img-fluid">
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7 col-7">
+                            <span class="row format-row format-P1-bag">Nike Air Force 1</span>
+                            <span class="row format-row formatnew-P2-bag">Men's shoes</span>
+                            <span class="row format-row formatnew-P3-bag">Colour: Black</span>
+                            <div class="inline-size-bag row format-row">
+                                <div class="formatnew-P4-bag">
+                                    <span>Size</span>
+                                    <span>40</span>
+                                </div>
+                                <div class="formatnew-P5-bag flex-P5-bag">
+                                    <span>Quantity: 1</span>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="formatnew-P4-bag">Total Price: 2,500,000</span>
+                                <sup style="text-decoration: underline;">đ</sup>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-1">
+                            <button class="delete-btn mrt-40-delete" id="deleteBtn${arr[i].id}">
+                                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px"
+                                    height="24px" fill="none">
+                                    <path stroke="currentColor" stroke-miterlimit="10" stroke-width="1.5"
+                                        d="M14.25 7.5v12m-4.5-12v12M5.25 6v13.5c0 1.24 1.01 2.25 2.25 2.25h9c1.24 0 2.25-1.01 2.25-2.25V5.25h2.75m-2.75 0H21m-12-3h5.25c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5H3">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="under-line">
+                    </div>
+                </div>
+                <!-- Chat -->
+                <!-- <div class="row format-row" id="boxChat">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="position: relative; z-index: 1">
+                        <div class="form-chat pos-form-chat">
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-2 padding-0">
+                <div class="form-chat pos-form-chat">
+                    <div class="row format-row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 padding-0">
+                            <div class="admin-text">Admin</div>
+                        </div>
+                    </div>
+                    <div class="row format-row message" id="messageBox">
+                       
+                    </div>
+                    <div class="row format-row">
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-1 padding-0">
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-sm-9 col-9 padding-0 box-reply">
+                            <input type="text" class="repply" placeholder="Type message....">
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-2 flex-btn-reply">
+                            <button type="button" id="sendMessage"><i class="fa-solid fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row message-body">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 message-main-receiver">
+                        <div>Vu Xuan Tuan</div>
+                        <div class="message-text-receiver">Hello</div>
+                        <div class="message-time">15151515</div>
+                    </div>
+                </div>
+                <div class="row message-body">
+                    <div class="col-sm-12 message-main-sender">
+                        <div>Hoan</div>
+                        <div class="message-text-sender">How are you</div>
+                        <div class="message-time">151515</div>
+                    </div>
+                </div>
+                <div class="row message-body">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 message-main-receiver">
+                        <div>Vu Xuan Tuan</div>
+                        <div class="message-text-receiver">Hello</div>
+                        <div class="message-time">15151515</div>
+                    </div>
+                </div>
+                <div class="row message-body">
+                    <div class="col-sm-12 message-main-sender">
+                        <div>Hoan</div>
+                        <div class="message-text-sender">How are you</div>
+                        <div class="message-time">151515</div>
+                    </div>
+                </div>
+                <div class="row message-body">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 message-main-receiver">
+                        <div>Vu Xuan Tuan</div>
+                        <div class="message-text-receiver">Hello</div>
+                        <div class="message-time">15151515</div>
+                    </div>
+                </div>
+                <div class="row message-body">
+                    <div class="col-sm-12 message-main-sender">
+                        <div>Hoan</div>
+                        <div class="message-text-sender">How are you</div>
+                        <div class="message-time">151515</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End content -->
+    <footer>
+        <div class="out-box-footer">
+            <div class="border-box-footer">
+                <div class="margin-box-footer row format-row">
+                    <div class="flex-box-footer1 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="content-footer1 flex-content-footer1 col-lg-8 col-md-8 col-sm-8 col-8">
+                            <ul class="content1 col-lg-4 col-md-4 col-sm-4 col-4">
+                                <li class="footer-link"><a class="format-text-footer1" href="#">FIND A STORE</a></li>
+                                <li class="footer-link"><a class="format-text-footer1" href="#">BECOME A MEMBER</a></li>
+                                <li class="footer-link"> <a class="format-text-footer1" href="#">SING UP FOR EMAIL</a>
+                                </li>
+                                <li class="footer-link"><a class="format-text-footer1" href="#">SEND US FEED BACK</a>
+                                </li>
+                            </ul>
+                            <ul class="content2 col-lg-4 col-md-4 col-sm-4 col-4">
+                                <li class="footer-link"><a class="format-text-footer1" href="#">GET HELP</a></li>
+                                <li class="footer-link"><a class="format-text-footer2" href="#">Order Status</a></li>
+                                <li class="footer-link"><a class="format-text-footer2" href="#">Dilivery</a></li>
+                                <li class="footer-link"> <a class="format-text-footer2" href="#">Returns</a></li>
+                                <li class="footer-link"><a class="format-text-footer2" href="#">Payment Options</a></li>
+                                <li class="footer-link"><a class="format-text-footer2" href="#">Contact Us</a></li>
+                            </ul>
+                            <ul class="content3 col-lg-4 col-md-4 col-sm-4 col-4">
+                                <li class="footer-link"><a class="format-text-footer1" href="#">ABOUT TUAN</a></li>
+                                <li class="footer-link"><a class="format-text-footer2" href="#">News</a></li>
+                                <li class="footer-link"><a class="format-text-footer2" href="#">Careers</a></li>
+                                <li class="footer-link"> <a class="format-text-footer2" href="#">Investors</a></li>
+                                <li class="footer-link"><a class="format-text-footer2" href="#">Sustainability</a></li>
+                            </ul>
+                        </div>
+                        <div class="content-footer2 col-lg-4 col-md-4 col-sm-4 col-4">
+                            <a href="#" class="format-icon col-lg-2 col-md-2 col-sm-2 col-2"><svg
+                                    class="social-link-icon" width="30px" fill="#111" height="30px" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 0C9.813 0 7.8.533 5.96 1.6A11.793 11.793 0 0 0 1.6 5.96C.533 7.8 0 9.813 0 12s.533 4.2 1.6 6.04a11.793 11.793 0 0 0 4.36 4.36C7.8 23.467 9.813 24 12 24s4.2-.533 6.04-1.6a11.793 11.793 0 0 0 4.36-4.36C23.467 16.2 24 14.187 24 12s-.533-4.2-1.6-6.04a11.793 11.793 0 0 0-4.36-4.36C16.2.533 14.187 0 12 0zm6 9.28v.4c0 1.387-.333 2.72-1 4a8.186 8.186 0 0 1-2.84 3.12c-1.333.853-2.827 1.28-4.48 1.28a8.535 8.535 0 0 1-4.56-1.28h.72c1.387 0 2.613-.427 3.68-1.28-.64 0-1.213-.2-1.72-.6-.507-.4-.867-.92-1.08-1.56l.56.16c.373 0 .64-.053.8-.16a2.67 2.67 0 0 1-1.72-1 2.913 2.913 0 0 1-.68-1.88c.427.267.88.4 1.36.4-.907-.533-1.36-1.36-1.36-2.48 0-.533.133-1.04.4-1.52.8.96 1.72 1.707 2.76 2.24a8.133 8.133 0 0 0 3.4.88c-.107-.16-.16-.4-.16-.72 0-.8.293-1.493.88-2.08s1.28-.88 2.08-.88 1.547.293 2.24.88c.48-.107 1.12-.347 1.92-.72-.213.747-.64 1.28-1.28 1.6H18c.747-.16 1.28-.32 1.6-.48-.533.693-1.067 1.253-1.6 1.68z">
+                                    </path>
+                                </svg></a>
+                            <a href="#" class="format-icon col-lg-2 col-md-2 col-sm-2 col-2"><svg
+                                    class="social-link-icon" width="30px" fill="#111" height="30px" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 0C9.813 0 7.8.533 5.96 1.6A11.793 11.793 0 0 0 1.6 5.96C.533 7.8 0 9.813 0 12s.533 4.2 1.6 6.04a11.793 11.793 0 0 0 4.36 4.36C7.8 23.467 9.813 24 12 24s4.2-.533 6.04-1.6a11.793 11.793 0 0 0 4.36-4.36C23.467 16.2 24 14.187 24 12s-.533-4.2-1.6-6.04a11.793 11.793 0 0 0-4.36-4.36C16.2.533 14.187 0 12 0zm3.12 12h-2v7.2H10.4V12H8.64V9.52h1.76V8c0-1.12.187-1.92.56-2.4.427-.587 1.2-.88 2.32-.88h2V7.2h-1.2c-.427 0-.693.067-.8.2-.107.133-.16.387-.16.76v1.2h2.16L15.12 12z">
+                                    </path>
+                                </svg></a>
+                            <a href="#" class="format-icon col-lg-2 col-md-2 col-sm-2 col-2"><svg
+                                    class="social-link-icon" width="30px" fill="#111" height="30px" viewBox="0 0 24 24">
+                                    <path
+                                        d="M11.28 17.6a.604.604 0 0 1-.2.24.43.43 0 0 1-.24.08c-.08 0-.133-.027-.16-.08a.557.557 0 0 1-.04-.24v-2.96h-.72v3.28a1 1 0 0 0 .12.52c.08.133.2.2.36.2.16 0 .307-.053.44-.16.133-.107.28-.24.44-.4v.48H12v-3.92h-.72v2.96zM6.96 14v-.8H9.6v.8h-.88v4.56h-.88V14h-.88zm4.96-4.72c-.107 0-.2-.04-.28-.12a.384.384 0 0 1-.12-.28v-2.4c0-.053.027-.107.08-.16.053-.053.147-.08.28-.08.133 0 .24.027.32.08a.27.27 0 0 1 .12.24v2.32c0 .107-.04.2-.12.28a.384.384 0 0 1-.28.12zm2 8.32c0-.64.027-1.307.08-2 0-.107-.04-.2-.12-.28-.08-.08-.16-.12-.24-.12h-.12l-.24.16v2.4l.24.16.16.08c.107 0 .173-.027.2-.08.027-.053.04-.16.04-.32zm.08-3.04c.213 0 .387.08.52.24.133.16.2.4.2.72v2.24c0 .267-.053.48-.16.64a.422.422 0 0 1-.44.2 2.1 2.1 0 0 1-.48-.12.506.506 0 0 1-.28-.24v.32h-.8V13.2h.8v1.76c.107-.107.213-.2.32-.28a.532.532 0 0 1 .32-.12zm3.92 5.12c.267-.213.427-.907.48-2.08.053-.587.107-1.147.16-1.68 0-.48-.053-1.013-.16-1.6-.107-1.173-.28-1.893-.52-2.16-.24-.267-1.267-.453-3.08-.56l-2.64-.08-2.72.08c-1.813.107-2.84.293-3.08.56-.24.267-.413.987-.52 2.16a16.07 16.07 0 0 0-.08 1.6c0 .533.027 1.093.08 1.68.107 1.173.28 1.88.52 2.12.24.24 1.267.44 3.08.6l2.72.08 2.64-.08c1.813-.16 2.853-.347 3.12-.56v-.08zM8.4 4h-.96l1.12 3.6v2.24h.96v-2.4L10.64 4h-.96l-.56 2.32h-.08L8.4 4zm2.32 2.56V8.8c0 .373.107.667.32.88.213.213.507.32.88.32s.667-.107.88-.32c.213-.213.32-.507.32-.88V6.56c0-.32-.107-.587-.32-.8-.213-.213-.507-.32-.88-.32s-.667.107-.88.32c-.213.213-.32.48-.32.8zm3.12-.96v3.6a1 1 0 0 0 .12.52c.08.133.213.2.4.2.187 0 .36-.04.52-.12.16-.08.32-.2.48-.36v.48h.88V5.6h-.88v3.2a.523.523 0 0 1-.24.24.645.645 0 0 1-.28.08c-.08 0-.133-.013-.16-.04-.027-.027-.04-.093-.04-.2V5.52h-.8v.08zM12 0c2.187 0 4.2.533 6.04 1.6a11.793 11.793 0 0 1 4.36 4.36C23.467 7.8 24 9.813 24 12s-.533 4.2-1.6 6.04a11.793 11.793 0 0 1-4.36 4.36C16.2 23.467 14.187 24 12 24s-4.2-.533-6.04-1.6a11.793 11.793 0 0 1-4.36-4.36C.533 16.2 0 14.187 0 12s.533-4.2 1.6-6.04A11.793 11.793 0 0 1 5.96 1.6C7.8.533 9.813 0 12 0zm4.56 16.08l-.08-.4c0-.16-.027-.28-.08-.36a.27.27 0 0 0-.24-.12.27.27 0 0 0-.24.12c-.053.08-.08.2-.08.36v.4h.72zm-.32-1.52c.32 0 .573.093.76.28.187.187.28.467.28.84v.96h-1.44v.8c0 .16.027.28.08.36.053.08.147.12.28.12.133 0 .227-.04.28-.12.053-.08.08-.227.08-.44v-.16h.72v.24c0 .373-.093.667-.28.88-.187.213-.453.32-.8.32-.347 0-.613-.107-.8-.32-.187-.213-.28-.507-.28-.88v-1.76c0-.32.107-.587.32-.8.213-.213.48-.32.8-.32z">
+                                    </path>
+                                </svg></a>
+                            <a href="#" class="format-icon col-lg-2 col-md-2 col-sm-2 col-2"><svg
+                                    class="social-link-icon" width="30px" fill="#111" height="30px" viewBox="0 0 24 24">
+                                    <path
+                                        d="M16 12.48a4.723 4.723 0 0 1-.56 1.48 3.93 3.93 0 0 1-1.04 1.16 3.428 3.428 0 0 1-1.92.68 3.628 3.628 0 0 1-1.96-.48 3.414 3.414 0 0 1-1.4-1.48c-.48-.96-.587-1.973-.32-3.04H7.68l.08 5.52c0 .107.04.213.12.32.08.107.173.16.28.16h8.32c.107 0 .213-.053.32-.16.107-.107.16-.213.16-.32V10.8h-1.12c.16.533.213 1.093.16 1.68zm-3.68 2c.64 0 1.2-.24 1.68-.72s.72-1.053.72-1.72a2.56 2.56 0 0 0-.68-1.76c-.453-.507-1.013-.76-1.68-.76s-1.24.24-1.72.72-.72 1.053-.72 1.72.227 1.253.68 1.76c.453.507 1 .76 1.64.76h.08zm4.16-7.6h-1.12c-.107 0-.213.053-.32.16-.107.107-.16.213-.16.32v1.36c.107.213.267.32.48.32h1.12c.16 0 .28-.053.36-.16a.532.532 0 0 0 .12-.32v-1.2c0-.107-.053-.213-.16-.32-.107-.107-.213-.16-.32-.16zM12 0C9.813 0 7.8.533 5.96 1.6A11.793 11.793 0 0 0 1.6 5.96C.533 7.8 0 9.813 0 12s.533 4.2 1.6 6.04a11.793 11.793 0 0 0 4.36 4.36C7.8 23.467 9.813 24 12 24s4.2-.533 6.04-1.6a11.793 11.793 0 0 0 4.36-4.36C23.467 16.2 24 14.187 24 12s-.533-4.2-1.6-6.04a11.793 11.793 0 0 0-4.36-4.36C16.2.533 14.187 0 12 0zm6.24 16.88l-.08.08v.08a.926.926 0 0 1-.28.68 1.3 1.3 0 0 1-.68.36H7.52a.871.871 0 0 1-.68-.32 1.536 1.536 0 0 1-.36-.72l-.08-.16.08-9.84c0-.267.093-.507.28-.72.187-.213.413-.347.68-.4h9.68a1.3 1.3 0 0 1 .68.36 1.3 1.3 0 0 1 .36.68l.08 9.92z">
+                                    </path>
+                                </svg></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="location-footer row format-row ">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                        <a class="col-lg-2 col-md-2 col-sm-2 col-2" title="Selected Location: VN" href="#"
+                            style="color: white"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"
+                                role="img" width="18px" height="15px" fill="none">
+                                <path fill="currentColor" fill-rule="evenodd"
+                                    d="M4.5 9.001a7.5 7.5 0 1115 0c0 1.205-.385 2.576-.934 3.928-.555 1.364-1.302 2.767-2.08 4.055a39.918 39.918 0 01-2.307 3.405c-.688.905-1.316 1.632-1.711 1.947a.75.75 0 01-.936 0c-.395-.315-1.023-1.042-1.711-1.947a39.916 39.916 0 01-2.306-3.405c-.78-1.288-1.526-2.691-2.08-4.056-.55-1.351-.935-2.722-.935-3.927zM12 12.25a3.25 3.25 0 100-6.5 3.25 3.25 0 000 6.5z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span style="color: white; font-size: 13px">Vietnam</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <script>
+        document.getElementById('idChat').addEventListener('click', () => {
+            console.log('OK');
+            let value = document.getElementsByClassName('form-chat')[0];
+            console.log(value.style);
+            value.style.visibility = 'visible';
+            value.style.opacity = '1';
+            value.style.transform = 'translateY(0px)';
+
+        })
+        async function getData() {
+
+            let apiURL = `https://provinces.open-api.vn/api/?depth=3`;
+            var data = await fetch(apiURL).then(res => res.json());
+            var dataCity = [];
+            var arrayNameDistricts = [];
+            var dataDistricts = [];
+            var dataWards = [];
+            var divData = '';
+            for (let i = 0; i < data.length; i++) {
+                dataCity.push(data[i].name);
+                divData +=
+                    `<option value="${data[i].name}">${data[i].name}</option>`
+            }
+            document.getElementById('selectCity').innerHTML = divData;
+            var nameCity = '';
+            var nameDistrict = '';
+            var nameWard = '';
+            let index1;
+            let index2;
+            document.getElementById('selectCity').addEventListener('click', () => {
+                nameCity = document.getElementById('selectCity').value;
+                index1 = dataCity.indexOf(nameCity);
+                var divData2 = '';
+                for (let i = 0; i < (data[index1].districts).length; i++) {
+                    arrayNameDistricts.push((data[index1].districts)[i].name);
+                    dataDistricts.push((data[index1].districts)[i]);
+                    divData2 +=
+                        `<option value="${(data[index1].districts)[i].name}">${(data[index1].districts)[i].name}</option>`
+                }
+                document.getElementById('selectDistrict').innerHTML = divData2;
+
+                document.getElementById('selectDistrict').addEventListener('click', () => {
+                    nameDistrict = document.getElementById('selectDistrict').value;
+                    index2 = arrayNameDistricts.indexOf(nameDistrict);
+                    console.log((dataDistricts[index2].wards));
+                    var divData3 = '';
+                    for (let i = 0; i < (dataDistricts[index2].wards).length; i++) {
+                        divData3 +=
+                            `<option value="${(dataDistricts[index2].wards)[i].name}">${(dataDistricts[index2].wards)[i].name}</option>`
+                    }
+                    document.getElementById('selectWard').innerHTML = divData3;
+                    nameWard = document.getElementById('selectWard').value
+                })
+            });
+        }
+        getData();
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

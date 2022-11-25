@@ -1,0 +1,43 @@
+.hide-favorite{
+    display: none;
+}
+.grid-3-img-new{
+    display: grid;
+    column-gap: 30px;
+    grid-template-columns: 32.3% 32.3% 32.3%;
+}
+.padding-99{
+    box-sizing: border-box;
+    position: relative !important;
+    padding-right: 48px;
+    padding-left: 48px;
+}
+.box-show-selected-new{
+    padding: 0px 48px 0px 48px;
+}
+.flex-box-show-selected{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.pd-top-20{
+    margin-top: 20px;
+    height: auto;
+}
+.edit-btn{
+    width: 12%;
+    height: 3rem;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+.edit-btn:hover{
+    border: 2px solid rgb(61, 59, 59);
+    background-color: rgba(206, 202, 202, 0.856);
+}
+.format-Edit-title{
+    color: black;
+    font-weight: 500;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+}

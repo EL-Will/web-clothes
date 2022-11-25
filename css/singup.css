@@ -1,0 +1,89 @@
+
+.pre-box-singup{
+    padding: 28px;
+}
+
+.error-user-name{
+    padding: 5px 0px 5px 0px;
+    font-size: 13px;
+    color: red;
+}
+
+.error-confirm-pass, .error-first-name, .error-last-name{
+    padding: 5px 0px 5px 0px;
+    font-size: 13px;
+    color: red;
+}
+.pre-box-goto-singin button{
+    border: none;
+    background-color: transparent;
+}
+.box-singup-btn button{
+    margin-top: 15px;
+    width: 100%;
+    height: 40px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 13px;
+}
+.box-first-last-name{
+    display: flex;
+    justify-content: space-between;
+}
+.box-first-last-name input{
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: #8d8d8d;
+    font: 14px Helvetica;
+    height: 40px;
+    line-height: 17px;
+    padding: 0 16px;
+    width:100%;
+    color: black;
+}
+.box-input-username input{
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font: 14px Helvetica;
+    height: 40px;
+    line-height: 17px;
+    padding: 0 16px;
+    width: 100%;
+    color: black
+}
+.box-input-confirmpass input{
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font: 14px Helvetica;
+    height: 40px;
+    line-height: 17px;
+    padding: 0 16px;
+    width: 100%;
+    color: black
+}
+.box-input-first-name{
+    padding-right: 10px;
+}
+.box-input-last-name{
+    padding-left: 10px;
+}
+.box-input-pass{
+    position: relative;
+}
+.box-input-confirmpass{
+    position: relative;
+}
+#goto-sing-in:hover{
+    color: #8d8d8d;
+    background-color: aquamarine;
+    border-radius: 3px;
+}

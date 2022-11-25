@@ -1,0 +1,218 @@
+
+.pre-chat{
+    text-align: center;
+}
+.checkout-p-d-50{
+    padding-top: 80px;
+}
+.format-text-head-checkout{
+    font-weight: 500;
+    font-size: 20px;
+}
+.form-mt-10{
+    margin-top: 5%;
+}
+.box-deliver-it{
+    width: 100%;
+    height: auto;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.pd-farther-delivery{
+    padding: 25px 20px;
+}
+.deliver-mr-30{
+    margin-right: 30px;
+}
+.form-mt-20{
+    margin-top: 5%;
+}
+.pd-first-name, .pd-last-name{
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 16px;
+}
+.box-select-city, .box-select-district, .box-select-award{
+    width:100%;
+    height:auto;
+}
+.select-city, .select-district, .select-award{
+    width:100%;
+    height: auto;
+    border-radius: 10px;
+    /* box-shadow: 0 0 0 1px #de543f; */
+    border-color: rgb(211, 211, 211);
+}
+.pd-city, .pd-district, .pd-award{
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 16px;
+}
+.format-color{
+    color: #8d8d8d;
+}
+.pd-country{
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 10px;
+}
+.box-country, .box-firstname, .box-lastname{
+    width:100%;
+    height:auto;
+    border: 1px solid rgb(211, 211, 211);
+    border-radius: 10px;
+}
+.box-input-country, .box-input-firstname, .box-input-lastname{
+    margin-left: 7px;
+    width: 80%;
+    border: none;
+}
+.circle{
+    border: 1px solid green;
+    background: green;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+.pos-circle{
+    margin-left: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.submit-btn{
+    width: 100%;
+    height: auto;
+    background: black;
+    border-radius: 40px;
+    text-align: center;
+    box-sizing: border-box;
+}
+.text-submit{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+}
+.padding-submit-btn{
+    padding: 20px;
+}
+.form-mb-20{
+    margin-bottom: 20px;
+}
+.submit-btn:hover{
+    background: rgba(0, 0, 0, 0.75);
+}
+.under-line{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid gray;
+}
+.padding-hide{
+    padding-right: 0px !important;
+}
+/* Chat */
+.form-chat{
+    position: absolute;
+    background-color: #e9f5f9;
+    z-index: 1000;
+    border-radius: 10px 10px 10px 10px;
+    width:150%;
+    height: 400px;
+    right: 0px;
+    top: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(200px);
+    transition: opacity .2s,visibility 0s linear .2s,transform .60s ease;
+}
+.admin-text{
+    text-align: center;
+    color:black;
+    font-size: 20px;
+    background-color: #65ccf1;
+    border-radius: 10px 10px 0px 0px;
+}
+.new-message {
+    position: relative;
+    padding: 0 !important;
+    margin: 0 !important;
+    background-size: cover;
+    overflow-y: auto;
+    border: 1px solid #f7f7f7;
+    height: calc(100% - 70px);
+}
+.box-reply{
+    height: 35px;
+}
+.new-repply{
+    width: 100%;
+    border: none;
+    height: 100%;
+    padding-left: 10px;
+}
+.flex-btn-reply{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.message-body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    height: auto;
+
+}
+
+.message-main-receiver {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 60%;
+    padding: 3px 20px !important;
+}
+
+.message-main-sender {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 3px 20px !important;
+    margin-left: 40% !important;
+    max-width: 60%;
+}
+
+.message-text-sender {
+    max-width: 80%;
+    margin: 0 !important;
+    padding: 5px !important;
+    word-break: break-all;
+    font-weight: 200;
+    font-size: 14px;
+    padding-bottom: 0 !important;
+    background: #dcf8c6;
+    width: max-content;
+    border-radius: 10px 10px 0 10px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+}
+
+.message-text-receiver {
+    max-width: 80%;
+    margin: 0 !important;
+    padding: 5px !important;
+    word-break: break-all;
+    font-weight: 200;
+    font-size: 14px;
+    padding-bottom: 0 !important;
+    background: #ffffff;
+    width: max-content;
+    border-radius: 10px 10px 10px 0;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+}
+
+.message-time {
+    margin: 0 !important;
+    font-size: 12px;
+    color: #9a9a9a;
+}
