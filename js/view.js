@@ -81,12 +81,23 @@ view.selectWebPage = (namePage) => {
             document.getElementById('gotoFavouriteDesktop').addEventListener('click', () => {
                 view.selectWebPage('favoritePage');
             });
+            document.getElementById('gotoFavouriteMobile').addEventListener('click', () => {
+                view.selectWebPage('favoritePage');
+            });
+            
             document.getElementById('gotoChangePass').addEventListener('click', () => {
+                view.selectWebPage('changePasswordPage');
+            });
+            document.getElementById('gotoChangePasswordMobile').addEventListener('click', () => {
                 view.selectWebPage('changePasswordPage');
             });
             document.getElementById('gotoProfile').addEventListener('click', () => {
                 view.selectWebPage('profilePage');
             });
+            document.getElementById('gotoProfileMobile').addEventListener('click', () => {
+                view.selectWebPage('profilePage');
+            });
+            
             controller.expandAccount();
             controller.closeAccount();
             controller.functionVisualSearch();
@@ -110,7 +121,8 @@ view.selectWebPage = (namePage) => {
             document.getElementById('gotoMenShoes').addEventListener('click',()=>{
                 view.selectWebPage('menShoesSinginPage');
             });
-            controller.logout();
+            controller.logout('logout-btn');
+            controller.logout('gotoLogoutMobile');
             break;
         case "singinPage":
             document.getElementById('app').innerHTML = component.singinPage;
@@ -284,10 +296,19 @@ view.selectWebPage = (namePage) => {
             document.getElementById('gotoFavouriteDesktop').addEventListener('click', () => {
                 view.selectWebPage('favoritePage');
             });
+            document.getElementById('gotoFavouriteMobile').addEventListener('click', () => {
+                view.selectWebPage('favoritePage');
+            });
             document.getElementById('gotoChangePass').addEventListener('click', () => {
                 view.selectWebPage('changePasswordPage');
             });
+            document.getElementById('gotoChangePasswordMobile').addEventListener('click', () => {
+                view.selectWebPage('changePasswordPage');
+            });
             document.getElementById('gotoProfile').addEventListener('click', () => {
+                view.selectWebPage('profilePage');
+            });
+            document.getElementById('gotoProfileMobile').addEventListener('click', () => {
                 view.selectWebPage('profilePage');
             });
             view.setProfileNameCheckout('exampleModalLabel1');
@@ -301,7 +322,8 @@ view.selectWebPage = (namePage) => {
             controller.clickGotoKids();
             controller.clickExpandMobileKids();
             controller.clickGobackAllKids();
-            controller.logout();
+            controller.logout('logout-btn');
+            controller.logout('gotoLogoutMobile');
             break;
         case "menShoesUnSigninPage":
             document.getElementById('app').innerHTML = component.menShoesUnSigninPage;
@@ -378,6 +400,9 @@ view.selectWebPage = (namePage) => {
             document.getElementById('gotoFavouriteDesktop').addEventListener('click', () => {
                 view.selectWebPage('favoritePage');
             });
+            document.getElementById('gotoFavouriteMobile').addEventListener('click', () => {
+                view.selectWebPage('favoritePage');
+            });
             document.getElementById('gotoMenDesktop').addEventListener('click', () => {
                 view.selectWebPage('menShoesSinginPage');
             });
@@ -390,6 +415,12 @@ view.selectWebPage = (namePage) => {
             document.getElementById('gotoProfile').addEventListener('click', () => {
                 view.selectWebPage('profilePage');
             });
+            document.getElementById('gotoProfileMobile').addEventListener('click', () => {
+                view.selectWebPage('profilePage');
+            });
+            document.getElementById('gotoChangePasswordMobile').addEventListener('click', () => {
+                view.selectWebPage('changePasswordPage');
+            });
             view.setProfileNameCheckout('exampleModalLabel1');
             controller.clickGotoMen();
             controller.clickExpandMobileMen();
@@ -400,7 +431,8 @@ view.selectWebPage = (namePage) => {
             controller.clickGotoKids();
             controller.clickExpandMobileKids();
             controller.clickGobackAllKids();
-            controller.logout();
+            controller.logout('logout-btn');
+            controller.logout('gotoLogoutMobile');
             break;
         case "favoritePage":
             document.getElementById('app').innerHTML = component.favoritePage;
@@ -437,6 +469,12 @@ view.selectWebPage = (namePage) => {
             document.getElementById('gotoProfile').addEventListener('click', () => {
                 view.selectWebPage('profilePage');
             });
+            document.getElementById('gotoProfileMobile').addEventListener('click', () => {
+                view.selectWebPage('profilePage');
+            });
+            document.getElementById('gotoChangePasswordMobile').addEventListener('click', () => {
+                view.selectWebPage('changePasswordPage');
+            });
             view.setProfileNameCheckout('exampleModalLabel1');
             controller.clickGotoMen();
             controller.clickExpandMobileMen();
@@ -447,7 +485,8 @@ view.selectWebPage = (namePage) => {
             controller.clickGotoKids();
             controller.clickExpandMobileKids();
             controller.clickGobackAllKids();
-            controller.logout();
+            controller.logout('logout-btn');
+            controller.logout('gotoLogoutMobile');
             break;
         case "checkoutPage":
             document.getElementById('app').innerHTML = component.checkoutPage;
@@ -558,8 +597,12 @@ view.selectWebPage = (namePage) => {
                     eye.setAttribute("class", 'fa-solid fa-eye-slash fixed-eye');
                 }
             });
+            document.getElementById('gotoHomepageSinginMobile').addEventListener('click',()=>{
+                view.selectWebPage('homePageSingIn');
+            });
             view.setProfileNameCheckout('exampleModalLabel1');
-            controller.logout();
+            controller.logout('logout-btn');
+            controller.logout('gotoLogoutMobile');
             break;
         case "profilePage":
             document.getElementById('app').innerHTML = component.profilePage;
@@ -586,7 +629,7 @@ view.selectWebPage = (namePage) => {
             view.getProfile();
             controller.clickChooseImg();
             view.setProfileNameCheckout('exampleModalLabel1');
-            controller.logout();
+            controller.logout('logout-btn');
             break;
         case "chatPage":
             document.getElementById('app').innerHTML = component.chatPage;
@@ -606,7 +649,8 @@ view.selectWebPage = (namePage) => {
                 document.getElementById('gotoProfile').addEventListener('click', () => {
                     view.selectWebPage('profilePage');
                 });
-                controller.logout();
+                controller.logout('logout-btn');
+                controller.logout('gotoLogoutMobile');
                 view.setProfileNameCheckout('exampleModalLabel1');
             }
             
@@ -666,10 +710,19 @@ view.selectWebPage = (namePage) => {
             document.getElementById('gotoFavouriteDesktop').addEventListener('click', () => {
                 view.selectWebPage('favoritePage');
             });
+            document.getElementById('gotoFavouriteMobile').addEventListener('click', () => {
+                view.selectWebPage('favoritePage');
+            });
             document.getElementById('gotoChangePass').addEventListener('click', () => {
                 view.selectWebPage('changePasswordPage');
             });
+            document.getElementById('gotoChangePasswordMobile').addEventListener('click', () => {
+                view.selectWebPage('changePasswordPage');
+            });
             document.getElementById('gotoProfile').addEventListener('click', () => {
+                view.selectWebPage('profilePage');
+            });
+            document.getElementById('gotoProfileMobile').addEventListener('click', () => {
                 view.selectWebPage('profilePage');
             });
             document.getElementById('gotoHomePageSinginHeader').addEventListener('click', () => {
@@ -689,7 +742,8 @@ view.selectWebPage = (namePage) => {
             controller.clickGotoKids();
             controller.clickExpandMobileKids();
             controller.clickGobackAllKids();
-            controller.logout();
+            controller.logout('logout-btn');
+            controller.logout('gotoLogoutMobile');
             break;
     }
 }
@@ -1255,38 +1309,42 @@ view.setInforBag = (arr) => {
             `
         <div class="col-lg-12 col-md-12 col-sm-12 col-12 p-d-0">
             <div class="row format-row">
-                <div class="box-img-infor-bag col-lg-3 col-md-3 col-sm-3 col-12 p-d-0">
+                <div class="box-img-infor-bag col-lg-4 col-md-4 col-sm-4 col-12 p-d-0">
                     <div class="box-img-bag col-lg-12 col-md-12 col-sm-12 col-12 p-d-l-0 p-d-r-0-new">
                     <img src="${arr[i].url}" alt="" class="img-fluid">
                     </div>
                 </div>
-                <div class="price-bag pos-text-bag col-lg-9 col-md-9 col-sm-9 col-12 p-d-l-0 p-d-r-0">
+                <div class="price-bag pos-text-bag col-lg-8 col-md-8 col-sm-8 col-12 p-d-l-0 p-d-r-0">
                     <div class="row format-row">
-                        <div class="box-infor-bag col-lg-9 col-md-9 col-sm-9 col-9 p-d-0">
+                        <div class="box-infor-bag col-lg-9 col-md-9 col-sm-9 col-8 p-d-0">
                         <span class="row format-row format-P1-bag">${arr[i].name}</span>
                         <span class="row format-row format-P2-bag">${arr[i].gender}</span>
                         <span class="row format-row format-P3-bag">Colour: ${arr[i].color}</span>
-                        <div class="inline-size-bag row format-row">
+                        <div class="row format-row">
                             <div class="format-P4-bag">
-                            <span>Size</span>
-                            <span>
-                                <select name="size" class="size-bag">
-                                <option value="40">40</option>
-                                <option value="40.5">40.5</option>
-                                <option value="41">41</option>
-                                <option value="42">42</option>
-                                <option value="42.5">42.5</option>
-                                <option value="43">43</option>
-                                </select>
-                            </span>
+                                <span>Size</span>
+                                <span>
+                                    <select name="size" class="size-bag">
+                                    <option value="40">40</option>
+                                    <option value="40.5">40.5</option>
+                                    <option value="41">41</option>
+                                    <option value="42">42</option>
+                                    <option value="42.5">42.5</option>
+                                    <option value="43">43</option>
+                                    </select>
+                                </span>
                             </div>
+                        </div>
+                        <div class="row format-row">
                             <div class="format-P5-bag flex-P5-bag">
-                            <span>Quantity</span>
-                            <span class="mrl-de"> <button type="button" class="decrease-quantity format-operator"
-                                id="decreaseBtn${arr[i].id}">-</button></span>
-                            <span class="mrl-de amount" id="count_items${arr[i].id}">${arr[i].count}</span>
-                            <span class="mrl-in"><button type="button" class="increase-quantity format-operator"
-                                id="increaseBtn${arr[i].id}">+</button></span>
+                                <span>Quantity</span>
+                                <span class="mrl-de"> <button type="button" class="decrease-quantity format-operator"
+                                    id="decreaseBtn${arr[i].id}">-</button>
+                                </span>
+                                <span class="mrl-de amount" id="count_items${arr[i].id}">${arr[i].count}</span>
+                                <span class="mrl-in"><button type="button" class="increase-quantity format-operator"
+                                    id="increaseBtn${arr[i].id}">+</button>
+                                </span>
                             </div>
                         </div>
                         <button class="delete-btn mrt-40-delete row format-row" id="deleteBtn${arr[i].id}">
@@ -1299,7 +1357,7 @@ view.setInforBag = (arr) => {
                         </button>
                         </div>
                     
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-3 p-d-0">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-4 p-d-0">
                             <span class="price">${strNumPrice}</span><sup style="text-decoration: underline;">đ</sup>
                         </div>
                     </div>

@@ -112,3 +112,8 @@
 .pos2-top{
     top: 65px;
 }
+@media(max-width:768px){
+    .hide-title-profile{
+        display: none;
+    }
+}

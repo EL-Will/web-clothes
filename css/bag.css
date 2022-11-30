@@ -51,7 +51,6 @@
 }
 
 .flex-P5-bag{
-    margin-left: 30px;
     display: flex;
 }
 .formatnew-P4-bag, .formatnew-P5-bag, .formatnew-P2-bag, .formatnew-P3-bag{
@@ -155,7 +154,7 @@
         font-size: 20px;
     }
     .mrt-40-delete{
-        padding-top: 10%;
+        padding-top: 10px;
     }
     .price-bag{
         font-size: 20px;
@@ -192,7 +191,7 @@
         font-size: 18px;
     }
     .mrt-40-delete{
-        padding-top: 10%;
+        padding-top: 10px;
     }
     .price-bag{
         font-size: 18px;
@@ -239,17 +238,17 @@
 }
 @media (max-width:576px){
     .format-P4-bag, .format-P5-bag, .format-P2-bag, .format-P3-bag{
-        font-size: 16px;
+        font-size: 18px;
         color:gray;
     }
     .format-P1-bag{
-        font-size: 16px;
+        font-size: 18px;
     }
     .mrt-40-delete{
         padding-top: 10px;
     }
     .price-bag{
-        font-size: 16px;
+        font-size: 18px;
     }
     .pr-48-991{
         padding-right: 12px;

@@ -629,8 +629,8 @@ controller.functionCloseExpand = () => {
         }
     })
 }
-controller.logout = () => {
-    document.getElementById('logout-btn').addEventListener("click", () => {
+controller.logout = (idLogout) => {
+    document.getElementById(idLogout).addEventListener("click", () => {
     });
     document.getElementById('quitePage').addEventListener('click', () => {
         model.getLogout();

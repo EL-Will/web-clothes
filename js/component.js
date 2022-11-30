@@ -666,7 +666,7 @@ component.homePageSingin = `
                     <button class="nav-btn pre-link flex-btn" id="gotoChangePasswordMobile">
                         <span class="pre-link-label headline-4">Change Password</span>
                     </button>
-                    <button class="nav-btn pre-link flex-btn" id="gotoLogoutMobile">
+                    <button class="nav-btn pre-link flex-btn" id="gotoLogoutMobile" data-toggle="modal" data-target="#exampleModalLogout">
                         <span class="pre-link-label headline-4">Logout</span>
                     </button>
                     <button class="nav-btn pre-link flex-btn" id="gotoFavouriteMobile">
@@ -1461,7 +1461,7 @@ component.menShoesSinginPage = `
             <button class="nav-btn pre-link flex-btn" id="gotoChangePasswordMobile">
                 <span class="pre-link-label headline-4">Change Password</span>
             </button>
-            <button class="nav-btn pre-link flex-btn" id="gotoLogoutMobile">
+            <button class="nav-btn pre-link flex-btn" id="gotoLogoutMobile" data-toggle="modal" data-target="#exampleModalLogout">
                 <span class="pre-link-label headline-4">Logout</span>
             </button>
             <button class="nav-btn pre-link flex-btn" id="gotoFavouriteMobile">
@@ -2450,7 +2450,7 @@ component.bagPage = `
             <button class="nav-btn pre-link flex-btn" id="gotoChangePasswordMobile">
                 <span class="pre-link-label headline-4">Change Password</span>
             </button>
-            <button class="nav-btn pre-link flex-btn" id="gotoLogoutMobile">
+            <button class="nav-btn pre-link flex-btn" id="gotoLogoutMobile" data-toggle="modal" data-target="#exampleModalLogout">
                 <span class="pre-link-label headline-4">Logout</span>
             </button>
             <button class="nav-btn pre-link flex-btn" id="gotoFavouriteMobile">
@@ -2945,10 +2945,10 @@ component.favoritePage = `
             <button class="nav-btn pre-link flex-btn" id="gotoChangePasswordMobile">
                 <span class="pre-link-label headline-4">Change Password</span>
             </button>
-            <button class="nav-btn pre-link flex-btn" id="gotoLogoutMobile">
+            <button class="nav-btn pre-link flex-btn" id="gotoLogoutMobile" data-toggle="modal" data-target="#exampleModalLogout">
                 <span class="pre-link-label headline-4">Logout</span>
             </button>
-            <button class="nav-btn pre-link flex-btn" id="gotoFavouriteMobile">
+            <a class="nav-btn pre-link flex-btn" href="#men-shoes-margin-top">
                 <svg aria-hidden="true" class="pre-nav-design-icon" focusable="false" viewBox="0 0 24 24"
                     role="img" width="24px" height="24px" fill="none">
                     <path stroke="currentColor" stroke-width="1.5"
@@ -2956,7 +2956,7 @@ component.favoritePage = `
                     </path>
                 </svg>
                 <span class="pre-link-label headline-4 padding-left-12">Favourites</span>
-            </button>
+            </a>
         </div>
     </div>
     <div class="pre-mobile-menu-men pre-mobile-hide-men z10">
@@ -3537,7 +3537,7 @@ component.changePasswordPage = `
 </div>
 <div class="box-logo1">
 <div class="logo1">
-  <img alt="logo" src="//upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Letter_t.svg/42px-Letter_t.svg.png"
+  <img id="gotoHomepageSinginMobile" alt="logo" src="//upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Letter_t.svg/42px-Letter_t.svg.png"
     decoding="async" width="22" height="60"
     srcset="//upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Letter_t.svg/63px-Letter_t.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Letter_t.svg/84px-Letter_t.svg.png 2x"
     data-file-width="22" data-file-height="60">
@@ -3620,10 +3620,10 @@ component.changePasswordPage = `
 `
 component.profilePage = `
 <!-- Star Header 1 -->
-<nav class="row format-row nvabar-frame z3 show-nvabar hidden-nvabar">
-<div class="col-lg-4 col-md-4 col-sm-4 col-4 padding-0">
-    <div class="row format-row padding-left-48">
-        <div class="col-lg-2 col-md-2 col-sm-2 col-2 padding-0">
+<nav class="row format-row nvabar-frame z3">
+<div class="col-lg-4 col-md-4 col-sm-4 col-2 padding-0">
+    <div class="row format-row padding-left-48 padding-left-12">
+        <div class="col-lg-2 col-md-12 col-sm-12 col-12 padding-0">
             <a id="goto-homepage-singin" class="logo-nvabar z3">
                 <svg height="24px" width="24px" fill="#111" viewBox="0 0 26 32">
                     <path
@@ -3634,13 +3634,13 @@ component.profilePage = `
         </div>
     </div>
 </div>
-<div class="col-lg-4 col-md-4 col-sm-4 col-4 padding-0">
+<div class="col-lg-4 col-md-3 col-sm-1 col-1 padding-0">
 </div>
-<div class="col-lg-4 col-md-4 col-sm-4 col-4 padding-0" id="expand-account">
-    <div class="row format-row padding-right-48">
-        <div class="col-lg-2 col-md-2 col-sm-2 col-2 padding-0">
+<div class="col-lg-4 col-md-5 col-sm-7 col-9 padding-0" id="expand-account">
+    <div class="row format-row padding-right-48 padding-right-12">
+        <div class="col-lg-2 col-md-2 col-sm-1 col-1 padding-0">
         </div>
-        <div class="col-lg-10 col-md-10 col-sm-10 col-10 padding-0">
+        <div class="col-lg-10 col-md-10 col-sm-11 col-11 padding-0">
             <div class="row format-row nav1-hover-account">
                 <div class="col-lg-10 col-md-10 col-sm-10 col-10 padding-0 nav1-text-account">
                     <span id="id-account"></span>
@@ -3695,9 +3695,9 @@ component.profilePage = `
 </div>
     <!-- End Header 1 -->
     <!-- Start content -->
-    <div class="container">
+    <div>
         <div class="row format-row mt-20">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-2">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-3 hide-title-profile">
                 <div class="mb-20">
                     <a href="#formProfile" class="format-text1" id="my-profile">My Profile</a>
                 </div>
@@ -3706,97 +3706,91 @@ component.profilePage = `
                 </div>
                 <div class="underline pos1-top"></div>
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-2">
-            </div>
-            <div class="col-lg-8 col-md-8 col-sm-8 col-8">
+            
+            <div class="col-lg-8 col-md-8 col-sm-12 col-12">
                 <form class="form-profile" id="formProfile" action="">
                     <div class="row format-row">
-                        <div class="col-lg-9 col-md-9 col-sm-9 col-9 format-title1">My Profile</div>
+                        <div class="col-lg-9 col-md-12 col-sm-12 col-12 format-title1">My Profile</div>
                     </div>
                     <div class="row format-row mt-20">
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-3"></div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+                        <div class="col-lg-3 col-md-4 col-sm-4 col-3"></div>
+                        <div class="col-lg-3 col-md-4 col-sm-4 col-6">
                             <div class="box-avatar">
                                 <img src="" class="format-img" id="avatar" alt="">
                             </div>
                         </div>
                     </div>
                     <div class="row format-row mt-20">
-                        <div class="col-lg-9 col-md-9 col-sm-9 col-9 pos-center" id="username"></div>
+                        <div class="col-lg-9 col-md-12 col-sm-12 col-12 pos-center" id="username"></div>
                     </div>
                     <div class="row format-row mt-20">
-                        <div class="col-lg-9 col-md-9 col-sm-9 col-9 pos-center">
+                        <div class="col-lg-9 col-md-12 col-sm-12 col-12 pos-center">
                             <button type="button" id="chosesImg" class="choses-img">Choose image</button>
                         </div>
                     </div>
                     <div class="row format-row mt-40">
-                        <div class="col-lg-9 col-md-9 col-sm-9 col-9 format-title3">User Name</div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-3"></div>
+                        <div class="col-lg-9 col-md-12 col-sm-12 col-12 format-title3">User Name</div>
+                        
                     </div>
                     <div class="row format-row">
-                        <div class="col-lg-9 col-md-9 col-sm-9 col-9 format-title4">For Account, Public Profile and
+                        <div class="col-lg-9 col-md-12 col-sm-12 col-12 format-title4">For Account, Public Profile and
                             Certificates</div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-3"></div>
+                        
                     </div>
                     <div class="row format-row mt-10">
-                        <div class="col-lg-9 col-md-9 col-sm-9 col-9 format-title5">First Name</div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-3"></div>
+                        <div class="col-lg-9 col-md-12 col-sm-12 col-12 format-title5">First Name</div>
+                        
                     </div>
                     <div class="row format-row mt-10">
-                        <div class="col-lg-9 col-md-9 col-sm-9 col-9">
+                        <div class="col-lg-9 col-md-12 col-sm-12 col-12">
                             <div class="box-firstname1">
                                 <input type="text" id="firstName" class="input-firstname" name="firstname">
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-3"></div>
                     </div>
                     <div class="row format-row mt-10">
-                        <div class="col-lg-9 col-md-9 col-sm-9 col-9 format-title5">Last Name</div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-3"></div>
+                        <div class="col-lg-9 col-md-12 col-sm-12 col-12 format-title5">Last Name</div>
+                        
                     </div>
                     <div class="row format-row mt-10">
-                        <div class="col-lg-9 col-md-9 col-sm-9 col-9">
+                        <div class="col-lg-9 col-md-12 col-sm-12 col-12">
                             <div class="box-lastname1">
                                 <input type="text" id="lastName" class="input-lastname" name="lastname">
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-3"></div>
                     </div>
                     <div class="row format-row mt-40">
-                        <div class="col-lg-9 col-md-9 col-sm-9 col-9 format-title3">Login</div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-3"></div>
+                        <div class="col-lg-9 col-md-12 col-sm-12 col-12 format-title3">Login</div>
+                        
                     </div>
                     <div class="row format-row">
-                        <div class="col-lg-9 col-md-9 col-sm-9 col-9 format-title4">Your Tuan.com Login Credentials
+                        <div class="col-lg-9 col-md-12 col-sm-12 col-12 format-title4">Your Tuan.com Login Credentials
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-3"></div>
+                        
                     </div>
                     <div class="row format-row mt-10">
-                        <div class="col-lg-9 col-md-9 col-sm-9 col-9 format-title5">Email</div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-3"></div>
+                        <div class="col-lg-9 col-md-12 col-sm-12 col-12 format-title5">Email</div>
+                        
                     </div>
                     <div class="row format-row mt-10">
-                        <div class="col-lg-9 col-md-9 col-sm-9 col-9">
+                        <div class="col-lg-9 col-md-12 col-sm-12 col-12">
                             <div class="box-email1">
                                 <input type="text" readonly id="email" class="input-email" name="email">
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-3"></div>
                     </div>
                     <div class="row format-row mt-10">
-                        <div class="col-lg-9 col-md-9 col-sm-9 col-9 format-title5">Password</div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-3"></div>
+                        <div class="col-lg-9 col-md-12 col-sm-12 col-12 format-title5">Password</div>
                     </div>
                     <div class="row format-row mt-10">
-                        <div class="col-lg-9 col-md-9 col-sm-9 col-9">
+                        <div class="col-lg-9 col-md-12 col-sm-12 col-12">
                             <div class="box-password1">
                                 <input type="password" readonly id="password" class="input-password" name="password">
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-3"></div>
                     </div>
                     <div class="row format-row mt-10">
-                        <div class="col-lg-9 col-md-9 col-sm-9 col-9">
+                        <div class="col-lg-9 col-md-12 col-sm-12 col-12">
                             <div class="row format-row">
                                 <div class="col-lg-8 col-md-8 col-sm-8 col-8"></div>
                                 <div class="pd-r-0 col-lg-4 col-md-4 col-sm-4 col-4">
@@ -3809,7 +3803,7 @@ component.profilePage = `
                     </div>
                 </form>
                 <div class="row format-row mt-40 mb-20">
-                    <div class="col-lg-9 col-md-9 col-sm-9 col-9">
+                    <div class="col-lg-9 col-md-12 col-sm-12 col-12">
                         <form action="" class="form-public-profile" id="formPublicProfile">
                             <div class="row format-row mt-20">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12 format-title1">My Public Profile</div>
@@ -3818,7 +3812,7 @@ component.profilePage = `
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12 format-title2">Contact Me</div>
                             </div>
                             <div class="row format-row mt-10">
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-3 flex-box-email flex-wrap">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-3 flex-box-email flex-wrap">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1.5em"
                                         height="1.5em" fill="currentColor" class="">
                                         <path
@@ -3827,7 +3821,7 @@ component.profilePage = `
                                     </svg>
                                     <div class="format-title-email">Email</div>
                                 </div>
-                                <div class="col-lg-9 col-md-9 col-sm-9 col-9">
+                                <div class="col-lg-8 col-md-8 col-sm-8 col-9">
                                     <div class="box-contact-email">
                                         <input type="text" id="contactEmail" class="input-contact-email"
                                             name="contactemail">
@@ -3835,7 +3829,7 @@ component.profilePage = `
                                 </div>
                             </div>
                             <div class="row format-row mt-10">
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-3 flex-box-email flex-wrap">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-3 flex-box-email flex-wrap">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1.5em"
                                         height="1.5em" fill="currentColor" class="">
                                         <path fill-rule="evenodd"
@@ -3844,7 +3838,7 @@ component.profilePage = `
                                     </svg>
                                     <div class="format-title-email">Phone</div>
                                 </div>
-                                <div class="col-lg-9 col-md-9 col-sm-9 col-9">
+                                <div class="col-lg-8 col-md-8 col-sm-8 col-9">
                                     <div class="box-conatct-phone">
                                         <input type="text" id="contactPhone" class="input-contact-phone"
                                             name="contactphone">
@@ -3852,7 +3846,7 @@ component.profilePage = `
                                 </div>
                             </div>
                             <div class="row format-row mt-10">
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-3 flex-box-email flex-wrap">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-3 flex-box-email flex-wrap">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1.5em"
                                         height="1.5em" fill="currentColor" class="">
                                         <path
@@ -3861,7 +3855,7 @@ component.profilePage = `
                                     </svg>
                                     <div class="format-title-email">Linkedin</div>
                                 </div>
-                                <div class="col-lg-9 col-md-9 col-sm-9 col-9">
+                                <div class="col-lg-8 col-md-8 col-sm-8 col-9">
                                     <div class="box-conatct-linkedin">
                                         <input type="text" id="conatctLinkedin" class="input-contact-linkedin"
                                             name="contactlinkedin">
@@ -3869,7 +3863,7 @@ component.profilePage = `
                                 </div>
                             </div>
                             <div class="row format-row mt-10">
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-3 flex-box-email flex-wrap">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-3 flex-box-email flex-wrap">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1.5em"
                                         height="1.5em" fill="currentColor" class="">
                                         <path
@@ -3878,7 +3872,7 @@ component.profilePage = `
                                     </svg>
                                     <div class="format-title-email">Twitter</div>
                                 </div>
-                                <div class="col-lg-9 col-md-9 col-sm-9 col-9">
+                                <div class="col-lg-8 col-md-8 col-sm-8 col-9">
                                     <div class="box-contact-twitter">
                                         <input type="text" id="contactTwitter" class="input-conatct-twitter"
                                             name="contactTwitter">
@@ -3886,7 +3880,7 @@ component.profilePage = `
                                 </div>
                             </div>
                             <div class="row format-row mt-10">
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-3 flex-box-email flex-wrap">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-3 flex-box-email flex-wrap">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="1.5em"
                                         height="1.5em" fill="currentColor" class="">
                                         <path
@@ -3895,7 +3889,7 @@ component.profilePage = `
                                     </svg>
                                     <div class="format-title-email">GitHub</div>
                                 </div>
-                                <div class="col-lg-9 col-md-9 col-sm-9 col-9">
+                                <div class="col-lg-8 col-md-8 col-sm-8 col-9">
                                     <div class="box-contact-github">
                                         <input type="text" id="contactGithub" class="input-contact-github"
                                             name="contactgithub">
@@ -3903,8 +3897,8 @@ component.profilePage = `
                                 </div>
                             </div>
                             <div class="row format-row mt-10">
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-3"> </div>
-                                <div class="mb-20 col-lg-9 col-md-9 col-sm-9 col-9">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-3"> </div>
+                                <div class="mb-20 col-lg-8 col-md-8 col-sm-8 col-9">
                                     <div class="box-save-publicbtn">
                                         <button type="submit" id="savePublicProfile" class="save-btn">SAVE</button>
                                     </div>
@@ -4348,7 +4342,7 @@ component.detailProductPage = `
             <button class="nav-btn pre-link flex-btn" id="gotoChangePasswordMobile">
                 <span class="pre-link-label headline-4">Change Password</span>
             </button>
-            <button class="nav-btn pre-link flex-btn" id="gotoLogoutMobile">
+            <button class="nav-btn pre-link flex-btn" id="gotoLogoutMobile" data-toggle="modal" data-target="#exampleModalLogout">
                 <span class="pre-link-label headline-4">Logout</span>
             </button>
             <button class="nav-btn pre-link flex-btn" id="gotoFavouriteMobile">
