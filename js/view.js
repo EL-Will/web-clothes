@@ -53,6 +53,15 @@ view.selectWebPage = (namePage) => {
             controller.clickGotoKids();
             controller.clickExpandMobileKids();
             controller.clickGobackAllKids();
+            document.getElementById('gotoMenShoes').addEventListener('click',()=>{
+                view.selectWebPage('menShoesUnSigninPage');
+            });
+            document.getElementById('gotoSigninMobile').addEventListener('click',()=>{
+                view.selectWebPage('singinPage');
+            });
+            document.getElementById('gotoSignupMobile').addEventListener('click',()=>{
+                view.selectWebPage('singupPage');
+            });
             break;
         case "homePageSingIn":
             document.getElementById('app').innerHTML = component.homePageSingin;
@@ -100,7 +109,7 @@ view.selectWebPage = (namePage) => {
             controller.clickGobackAllKids();
             document.getElementById('gotoMenShoes').addEventListener('click',()=>{
                 view.selectWebPage('menShoesSinginPage');
-            })
+            });
             controller.logout();
             break;
         case "singinPage":
@@ -163,7 +172,10 @@ view.selectWebPage = (namePage) => {
                     x.type = "password";
                     eye.setAttribute("class", 'fa-solid fa-eye-slash fixed-eye');
                 }
-            })
+            });
+            document.getElementById('gotoHomepageUnsinginMobile').addEventListener('click',()=>{
+                view.selectWebPage('homePageUnSingIn');
+            });
             break;
         case "singupPage":
             document.getElementById('app').innerHTML = component.singupPage;
@@ -223,7 +235,7 @@ view.selectWebPage = (namePage) => {
                     x.type = "password";
                     eye.setAttribute("class", 'fa-solid fa-eye-slash fixed-eye');
                 }
-            })
+            });
             document.getElementById('show-confirm-password').addEventListener('click', () => {
                 var x = document.querySelector(".ip-confirmpass");
                 var eye = document.getElementById('show-confirm-password');
@@ -236,8 +248,11 @@ view.selectWebPage = (namePage) => {
                     x.type = "password";
                     eye.setAttribute("class", 'fa-solid fa-eye-slash fixed-eye');
                 }
-            })
+            });
             // ================== End show and hide password =====================//
+            document.getElementById('gotoHomepageUnsinginMobile').addEventListener('click',()=>{
+                view.selectWebPage('homePageUnSingIn');
+            });
             break;
         case "menShoesSinginPage":
             document.getElementById('app').innerHTML = component.menShoesSinginPage;
@@ -331,6 +346,12 @@ view.selectWebPage = (namePage) => {
             controller.clickExpandMobileKids();
             controller.clickGobackAllKids();
             controller.search();
+            document.getElementById('gotoSigninMobile').addEventListener('click',()=>{
+                view.selectWebPage('singinPage');
+            });
+            document.getElementById('gotoSignupMobile').addEventListener('click',()=>{
+                view.selectWebPage('singupPage');
+            });
             break;
         case "bagPage":
             document.getElementById('app').innerHTML = component.bagPage;

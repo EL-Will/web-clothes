@@ -161,23 +161,11 @@ component.homePageUnSingin = `
                             </path>
                         </svg>
                     </button>
-                    <button class="nav-btn pre-link flex-btn" id="gotoProfileMobile">
-                        <span class="pre-link-label headline-4">Profile</span>
+                    <button class="nav-btn pre-link flex-btn" id="gotoSigninMobile">
+                        <span class="pre-link-label headline-4">Sign In</span>
                     </button>
-                    <button class="nav-btn pre-link flex-btn" id="gotoChangePasswordMobile">
-                        <span class="pre-link-label headline-4">Change Password</span>
-                    </button>
-                    <button class="nav-btn pre-link flex-btn" id="gotoLogoutMobile">
-                        <span class="pre-link-label headline-4">Logout</span>
-                    </button>
-                    <button class="nav-btn pre-link flex-btn" id="gotoFavouriteMobile">
-                        <svg aria-hidden="true" class="pre-nav-design-icon" focusable="false" viewBox="0 0 24 24"
-                            role="img" width="24px" height="24px" fill="none">
-                            <path stroke="currentColor" stroke-width="1.5"
-                                d="M16.794 3.75c1.324 0 2.568.516 3.504 1.451a4.96 4.96 0 010 7.008L12 20.508l-8.299-8.299a4.96 4.96 0 010-7.007A4.923 4.923 0 017.205 3.75c1.324 0 2.568.516 3.504 1.451l.76.76.531.531.53-.531.76-.76a4.926 4.926 0 013.504-1.451">
-                            </path>
-                        </svg>
-                        <span class="pre-link-label headline-4 padding-left-12">Favourites</span>
+                    <button class="nav-btn pre-link flex-btn" id="gotoSignupMobile">
+                        <span class="pre-link-label headline-4">Sign Up</span>
                     </button>
                 </div>
             </div>
@@ -1030,7 +1018,7 @@ component.singinPage = `
 </nav>
   <div class="box-logo1">
     <div class="logo1">
-      <img alt="logo" src="//upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Letter_t.svg/42px-Letter_t.svg.png"
+      <img id="gotoHomepageUnsinginMobile" alt="logo" src="//upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Letter_t.svg/42px-Letter_t.svg.png"
         decoding="async" width="22" height="60"
         srcset="//upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Letter_t.svg/63px-Letter_t.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Letter_t.svg/84px-Letter_t.svg.png 2x"
         data-file-width="22" data-file-height="60">
@@ -1173,7 +1161,7 @@ component.singupPage = `
 </nav>
       <div class="box-logo1">
         <div class="logo1">
-          <img alt="logo" src="//upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Letter_t.svg/42px-Letter_t.svg.png"
+          <img id="gotoHomepageUnsinginMobile" alt="logo" src="//upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Letter_t.svg/42px-Letter_t.svg.png"
             decoding="async" width="22" height="60"
             srcset="//upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Letter_t.svg/63px-Letter_t.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Letter_t.svg/84px-Letter_t.svg.png 2x"
             data-file-width="22" data-file-height="60">
@@ -1951,23 +1939,11 @@ component.menShoesUnSigninPage = `
                     </path>
                 </svg>
             </button>
-            <button class="nav-btn pre-link flex-btn" id="gotoProfileMobile">
-                <span class="pre-link-label headline-4">Profile</span>
+            <button class="nav-btn pre-link flex-btn" id="gotoSigninMobile">
+                <span class="pre-link-label headline-4">Sign In</span>
             </button>
-            <button class="nav-btn pre-link flex-btn" id="gotoChangePasswordMobile">
-                <span class="pre-link-label headline-4">Change Password</span>
-            </button>
-            <button class="nav-btn pre-link flex-btn" id="gotoLogoutMobile">
-                <span class="pre-link-label headline-4">Logout</span>
-            </button>
-            <button class="nav-btn pre-link flex-btn" id="gotoFavouriteMobile">
-                <svg aria-hidden="true" class="pre-nav-design-icon" focusable="false" viewBox="0 0 24 24"
-                    role="img" width="24px" height="24px" fill="none">
-                    <path stroke="currentColor" stroke-width="1.5"
-                        d="M16.794 3.75c1.324 0 2.568.516 3.504 1.451a4.96 4.96 0 010 7.008L12 20.508l-8.299-8.299a4.96 4.96 0 010-7.007A4.923 4.923 0 017.205 3.75c1.324 0 2.568.516 3.504 1.451l.76.76.531.531.53-.531.76-.76a4.926 4.926 0 013.504-1.451">
-                    </path>
-                </svg>
-                <span class="pre-link-label headline-4 padding-left-12">Favourites</span>
+            <button class="nav-btn pre-link flex-btn" id="gotoSignupMobile">
+                <span class="pre-link-label headline-4">Sign Up</span>
             </button>
         </div>
     </div>
