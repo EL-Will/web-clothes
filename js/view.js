@@ -1249,56 +1249,61 @@ view.setInforBag = (arr) => {
 
         divData +=
             `
-        <div class="flex-infor-price col-lg-12 col-md-12 col-sm-12 col-12 p-d-0">
-            <div class="box-img-infor-bag col-lg-9 col-md-9 col-sm-9 col-9 p-d-0">
-            <div class="flex-img-infor-bag col-lg-12 col-md-12 col-sm-12 col-12 p-d-0 row format-row">
-                <div class="box-img-bag col-lg-4 col-md-4 col-sm-4 col-4 p-d-l-0">
-                <img src="${arr[i].url}" alt="" class="img-fluid">
-                </div>
-                <div class="box-infor-bag col-lg-8 col-md-8 col-sm-8 col-8">
-                <span class="row format-row format-P1-bag">${arr[i].name}</span>
-                <span class="row format-row format-P2-bag">${arr[i].gender}</span>
-                <span class="row format-row format-P3-bag">Colour: ${arr[i].color}</span>
-                <div class="inline-size-bag row format-row">
-                    <div class="format-P4-bag">
-                    <span>Size</span>
-                    <span>
-                        <select name="size" class="size-bag">
-                        <option value="40">40</option>
-                        <option value="40.5">40.5</option>
-                        <option value="41">41</option>
-                        <option value="42">42</option>
-                        <option value="42.5">42.5</option>
-                        <option value="43">43</option>
-                        </select>
-                    </span>
-                    </div>
-                    <div class="format-P5-bag flex-P5-bag">
-                    <span>Quantity</span>
-                    <span class="mrl-de"> <button type="button" class="decrease-quantity format-operator"
-                        id="decreaseBtn${arr[i].id}">-</button></span>
-                    <span class="mrl-de amount" id="count_items${arr[i].id}">${arr[i].count}</span>
-                    <span class="mrl-in"><button type="button" class="increase-quantity format-operator"
-                        id="increaseBtn${arr[i].id}">+</button></span>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 p-d-0">
+            <div class="row format-row">
+                <div class="box-img-infor-bag col-lg-3 col-md-3 col-sm-3 col-12 p-d-0">
+                    <div class="box-img-bag col-lg-12 col-md-12 col-sm-12 col-12 p-d-l-0 p-d-r-0-new">
+                    <img src="${arr[i].url}" alt="" class="img-fluid">
                     </div>
                 </div>
-                <button class="delete-btn mrt-40-delete row format-row" id="deleteBtn${arr[i].id}">
-                    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px"
-                    fill="none">
-                    <path stroke="currentColor" stroke-miterlimit="10" stroke-width="1.5"
-                        d="M14.25 7.5v12m-4.5-12v12M5.25 6v13.5c0 1.24 1.01 2.25 2.25 2.25h9c1.24 0 2.25-1.01 2.25-2.25V5.25h2.75m-2.75 0H21m-12-3h5.25c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5H3">
-                    </path>
-                    </svg>
-                </button>
+                <div class="price-bag pos-text-bag col-lg-9 col-md-9 col-sm-9 col-12 p-d-l-0 p-d-r-0">
+                    <div class="row format-row">
+                        <div class="box-infor-bag col-lg-9 col-md-9 col-sm-9 col-9 p-d-0">
+                        <span class="row format-row format-P1-bag">${arr[i].name}</span>
+                        <span class="row format-row format-P2-bag">${arr[i].gender}</span>
+                        <span class="row format-row format-P3-bag">Colour: ${arr[i].color}</span>
+                        <div class="inline-size-bag row format-row">
+                            <div class="format-P4-bag">
+                            <span>Size</span>
+                            <span>
+                                <select name="size" class="size-bag">
+                                <option value="40">40</option>
+                                <option value="40.5">40.5</option>
+                                <option value="41">41</option>
+                                <option value="42">42</option>
+                                <option value="42.5">42.5</option>
+                                <option value="43">43</option>
+                                </select>
+                            </span>
+                            </div>
+                            <div class="format-P5-bag flex-P5-bag">
+                            <span>Quantity</span>
+                            <span class="mrl-de"> <button type="button" class="decrease-quantity format-operator"
+                                id="decreaseBtn${arr[i].id}">-</button></span>
+                            <span class="mrl-de amount" id="count_items${arr[i].id}">${arr[i].count}</span>
+                            <span class="mrl-in"><button type="button" class="increase-quantity format-operator"
+                                id="increaseBtn${arr[i].id}">+</button></span>
+                            </div>
+                        </div>
+                        <button class="delete-btn mrt-40-delete row format-row" id="deleteBtn${arr[i].id}">
+                            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px"
+                            fill="none">
+                            <path stroke="currentColor" stroke-miterlimit="10" stroke-width="1.5"
+                                d="M14.25 7.5v12m-4.5-12v12M5.25 6v13.5c0 1.24 1.01 2.25 2.25 2.25h9c1.24 0 2.25-1.01 2.25-2.25V5.25h2.75m-2.75 0H21m-12-3h5.25c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5H3">
+                            </path>
+                            </svg>
+                        </button>
+                        </div>
+                    
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-3 p-d-0">
+                            <span class="price">${strNumPrice}</span><sup style="text-decoration: underline;">đ</sup>
+                        </div>
+                    </div>
                 </div>
             </div>
-            </div>
-            <div class="price-bag pos-text-bag col-lg-3 col-md-3 col-sm-3 col-3">
-            <span class="price">${strNumPrice}</span><sup style="text-decoration: underline;">đ</sup>
-            </div>
-            </div>
-            <div class="under-line">
-        </div>`
+        </div>
+        <div class="under-line"></div>
+        `
     }
     document.getElementById('display-bag-item').innerHTML = divData;
 }

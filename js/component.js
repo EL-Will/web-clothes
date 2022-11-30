@@ -1708,8 +1708,6 @@ component.menShoesSinginPage = `
             <nav class="men-shoes-slidebar men-shoes-block men-shoes-white men-shoes-collapse men-shoes-top men-shoes-scroll"
                 id="mySideBar">
                 <div class="men-shoes-container men-shoes-display-container men-shoes-padding-16">
-                    <i onclick="menShoesClose()"
-                        class="fa fa-remove men-shoes-hide-large men-shoes-button men-shoes-display-topright"></i>
                     <h3 class="men-shoes-wide"><b>Shoes</b></h3>
                 </div>
                 <div class="men-shoes-padding-64 men-shoes-large men-shoes-text-gray">
@@ -1720,7 +1718,7 @@ component.menShoesSinginPage = `
                 </div>
             </nav>
         </div>
-        <div class="col-lg-10 col-md-12 padding-9">
+        <div class="col-lg-10 col-md-12 col-sm-12 col-12 padding-9">
             <div class="men-shoes-slide-show-procuct">
                 <div class="men-shoes-box-padding">
                     <div class="grid-3-img" id="men-shoes-product_items">
@@ -2651,7 +2649,7 @@ component.bagPage = `
     <!-- End Header and Navabar -->
     <!-- Start Content -->
     <!-- Start show product end check out -->
-    <div class="row mt-20" id="inBag">
+    <!-- <div class="row mt-20" id="inBag">
         <div class="col-lg-7 col-md-7 col-sm-7 col-7 pl-48">
             <p class="text-Bag">Bag</p>
         </div>
@@ -2660,15 +2658,21 @@ component.bagPage = `
         <div class="col-lg-4 col-md-4 col-sm-4 col-4 pr-48">
             <p class="text-Summary">Summary</p>
         </div>
-    </div>
-    <div class="row format-row">
-        <div class="col-lg-8 col-md-8 col-sm-8 col-8 pl-48 mr-top-40">
-            <div class="display-products col-lg-12 col-md-12 col-sm-12 col-12 p-d-0" id="display-bag-item">
+    </div> -->
+    <div class="row format-row mt-20">
+        <div class="col-lg-8 col-md-12 col-sm-12 col-12 pl-48 pr-48-991">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12 p-d-0">
+                <p class="text-Bag">Bag</p>
+            </div>
+            <div class="display-products col-lg-12 col-md-12 col-sm-12 col-12 p-d-0 mr-top-40" id="display-bag-item">
                 
             </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-4 pr-48 mr-top-40">
-            <div class="flex-subtotal">
+        <div class="col-lg-4 col-md-12 col-sm-12 col-12 pr-48 pl-48-991">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12 p-d-0">
+                <p class="text-Summary">Summary</p>
+            </div>
+            <div class="flex-subtotal mr-top-40">
                 <p class="subtotal">Subtotal</p>
                 <div>
                     <span class="sub-price" id="sub-price">0</span>

@@ -712,7 +712,7 @@ controller.stickyHeadMenShoes = () => {
     }
     const moveNavbar3 = (e) => {
         if (!e[0].isIntersecting) {
-            fixedNavbar.style.marginTop = '-250px';
+            fixedNavbar.style.marginTop = '-300px';
             fixedNavbar.style.position = 'fixed';
         }
         else {
