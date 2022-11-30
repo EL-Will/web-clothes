@@ -22,6 +22,9 @@ model.getSingup = async (data) => {
         let respone = await auth.createUserWithEmailAndPassword(data.email, data.password);
         auth.currentUser.sendEmailVerification();
         let keyDoc = await firebase.auth().currentUser.uid;
+        firebase.auth().currentUser.updateProfile({
+            displayName: data.lastname + ' ' + data.firstname
+        });
         let ref = db.collection('users').doc(keyDoc);
         await ref.get().then((doc) => {
             if (doc.exists) {
@@ -45,22 +48,7 @@ model.getSingup = async (data) => {
             }
 
         })
-        // db.collection("users").add({
-        //     firstname: data.firstname,
-        //     lastname: data.lastname,
-        //     username: data.username,
-        //     email: data.email,
-        //     uid: auth.currentUser.uid,
-        //     pass: data.password
-        // })
-        //     .then((docRef) => {
-        //         console.log("Document written with ID: ", docRef.id);
-        //     })
-        //     .catch((error) => {
-        //         console.error("Error adding document: ", error);
-        //     });
-
-        view.selectWebPage('singinPage');
+        // view.selectWebPage('singinPage');
     }
     catch (error) {
         const errorMessage = error.message;
@@ -73,7 +61,9 @@ model.getSingin = async (data) => {
         let res = await auth.signInWithEmailAndPassword(data.email, data.password);
         await db.collection('users').doc(auth.currentUser.uid).update({
             pass: data.password
-        })
+        });
+        view.selectWebPage('homePageSingIn');
+        await model.getInforUser();
     }
     catch (error) {
         const errorCode = error.code;
@@ -84,7 +74,7 @@ model.getSingin = async (data) => {
 model.getLogout = async () => {
     try {
         let res = await auth.signOut();
-        alert("Do you want to quit of this page");
+        // alert("Do you want to quit of this page");
     }
     catch (error) {
         const errorCode = error.code;
@@ -95,20 +85,18 @@ model.getLogout = async () => {
 
 model.getInforUser = async () => {
     if (auth.currentUser !== null) {
-        let res = await firebase.auth().currentUser.email;
-        await db.collection("users").get().then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                let temporaryObj = JSON.parse(JSON.stringify(doc.data()))
-                if (temporaryObj.email === res) {
-                    firebase.auth().currentUser.updateProfile({
-                        displayName: temporaryObj.lastname + ' ' + temporaryObj.firstname
-                    });
-                    view.setProfileName(auth.currentUser.displayName);
-                }
-
-            });
-
-        });
+        // let res = await firebase.auth().currentUser.email;
+        // await db.collection("users").get().then((querySnapshot) => {
+        //     querySnapshot.forEach((doc) => {
+        //         let temporaryObj = JSON.parse(JSON.stringify(doc.data()))
+        //         if (temporaryObj.email === res) {
+        //             firebase.auth().currentUser.updateProfile({
+        //                 displayName: temporaryObj.lastname + ' ' + temporaryObj.firstname
+        //             });
+        //         }
+        //     });
+        // });
+        await view.setProfileName(auth.currentUser.displayName);
     }
 }
 
@@ -1669,7 +1657,7 @@ model.getListChat = async (idUser) => {
                     id: doc.id
                 }
                 arr.push(objUser);
-            })
+            });
             view.displayListChat(currentId, arr);
             controller.readMessages(idUser);
         }
@@ -1695,7 +1683,7 @@ model.createNewMessage = async () => {
     let usernameOwner = auth.currentUser.displayName;
     let currentId = firebase.auth().currentUser.uid;
     let urlGuess = '';
-    let urladmin ='';
+    let urladmin = '';
     const accessUser = db.collection('users');
     const readUser = await accessUser.get();
     readUser.forEach((doc) => {
@@ -1708,18 +1696,18 @@ model.createNewMessage = async () => {
             checkUser = true;
             uid2 = arr1[i].uid;
             usernameGuess = 'Admin';
-            if(arr1[i].hasOwnProperty('photoUri')){
+            if (arr1[i].hasOwnProperty('photoUri')) {
                 urladmin = arr1[i].photoUri;
             }
-            else{
+            else {
                 urladmin = 'https://bootdey.com/img/Content/avatar/avatar1.png';
             }
         }
-        if(arr1[i].uid == currentId){
-            if(arr1[i].hasOwnProperty('photoUri')){
+        if (arr1[i].uid == currentId) {
+            if (arr1[i].hasOwnProperty('photoUri')) {
                 urlGuess = arr1[i].photoUri
             }
-            else{
+            else {
                 urlGuess = 'https://bootdey.com/img/Content/avatar/avatar6.png';
             }
         }
@@ -1749,7 +1737,7 @@ model.createNewMessage = async () => {
         else {
             let checkUid = false;
             for (let i in arr2) {
-                if (uid2 == arr2[i].uId2) {
+                if (currentId == arr2[i].uId1) {
                     checkUid = true;
 
                 }
@@ -1784,10 +1772,10 @@ model.sendMessageToFirestore = async (idInputMessage) => {
     let time = `${dayKu.getFullYear()}-${dayKu.getMonth() + 1}-${dayKu.getDate()} AT ${dayKu.getHours()}:${dayKu.getMinutes()}`;
     let user = auth.currentUser.displayName;
     let keyDoc;
-    if(addEmail == 'thienbinh1155@gmail.com'){
+    if (addEmail == 'thienbinh1155@gmail.com') {
         keyDoc = controller.idMessage;
     }
-    else{
+    else {
         keyDoc = await firebase.auth().currentUser.uid;
     }
     let data = {
@@ -1833,7 +1821,7 @@ model.sendMessageToFirestore = async (idInputMessage) => {
                     .catch((error) => {
                         console.error("Error writing document: ", error);
                     });
-                
+
             }
         }).catch((error) => {
             console.log("Error getting document:", error);
@@ -1847,7 +1835,7 @@ model.renderMessage = async (idUser) => {
                 if (doc.exists) {
                     let result = doc.data().message;
                     view.initialMessage(idUser);
-                    view.displayMessages(result, firebase.auth().currentUser.email,idUser);
+                    view.displayMessages(result, firebase.auth().currentUser.email, idUser);
                 }
                 else {
                     console.log("No such document!");
@@ -1857,7 +1845,7 @@ model.renderMessage = async (idUser) => {
         console.log(err.message);
     }
 }
-model.getMessagesFromFirestore = async (idMessage,idUser) => {
+model.getMessagesFromFirestore = async (idMessage, idUser) => {
     try {
         if (idMessage != "") {
             firebase.firestore().collection("listmessage").doc(idMessage)
@@ -1865,9 +1853,9 @@ model.getMessagesFromFirestore = async (idMessage,idUser) => {
                     if (doc.exists) {
                         let result = doc.data().message;
                         view.initialMessage(idUser);
-                        view.displayMessages(result, firebase.auth().currentUser.email,idUser);
+                        view.displayMessages(result, firebase.auth().currentUser.email, idUser);
                     }
-                    else{
+                    else {
                         console.log("No such document!");
                     }
                 });
@@ -1906,6 +1894,123 @@ model.getNameGuess = async (idMess) => {
         console.log(error.message);
     }
 
+}
+model.wirteReview = async (obj) => {
+
+    let accessReview = db.collection('Reviews').doc('DetailReview');
+    await accessReview.get().then((doc) => {
+        if (doc.exists) {
+            let data = doc.data().reviews;
+            let check = false;
+            for (let i in data) {
+                if (data[i].url == obj.url) {
+                    let value = {
+                        username: obj.username,
+                        comment: obj.comment,
+                        star: obj.countstar,
+                        time: obj.time
+                    }
+                    data[i].content.push(value);
+                    check = true;
+                    break;
+                }
+            }
+            if (check == false) {
+                let data = [];
+                let value = {
+                    username: obj.username,
+                    comment: obj.comment,
+                    star: obj.countstar,
+                    time: obj.time
+                }
+                data.push(value);
+                db.collection("Reviews").doc('DetailReview').update({
+                    reviews: firebase.firestore.FieldValue.arrayUnion(
+                        {
+                            url: obj.url,
+                            content: data
+                        }
+                    )
+                })
+                    .then(() => {
+                        console.log("Document successfully updated!");
+                    });
+            }
+            else {
+                db.collection("Reviews").doc('DetailReview').update({
+                    reviews: data
+                })
+                    .then(() => {
+                        console.log("Document successfully updated!");
+                    });
+            }
+
+        }
+        else {
+            let data = [];
+            let value = {
+                username: obj.username,
+                comment: obj.comment,
+                star: obj.countstar,
+                time: obj.time
+            }
+            data.push(value);
+            db.collection("Reviews")
+                .doc('DetailReview')
+                .set({
+                    reviews: [
+                        {
+                            url: obj.url,
+                            content: data
+                        }
+                    ]
+                })
+                .then(() => {
+                    console.log("Document successfully updated!");
+                })
+                .catch((error) => {
+                    console.log("Error getting document:", error);
+                });
+
+        }
+    }).catch((error) => {
+        console.log("Error getting document:", error);
+    });
+}
+model.readReview = async(url)=>{
+    let boolData = false;
+    let value = {};
+    let accessReview = db.collection('Reviews').doc('DetailReview');
+    await accessReview.get().then((doc) => {
+        if (doc.exists) {
+            let data = doc.data().reviews;
+            let check = false;
+            for (let i in data) {
+                if (data[i].url == url) {
+                    boolData = true;
+                    check = true;
+                    value = {
+                        ...data[i],
+                        check: boolData
+                    }
+                    break;
+                }
+            }
+            if(check==false){
+                value = {
+                    check: boolData
+                }
+            }
+        }
+        else {
+            value = {
+                check: boolData
+            }
+        }
+    }).catch((error) => {
+        console.log("Error getting document:", error);
+    });
+    return value;
 }
 // 'images/hightligths/'
 // model.getUrlListImage = async (path) => {

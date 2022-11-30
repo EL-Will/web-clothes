@@ -73,11 +73,11 @@
     padding-top: 30px;
 }
 @media (min-width: 1310px) {
-    .format-row {
+    /* .format-row {
         max-width: 100%;
         margin: 0;
         padding: 0;
-    }
+    } */
     .slides {
         display: grid;
         grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
@@ -95,10 +95,10 @@
 }
 
 @media (max-width: 1309px) {
-    .format-row {
+    /* .format-row {
         margin: 0;
         padding: 0;
-    }
+    } */
     .slides {
         display: grid;
         grid-template-columns: auto auto;
@@ -120,11 +120,11 @@
     }
 }
 @media (max-width: 768px) {
-    .format-row {
+    /* .format-row {
         margin: 0;
         padding: 0;
         max-width: 100%;
-    }
+    } */
     .slides {
         display: grid;
         grid-template-columns: auto auto;
@@ -149,11 +149,11 @@
 }
 
 @media (max-width: 660px) {
-    .format-row {
+    /* .format-row {
         margin: 0;
         padding: 0;
         max-width: 100%;
-    }
+    } */
     .slides {
        display: flex;
        flex-direction: column;
@@ -519,54 +519,21 @@ a{
 }
 .logout-btn{
     font-size: 13px;
-    color: gray !important;
+    color: black !important;
     padding: 4px 8px;
     border: none;
 }
 .logout-btn:hover{
-    color:black !important;
-}
-
-.format-content-bag{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    display: block;
-    position: absolute;
-    left: 0;
-    text-align: center;
-    width: 100%;
-    font-size: 10px;
-    top: 10px;
-    color: #111;
+    color:gray !important;
 }
 .format-content-bag {
-    margin-top: 15%;
+    position: absolute;
+    top: 6px;
+    left: 8.5px;
+    font-size: 13px;
+    color: red;
 }
-
-
 #id-account{
     font-size: 20px;
 }
 /*-------------------------------- End Mobile Menu--------------------------------------- */
-
-/* Search */
-.new-pre-l-search{
-    height: auto;
-    background: #fff;
-    transition: all .1s;
-    width: 100%;
-    padding: 10px 48px 10px 48px;
-}
-.grid-6-img {
-    display: grid;
-    column-gap: 15px;
-    grid-template-columns: 15.6% 15.6% 15.6% 15.6% 15.6% 15.6%;
-}
-.hide-product-search{
-    display: none;
-}
-.show-product-serach{
-    display: block;
-}

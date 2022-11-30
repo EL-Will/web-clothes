@@ -1,7 +1,7 @@
 import component from "./component.js";
 import controller from "./controller.js";
 import model from "./model.js";
-import { validateEmail, formatCash } from "./controller.js";
+import { validateEmail, formatCash, changeclickSearch, changeclickGlassSearch, changecancelBtn, changebreakPoint1, changebreakPoint2, changebreakPoint3, changebreakPoint4 } from "./controller.js";
 import { db, auth } from "./model.js";
 
 
@@ -20,28 +20,21 @@ view.selectWebPage = (namePage) => {
             model.getUrlFileImage('images/essential/essential1.webp', 'essential-img-1');
             model.getInforImage("Image", 'hightligths');
             controller.scrollBtn();
-            // controller.clickGlassSearch();
+            controller.clickGlass();
             document.getElementById('sing-up-btn').addEventListener('click', () => {
-
                 view.selectWebPage('singupPage');
             });
             document.getElementById('sing-in-btn').addEventListener('click', () => {
-
                 view.selectWebPage('singinPage');
             });
-            document.getElementById('goto-homepage-unsingin').addEventListener('click', () => {
-                boolSingin = false;
-                boolSingup = false;
-                view.selectWebPage('homePageUnSingIn')
-            });
-            document.getElementById("goto-men").addEventListener('click', () => {
+            document.getElementById("gotoMenDesktop").addEventListener('click', () => {
                 view.selectWebPage('menShoesUnSigninPage');
                 model.getInforUser();
             })
-            document.getElementById('goto-login-f').addEventListener('click', () => {
+            document.getElementById('gotoFavouriteDesktop').addEventListener('click', () => {
                 view.selectWebPage('singinPage');
             })
-            document.getElementById('goto-login-b').addEventListener('click', () => {
+            document.getElementById('gotoBagDesktop').addEventListener('click', () => {
                 view.selectWebPage('singinPage');
             })
             controller.functionVisualSearch();
@@ -51,6 +44,15 @@ view.selectWebPage = (namePage) => {
             controller.functionExpandOption();
             controller.functionCloseExpand();
             controller.search();
+            controller.clickGotoMen();
+            controller.clickExpandMobileMen();
+            controller.clickGobackAllMen();
+            controller.clickGotoWomen();
+            controller.clickExpandMobileWomen();
+            controller.clickGobackAllWomen();
+            controller.clickGotoKids();
+            controller.clickExpandMobileKids();
+            controller.clickGobackAllKids();
             break;
         case "homePageSingIn":
             document.getElementById('app').innerHTML = component.homePageSingin;
@@ -60,17 +62,14 @@ view.selectWebPage = (namePage) => {
             model.getUrlFileImage('images/essential/essential1.webp', 'essential-img-1');
             model.getInforImage("Image", 'hightligths');
             controller.scrollBtn();
-            // controller.clickGlassSearch();
-            document.getElementById('goto-homepage-singin').addEventListener('click', () => {
-                view.selectWebPage('homePageSingIn');
-            });
-            document.getElementById("goto-men").addEventListener('click', () => {
+            controller.clickGlass();
+            document.getElementById("gotoMenDesktop").addEventListener('click', () => {
                 view.selectWebPage('menShoesSinginPage');
             });
-            document.getElementById('goto-bag').addEventListener('click', () => {
+            document.getElementById('gotoBagDesktop').addEventListener('click', () => {
                 view.selectWebPage('bagPage');
             });
-            document.getElementById('goto-favorite-page').addEventListener('click', () => {
+            document.getElementById('gotoFavouriteDesktop').addEventListener('click', () => {
                 view.selectWebPage('favoritePage');
             });
             document.getElementById('gotoChangePass').addEventListener('click', () => {
@@ -88,21 +87,20 @@ view.selectWebPage = (namePage) => {
             controller.functionExpandOption();
             controller.functionCloseExpand();
             model.getCountFromBag('Bag');
-            let clickSearch = false;
-            const mediaQuery = window.matchMedia('(min-width: 890px)')
-            function handleTabletChange(e, bool) {
-                // Check if the media query is true
-                if (e.matches && bool === true) {
-                    let classPreSearchInputbox = document.getElementsByClassName('pre-search-input')[0];
-                    classPreSearchInputbox.removeAttribute('style');
-                    clickSearch = true;
-                }
-            }
-            // Register event listener
-            mediaQuery.addListener(handleTabletChange);
-            // Initial check
-            handleTabletChange(mediaQuery, clickSearch);
+            view.setProfileNameCheckout('exampleModalLabel1');
             controller.search();
+            controller.clickGotoMen();
+            controller.clickExpandMobileMen();
+            controller.clickGobackAllMen();
+            controller.clickGotoWomen();
+            controller.clickExpandMobileWomen();
+            controller.clickGobackAllWomen();
+            controller.clickGotoKids();
+            controller.clickExpandMobileKids();
+            controller.clickGobackAllKids();
+            document.getElementById('gotoMenShoes').addEventListener('click',()=>{
+                view.selectWebPage('menShoesSinginPage');
+            })
             controller.logout();
             break;
         case "singinPage":
@@ -127,22 +125,15 @@ view.selectWebPage = (namePage) => {
                 }
             });
             document.getElementById('go-to-singup').addEventListener('click', () => {
-                boolSingup = true;
-                boolSingin = false;
-                console.log('singin ', boolSingin);
-                console.log('singup ', boolSingup);
+
                 view.selectWebPage('singupPage');
             });
             document.getElementById('sing-up-btn').addEventListener('click', () => {
-                boolSingup = true;
-                boolSingin = false;
-                console.log('singin ', boolSingin);
-                console.log('singup ', boolSingup);
+
                 view.selectWebPage('singupPage');
             });
             document.getElementById('goto-homepage-unsingin').addEventListener('click', () => {
-                boolSingin = false;
-                boolSingup = false;
+
                 view.selectWebPage('homePageUnSingIn')
             });
             document.getElementById('forgotPassword').addEventListener('click', () => {
@@ -262,17 +253,20 @@ view.selectWebPage = (namePage) => {
             controller.cancelSearch();
             controller.functionExpandOption();
             controller.functionCloseExpand();
-            // controller.clickGlassSearch();
+            controller.clickGlass();
             model.getValueAndSortIncreaseInforImage('Image', 'menShoes');
             model.getValueAndSortDecreaseInforImage('Image', 'menShoes');
             model.getCountFromBag('Bag');
-            document.getElementById('goto-men-shoes-signin').addEventListener('click', () => {
-                view.selectWebPage('menShoesSinginPage');
-            })
-            document.getElementById('goto-bag').addEventListener('click', () => {
+            document.getElementById('goto-homepage-singin').addEventListener('click', () => {
+                view.selectWebPage('homePageSingIn');
+            });
+            document.getElementById('gotoHomePageSinginHeader').addEventListener('click', () => {
+                view.selectWebPage('homePageSingIn');
+            });
+            document.getElementById('gotoBagDesktop').addEventListener('click', () => {
                 view.selectWebPage('bagPage');
-            })
-            document.getElementById('goto-favorite-page').addEventListener('click', () => {
+            });
+            document.getElementById('gotoFavouriteDesktop').addEventListener('click', () => {
                 view.selectWebPage('favoritePage');
             });
             document.getElementById('gotoChangePass').addEventListener('click', () => {
@@ -281,7 +275,17 @@ view.selectWebPage = (namePage) => {
             document.getElementById('gotoProfile').addEventListener('click', () => {
                 view.selectWebPage('profilePage');
             });
+            view.setProfileNameCheckout('exampleModalLabel1');
             controller.search();
+            controller.clickGotoMen();
+            controller.clickExpandMobileMen();
+            controller.clickGobackAllMen();
+            controller.clickGotoWomen();
+            controller.clickExpandMobileWomen();
+            controller.clickGobackAllWomen();
+            controller.clickGotoKids();
+            controller.clickExpandMobileKids();
+            controller.clickGobackAllKids();
             controller.logout();
             break;
         case "menShoesUnSigninPage":
@@ -297,9 +301,8 @@ view.selectWebPage = (namePage) => {
             controller.functionCloseExpand();
             model.getValueAndSortIncreaseInforImage('Image', 'menShoes');
             model.getValueAndSortDecreaseInforImage('Image', 'menShoes');
-            // controller.clickGlassSearch();
+            controller.clickGlass();
             document.getElementById('sing-up-btn').addEventListener('click', () => {
-
                 view.selectWebPage('singupPage');
             });
             document.getElementById('sing-in-btn').addEventListener('click', () => {
@@ -307,15 +310,26 @@ view.selectWebPage = (namePage) => {
                 view.selectWebPage('singinPage');
             });
             document.getElementById('goto-homepage-unsingin').addEventListener('click', () => {
-
-                view.selectWebPage('homePageUnSingIn')
+                view.selectWebPage('homePageUnSingIn');
             });
-            document.getElementById('goto-login-f').addEventListener('click', () => {
+            document.getElementById('gotoHomePageSinginHeader').addEventListener('click', () => {
+                view.selectWebPage('homePageUnSingIn');
+            });
+            document.getElementById('gotoFavouriteDesktop').addEventListener('click', () => {
                 view.selectWebPage('singinPage');
             })
-            document.getElementById('goto-login-b').addEventListener('click', () => {
+            document.getElementById('gotoBagDesktop').addEventListener('click', () => {
                 view.selectWebPage('singinPage');
             });
+            controller.clickGotoMen();
+            controller.clickExpandMobileMen();
+            controller.clickGobackAllMen();
+            controller.clickGotoWomen();
+            controller.clickExpandMobileWomen();
+            controller.clickGobackAllWomen();
+            controller.clickGotoKids();
+            controller.clickExpandMobileKids();
+            controller.clickGobackAllKids();
             controller.search();
             break;
         case "bagPage":
@@ -329,24 +343,24 @@ view.selectWebPage = (namePage) => {
             controller.functionVisualSearch();
             controller.clearSearch();
             controller.catchClickEvent();
+            controller.clickGlass();
             controller.cancelSearch();
             controller.functionExpandOption();
             controller.functionCloseExpand();
             controller.search();
-            document.getElementById('goto-men-shoes-signin').addEventListener('click', () => {
-                view.selectWebPage('menShoesSinginPage');
-            })
-            document.getElementById('goto-bag').addEventListener('click', () => {
-                view.selectWebPage('bagPage');
-            })
-            document.getElementById('goto-home-signin-page').addEventListener('click', () => {
+            document.getElementById('gotoHomePageSinginHeader').addEventListener('click', () => {
                 view.selectWebPage('homePageSingIn');
-            })
-            document.getElementById('goto-favorite-page').addEventListener('click', () => {
+            });
+            document.getElementById('goto-homepage-singin').addEventListener('click', () => {
+                view.selectWebPage('homePageSingIn');
+            });
+            document.getElementById('gotoFavouriteDesktop').addEventListener('click', () => {
                 view.selectWebPage('favoritePage');
             });
+            document.getElementById('gotoMenDesktop').addEventListener('click', () => {
+                view.selectWebPage('menShoesSinginPage');
+            });
             document.getElementById('checkoutBtn').addEventListener('click', () => {
-                console.log('OK');
                 view.selectWebPage('checkoutPage');
             });
             document.getElementById('gotoChangePass').addEventListener('click', () => {
@@ -355,6 +369,16 @@ view.selectWebPage = (namePage) => {
             document.getElementById('gotoProfile').addEventListener('click', () => {
                 view.selectWebPage('profilePage');
             });
+            view.setProfileNameCheckout('exampleModalLabel1');
+            controller.clickGotoMen();
+            controller.clickExpandMobileMen();
+            controller.clickGobackAllMen();
+            controller.clickGotoWomen();
+            controller.clickExpandMobileWomen();
+            controller.clickGobackAllWomen();
+            controller.clickGotoKids();
+            controller.clickExpandMobileKids();
+            controller.clickGobackAllKids();
             controller.logout();
             break;
         case "favoritePage":
@@ -373,18 +397,18 @@ view.selectWebPage = (namePage) => {
             controller.functionExpandOption();
             controller.functionCloseExpand();
             controller.search();
-            // controller.clickGlassSearch();
-            document.getElementById('goto-home-signin-page').addEventListener('click', () => {
+            controller.clickGlass();
+            document.getElementById('goto-homepage-singin').addEventListener('click', () => {
                 view.selectWebPage('homePageSingIn');
             });
-            document.getElementById('goto-bag').addEventListener('click', () => {
+            document.getElementById('gotoHomePageSinginHeader').addEventListener('click', () => {
+                view.selectWebPage('homePageSingIn');
+            });
+            document.getElementById('gotoBagDesktop').addEventListener('click', () => {
                 view.selectWebPage('bagPage');
             });
-            document.getElementById('goto-men-shoes-signin').addEventListener('click', () => {
+            document.getElementById('gotoMenDesktop').addEventListener('click', () => {
                 view.selectWebPage('menShoesSinginPage');
-            })
-            document.getElementById('goto-bag').addEventListener('click', () => {
-                view.selectWebPage('bagPage');
             });
             document.getElementById('gotoChangePass').addEventListener('click', () => {
                 view.selectWebPage('changePasswordPage');
@@ -392,6 +416,16 @@ view.selectWebPage = (namePage) => {
             document.getElementById('gotoProfile').addEventListener('click', () => {
                 view.selectWebPage('profilePage');
             });
+            view.setProfileNameCheckout('exampleModalLabel1');
+            controller.clickGotoMen();
+            controller.clickExpandMobileMen();
+            controller.clickGobackAllMen();
+            controller.clickGotoWomen();
+            controller.clickExpandMobileWomen();
+            controller.clickGobackAllWomen();
+            controller.clickGotoKids();
+            controller.clickExpandMobileKids();
+            controller.clickGobackAllKids();
             controller.logout();
             break;
         case "checkoutPage":
@@ -399,7 +433,6 @@ view.selectWebPage = (namePage) => {
             model.getTotalPriceFromBag('Bag');
             controller.clickRemoveFromBag();
             controller.getAddress();
-            //console.log(document.getElementById('exampleModalLabel'));
             view.setProfileNameCheckout('exampleModalLabel');
             document.getElementById('goto-home-page-signin').addEventListener('click', () => {
                 view.selectWebPage('homePageSingIn');
@@ -424,13 +457,15 @@ view.selectWebPage = (namePage) => {
                 }
             });
             controller.clickChat('messageBox', 'inputMessage');
-            
+
             let positionNvabar1 = document.getElementById('idChat');
             const moveNavbar1 = (e) => {
 
                 if (!e[0].isIntersecting) {
-                    let value = document.getElementsByClassName('form-chat')[0];
-                    value.removeAttribute('style');
+                    if (auth.currentUser.email != 'thienbinh1155@gmail.com') {
+                        let value = document.getElementsByClassName('form-chat')[0];
+                        value.removeAttribute('style');
+                    }
                 }
             }
             let moveNavbarIntersectionObs1 = new IntersectionObserver(moveNavbar1);
@@ -458,6 +493,47 @@ view.selectWebPage = (namePage) => {
                 }
                 controller.changepassword(data);
             });
+            // ================== Strat show and hide password=====================//
+            document.getElementById('show-currentpassword').addEventListener('click', () => {
+                var x = document.querySelector(".ip-currentpass");
+                var eye = document.getElementById('show-currentpassword');
+                eye.removeAttribute("class");
+                if (x.type === "password") {
+                    x.type = "text";
+                    eye.setAttribute("class", 'fa-solid fa-eye fixed-eye');
+
+                } else {
+                    x.type = "password";
+                    eye.setAttribute("class", 'fa-solid fa-eye-slash fixed-eye');
+                }
+            });
+            document.getElementById('show-new-password').addEventListener('click', () => {
+                var x = document.querySelector(".ip-pass");
+                var eye = document.getElementById('show-new-password');
+                eye.removeAttribute("class");
+                if (x.type === "password") {
+                    x.type = "text";
+                    eye.setAttribute("class", 'fa-solid fa-eye fixed-eye');
+
+                } else {
+                    x.type = "password";
+                    eye.setAttribute("class", 'fa-solid fa-eye-slash fixed-eye');
+                }
+            });
+            document.getElementById('show-confirm-password').addEventListener('click', () => {
+                var x = document.querySelector(".ip-confirmpass");
+                var eye = document.getElementById('show-confirm-password');
+                eye.removeAttribute("class");
+                if (x.type === "password") {
+                    x.type = "text";
+                    eye.setAttribute("class", 'fa-solid fa-eye fixed-eye');
+
+                } else {
+                    x.type = "password";
+                    eye.setAttribute("class", 'fa-solid fa-eye-slash fixed-eye');
+                }
+            });
+            view.setProfileNameCheckout('exampleModalLabel1');
             controller.logout();
             break;
         case "profilePage":
@@ -484,6 +560,7 @@ view.selectWebPage = (namePage) => {
             view.setProfileUername('username');
             view.getProfile();
             controller.clickChooseImg();
+            view.setProfileNameCheckout('exampleModalLabel1');
             controller.logout();
             break;
         case "chatPage":
@@ -492,7 +569,103 @@ view.selectWebPage = (namePage) => {
             if (auth.currentUser.email == 'thienbinh1155@gmail.com') {
                 model.getListChat("conversation");
                 controller.clickSendMessage('comment');
+                model.getInforUser();
+                controller.expandAccount();
+                controller.closeAccount();
+                document.getElementById('goto-homepage-singin').addEventListener('click', () => {
+                    view.selectWebPage('homePageSingIn');
+                });
+                document.getElementById('gotoChangePass').addEventListener('click', () => {
+                    view.selectWebPage('changePasswordPage');
+                });
+                document.getElementById('gotoProfile').addEventListener('click', () => {
+                    view.selectWebPage('profilePage');
+                });
+                controller.logout();
+                view.setProfileNameCheckout('exampleModalLabel1');
             }
+            
+            break;
+        case "detailProductPage":
+            document.getElementById('app').innerHTML = component.detailProductPage;
+            model.getInforUser();
+            model.getCountFromBag('Bag');
+            controller.expandAccount();
+            controller.closeAccount();
+            controller.functionVisualSearch();
+            controller.clearSearch();
+            controller.catchClickEvent();
+            controller.clickGlass();
+            controller.cancelSearch();
+            controller.functionExpandOption();
+            controller.functionCloseExpand();
+            controller.search();
+            controller.clicReview();
+            controller.clickMoreDetail();
+            controller.clickWriteReview();
+            controller.clickStar();
+            let review = document.getElementById('review');
+            review.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                let paramUrl = document.getElementsByClassName('mainImg')[0].src;
+                let dayKu = new Date();
+                let timeStamp = `${dayKu.getFullYear()}-${dayKu.getMonth() + 1}-${dayKu.getDate()} AT ${dayKu.getHours()}:${dayKu.getMinutes()}`;
+                let countStar = 0;
+                let star = document.getElementsByClassName('class-star');
+                for (let i = 0; i < star.length; i++) {
+                    if (star[i].className.indexOf('fill-star') != -1) {
+                        countStar++;
+                    }
+                }
+                let data = {
+                    url: paramUrl,
+                    username: auth.currentUser.displayName,
+                    comment: review.textReview.value,
+                    countstar: countStar,
+                    time: timeStamp
+                };
+                controller.checkStar(data);
+                review.textReview.value = '';
+                for (let i = 0; i < star.length; i++) {
+                    if (star[i].className.indexOf('fill-star') != -1) {
+                        star[i].classList.toggle('fill-star');
+                    }
+                }
+            })
+            document.getElementById("gotoMenDesktop").addEventListener('click', () => {
+                view.selectWebPage('menShoesSinginPage');
+            });
+            document.getElementById('gotoBagDesktop').addEventListener('click', () => {
+                view.selectWebPage('bagPage');
+            });
+            document.getElementById('gotoFavouriteDesktop').addEventListener('click', () => {
+                view.selectWebPage('favoritePage');
+            });
+            document.getElementById('gotoChangePass').addEventListener('click', () => {
+                view.selectWebPage('changePasswordPage');
+            });
+            document.getElementById('gotoProfile').addEventListener('click', () => {
+                view.selectWebPage('profilePage');
+            });
+            document.getElementById('gotoHomePageSinginHeader').addEventListener('click', () => {
+                view.selectWebPage('homePageSingIn');
+            });
+            document.getElementById('goto-homepage-singin').addEventListener('click', () => {
+                view.selectWebPage('homePageSingIn');
+            });
+            view.setProfileNameCheckout('exampleModalLabel1');
+            controller.clickMoreReview();
+            controller.clickGotoMen();
+            controller.clickExpandMobileMen();
+            controller.clickGobackAllMen();
+            controller.clickGotoWomen();
+            controller.clickExpandMobileWomen();
+            controller.clickGobackAllWomen();
+            controller.clickGotoKids();
+            controller.clickExpandMobileKids();
+            controller.clickGobackAllKids();
+            controller.logout();
+            break;
     }
 }
 
@@ -504,7 +677,7 @@ view.setOkMessage = (id1, id2, text) => {
     document.getElementById(id1).removeAttribute('style');
     document.getElementById(id2).innerText = text;
 }
-view.setProfileName = (fullNameUser) => {
+view.setProfileName = async (fullNameUser) => {
     document.getElementById('id-account').innerText = "Hi, " + fullNameUser
 }
 view.setProfileNameCheckout = async (strid) => {
@@ -558,6 +731,20 @@ view.setHighLigthImg = (arr) => {
     }
     divData += `<li class="buffer"></li>`
     document.getElementById('product_items').innerHTML = divData;
+    let value = document.getElementsByClassName('size-img');
+    for (let i = 0; i < value.length; i++) {
+        value[i].addEventListener('click', () => {
+            changeclickSearch();
+            changeclickGlassSearch();
+            changecancelBtn();
+            changebreakPoint1();
+            changebreakPoint2();
+            changebreakPoint3();
+            changebreakPoint4();
+            view.selectWebPage('detailProductPage');
+            view.setInforToReviewPage(arr[i]);
+        });
+    }
 }
 view.setMenShoesImg = (arr, arrf, arrb) => {
     document.getElementById('men-shoes-product_items').innerHTML = '';
@@ -1003,6 +1190,10 @@ view.setMenShoesImg = (arr, arrf, arrb) => {
     var classBagBtn = document.getElementsByClassName('bag-btn');
     var classFavorBtn = document.getElementsByClassName('favorite-btn');
     for (let i = 0; i < classColourImg.length; i++) {
+        classColourImg[i].addEventListener('click', () => {
+            view.selectWebPage('detailProductPage');
+            view.setInforToReviewPage(arr[i]);
+        });
         classColourImg[i].addEventListener('mouseover', () => {
             if (arr[i].hasOwnProperty('thumburl')) {
                 classThumb[i].classList.remove('hide-thumb');
@@ -1026,7 +1217,7 @@ view.clickBag = (classBag) => {
     classBag.classList.toggle('fill--bag');
 }
 view.setSumCountOfBag = (count) => {
-    document.getElementById('items-count-total').innerText = `${count}`;
+    document.getElementById('countTotal').innerText = `${count}`;
 }
 view.setInforBag = (arr) => {
     var divData = '';
@@ -1181,6 +1372,7 @@ view.getProfile = async () => {
 }
 
 view.showSearch = async (data) => {
+    console.log(data);
     var divData = '';
 
     for (let i in data) {
@@ -1193,7 +1385,7 @@ view.showSearch = async (data) => {
         }
         divData += `
         <div class="men-shoes-box-img-infor-product">
-            <img src="${data[i].url}" alt="shoes" class="img-fluid" style="z-index: -1;">
+            <img src="${data[i].url}" alt="shoes" class="img-fluid main-img-search" style="z-index: -1;">
             <div class="men-shoes-box-infor-product">
               <span>${data[i].name}</span>
               <br>
@@ -1206,7 +1398,21 @@ view.showSearch = async (data) => {
         </div>
         `
     }
-    document.getElementById('shoesSearch').innerHTML = divData
+    document.getElementById('shoesSearch').innerHTML = divData;
+    let value = document.getElementsByClassName('main-img-search');
+    for (let i = 0; i < value.length; i++) {
+        value[i].addEventListener('click', () => {
+            changeclickSearch();
+            changeclickGlassSearch();
+            changecancelBtn();
+            changebreakPoint1();
+            changebreakPoint2();
+            changebreakPoint3();
+            changebreakPoint4();
+            view.selectWebPage('detailProductPage');
+            view.setInforToReviewPage(data[i]);
+        });
+    }
 }
 view.displayListChat = (currentId, arr) => {
     console.log(arr);
@@ -1285,7 +1491,6 @@ view.displayMessages = (arrMessage, currentEmail, idRenderMessage) => {
     let top = document.getElementById(idRenderMessage);
     top.scrollTop = top.scrollHeight;
 }
-'inputMessage'
 view.getSendMessages = (idInputMessage) => {
     let txtvalue = '';
     txtvalue = document.getElementById(idInputMessage).value;
@@ -1297,5 +1502,124 @@ view.displayNameGuess = (fname) => {
 view.displayAvatarGuess = (avatar) => {
     document.getElementById('avatarGuess1').src = avatar;
 }
+view.setInforToReviewPage = async (obj) => {
+
+    document.getElementsByClassName('mainImg')[0].src = obj.url;
+    document.getElementsByClassName('nameproduct')[0].innerText = `Name: ${obj.name}`;
+    document.getElementsByClassName('gender')[0].innerText = `Gender: ${obj.gender}`;
+    document.getElementsByClassName('color')[0].innerText = `Color: ${obj.numcolor}`;
+    document.getElementsByClassName('price')[0].innerHTML = `Price: ${obj.price}<sup style="text-decoration: underline;">đ</sup>`;
+    if (obj.hasOwnProperty('thumburl') == true) {
+        let thumb = document.getElementById('thumbImg');
+        if (thumb.className.indexOf('hide-thumb-img') != -1) {
+            thumb.classList.toggle('hide-thumb-img');
+            thumb.classList.toggle('show-thumb-img');
+        }
+        var divData2 = `<li><img src="${obj.url}" alt="shoes" class="img-fluid thumb-color" style="z-index: -1;"></li>`
+        for (let j = 0; j < obj.thumburl.length; j++) {
+            let soureImg = '';
+            soureImg = obj.thumburl[j];
+            divData2 += `<li class="padding-left-5"><img src="${soureImg}" alt="shoes" class="img-fluid thumb-color" style="z-index: -1;"></li>`
+        }
+        thumb.innerHTML = divData2;
+        controller.hoverThumbImg('thumb-color','mainImg');
+    }
+    let data = await model.readReview(obj.url);
+    let count = 0;
+    let value;
+    if (data.check == true) {
+        for (let i = 0; i < data.content.length; i++) {
+            count += data.content[i].star;
+        }
+        document.getElementById('countReview').innerText = `Reviews(${data.content.length})`;
+        value = Math.round((count / data.content.length))
+    }
+    else {
+        document.getElementById('countReview').innerText = `Review(${0})`;
+        value = 0;
+    }
+    switch (value) {
+        case 0:
+            var divData = `
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            `
+            var divData2 = `<span class="padding-left-12" id="countStar">0 Star</span>`
+            document.getElementById('displayStar').innerHTML = divData;
+            document.getElementById('displayDetailStar').innerHTML = divData + divData2;
+            document.getElementById('displayRating').innerHTML = divData + divData2;
+            break;
+        case 1:
+            var divData = `
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            `
+            var divData2 = `<span class="padding-left-12" id="countStar">1 Star</span>`
+            document.getElementById('displayStar').innerHTML = divData;
+            document.getElementById('displayDetailStar').innerHTML = divData + divData2;
+            document.getElementById('displayRating').innerHTML = divData + divData2;
+            break;
+        case 2:
+            var divData = `
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            `
+            var divData2 = `<span class="padding-left-12" id="countStar">2 Stars</span>`
+            document.getElementById('displayStar').innerHTML = divData;
+            document.getElementById('displayDetailStar').innerHTML = divData + divData2;
+            document.getElementById('displayRating').innerHTML = divData + divData2;
+            break;
+        case 3:
+            var divData = `
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            `
+            var divData2 = `<span class="padding-left-12" id="countStar">3 Stars</span>`
+            document.getElementById('displayStar').innerHTML = divData;
+            document.getElementById('displayDetailStar').innerHTML = divData + divData2;
+            document.getElementById('displayRating').innerHTML = divData + divData2;
+            break;
+        case 4:
+            var divData = `
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            `
+            var divData2 = `<span class="padding-left-12" id="countStar">4 Stars</span>`
+            document.getElementById('displayStar').innerHTML = divData;
+            document.getElementById('displayDetailStar').innerHTML = divData + divData2;
+            document.getElementById('displayRating').innerHTML = divData + divData2;
+            break;
+        case 5:
+            var divData = `
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            `
+            var divData2 = `<span class="padding-left-12" id="countStar">5 Stars</span>`
+            document.getElementById('displayStar').innerHTML = divData;
+            document.getElementById('displayDetailStar').innerHTML = divData + divData2;
+            document.getElementById('displayRating').innerHTML = divData + divData2;
+            break;
+    }
+
+}
+
 export { boolSingin, boolSingup, arrShoeImage }
 export default view;

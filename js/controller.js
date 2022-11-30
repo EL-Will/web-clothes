@@ -93,44 +93,10 @@ controller.closeAccount = () => {
         preAccountExpand.removeAttribute('style');
     })
 }
-// controller.clickGlassSearch = () => {
-//     let search = document.getElementsByClassName('pre-search-btn');
-//     search[0].addEventListener('click', () => {
-        
-//         document.getElementById('visual-search').style.display = 'block';
-//         document.getElementsByClassName('pre-search-btn')[0].style.left = '2px';
-//         document.getElementsByClassName('pre-1-logo')[0].style.display = 'none';
-//         clickSearch = true;
-//         let classNvabarFrame = document.getElementsByClassName('nvabar-frame')[0];
-//         classNvabarFrame.style.display = 'none';
 
-//         let classHeader = document.getElementsByClassName('pre-1-header')[0];
-//         if (classHeader.className.indexOf('vs-is-open') == -1) {
-//             classHeader.className += ' vs-is-open';
-//         }
-//         let classPreCart = document.getElementsByClassName('pre-cart')[0];
-//         classPreCart.style.display = 'none';
-
-//         let classPreSearchContain = document.getElementsByClassName('pre-l-search-contain')[0];
-//         classPreSearchContain.style.float = 'none';
-//         classPreSearchContain.style.display = 'flex';
-//         classPreSearchContain.style.justifyContent = 'center';
-//         let classPreSearchInputbox = document.getElementsByClassName('pre-l-search-input-box')[0];
-//         classPreSearchInputbox.style.float = 'none';
-//         classPreSearchInputbox.style.width = '100%';
-
-//         let preCancelBtn = document.getElementsByClassName('pre-cancel-btn')[0];
-//         preCancelBtn.style.display = 'block';
-//     })
-//     document.getElementById('pre-cancel-search').addEventListener('click', () => {
-//         document.getElementById('visual-search').removeAttribute('style');
-//         document.getElementsByClassName('pre-search-btn')[0].removeAttribute('style');
-//         document.getElementsByClassName('pre-1-logo')[0].style.display = 'block';
-//     })
-// }
 controller.functionVisualSearch = () => {
-    document.getElementById("visual-search").addEventListener("input", () => {
-        let visualSearch = document.getElementById('visual-search').value;
+    document.getElementById("inputSearch").addEventListener("input", () => {
+        let visualSearch = document.getElementById('inputSearch').value;
         let clearBtn = document.getElementsByClassName('pre-clear-search')[0];
         if (visualSearch !== "" && clearBtn.className.indexOf('pre-clear-search-show') == -1) {
             clearBtn.className = clearBtn.className.replace(' pre-clear-search-hide', '')
@@ -140,128 +106,518 @@ controller.functionVisualSearch = () => {
             clearBtn.className = clearBtn.className.replace(' pre-clear-search-show', '')
             clearBtn.className += ' pre-clear-search-hide';
         }
-    })
+    });
 }
-let clickSearch = false;
 controller.clearSearch = () => {
-    document.getElementById("clear-btn").addEventListener("click", () => {
-        document.getElementById('visual-search').value = '';
-        document.getElementById('shoesSearch').innerHTML = ''
-        let visualSearch = document.getElementById('visual-search').value;
+    document.getElementById("btnClear").addEventListener("click", () => {
+        document.getElementById('shoesSearch').innerHTML = '';
+        let newPreSearch = document.getElementsByClassName('new-pre-l-search')[0];
+        if (newPreSearch.className.indexOf('hide-product-search') == -1) {
+            newPreSearch.classList.toggle('hide-product-search');
+            newPreSearch.classList.toggle('show-product-search');
+        }
+        document.getElementById('inputSearch').value = '';
+        let visualSearch = document.getElementById('inputSearch').value;
         let clearBtn = document.getElementsByClassName('pre-clear-search')[0];
         if (visualSearch === "" && clearBtn.className.indexOf('pre-clear-search-hide') == -1) {
             clearBtn.className = clearBtn.className.replace(' pre-clear-search-show', '')
             clearBtn.className += ' pre-clear-search-hide';
         }
-    })
+    });
 }
-
+let clickSearch = false;
+let clickGlassSearch = false;
+let cancelBtn = false;
+let breakPoint1 = false, breakPoint2 = false, breakPoint3 = false, breakPoint4 = true;
+const changeclickSearch = () => clickSearch = false;
+const changeclickGlassSearch = () => clickGlassSearch = false;
+const changecancelBtn = () => cancelBtn = false;
+const changebreakPoint1 = () => breakPoint1 = false;
+const changebreakPoint2 = () => breakPoint2 = false;
+const changebreakPoint3 = () => breakPoint3 = false;
+const changebreakPoint4 = () => breakPoint4 = false;
 controller.catchClickEvent = () => {
-    document.getElementById('visual-search').addEventListener('click', () => {
-        if(clickSearch == false){
-        clickSearch = true;
-        let classNvabarFrame = document.getElementsByClassName('nvabar-frame')[0];
-        classNvabarFrame.style.display = 'none';
+    document.getElementsByClassName("input-search")[0].addEventListener('click', () => {
+        console.log(1);
+        console.log('clickGlassSearch ', clickGlassSearch);
+        console.log('clickSearch ', clickSearch);
+        if (clickGlassSearch == false && clickSearch == false) {
+            document.getElementsByClassName('show-nvabar')[0].style.display = 'none';
+            clickSearch = true;
+            clickGlassSearch = false;
+            console.log(clickSearch);
+            document.getElementsByClassName('item2')[0].style.display = 'none';
+            document.getElementsByClassName('item3')[0].style.display = 'none';
+            document.getElementsByClassName('item4')[0].style.display = 'none';
+            let item5 = document.getElementsByClassName('item5')[0];
+            item5.classList.toggle('col-lg-4');
+            item5.classList.toggle('col-lg-10');
+            let item5All = document.getElementsByClassName('item5All')[0];
+            item5All.classList.toggle('padding-right-48');
+            let item51 = document.getElementsByClassName('item5-1')[0];
+            item51.classList.toggle('col-lg-6');
+            item51.classList.toggle('col-lg-12');
+            document.getElementsByClassName('item5-3')[0].style.display = 'none';
+            document.getElementsByClassName('item5-4')[0].style.display = 'none';
+            document.getElementsByClassName('item5-5')[0].style.display = 'none';
+            document.getElementsByClassName('item5-6')[0].style.display = 'none';
+            let item6 = document.getElementsByClassName('item6')[0];
+            item6.classList.toggle('hide-Cancel');
+            item6.classList.toggle('show-Cancel');
 
-        let classHeader = document.getElementsByClassName('pre-1-header')[0];
-        if (classHeader.className.indexOf('vs-is-open') == -1) {
-            classHeader.className += ' vs-is-open';
+            console.log('break1 ', breakPoint1);
+            console.log('break4 ', breakPoint4);
+            console.log('click ', clickSearch);
+            function myFunction(x1) {
+                if (x1.matches && breakPoint4 == true && clickSearch == true && cancelBtn == false) {
+                    console.log(1);
+                    document.getElementsByClassName('item1')[0].style.display = 'none';
+                    let item5 = document.getElementsByClassName('item5')[0];
+                    item5.classList.add('padding-left-48');
+                    breakPoint4 = false;
+                }
+                if (x1.matches && breakPoint1 == false && clickSearch == true && cancelBtn == false) { // If media query matches
+                    breakPoint1 = true;
+                    console.log(1);
+                    let item5 = document.getElementsByClassName('item5')[0];
+                    item5.classList.toggle('col-md-4');
+                    item5.classList.toggle('col-md-10');
+                    let item51 = document.getElementsByClassName('item5-1')[0];
+                    if (item51.className.indexOf('box-input-search') != -1) {
+                        item51.classList.toggle('box-input-search');
+                    }
+                    item51.classList.toggle('col-md-6');
+                    item51.classList.toggle('col-md-12');
+                    let item6 = document.getElementsByClassName('item6')[0];
+                    item6.classList.toggle('col-md-1');
+                    item6.classList.toggle('col-md-2');
+                }
+            }
+            var x1 = window.matchMedia("(min-width: 768px) and (max-width: 991.98px)")
+            myFunction(x1) // Call listener function at run time
+            x1.addListener(myFunction) // Attach listener function on state changes
+
+            function myFunction2(x2) {
+                if (x2.matches && breakPoint2 == false && clickSearch == true && cancelBtn == false) { // If media query matches
+                    breakPoint2 = true;
+                    let item5 = document.getElementsByClassName('item5')[0];
+                    console.log(2);
+                    item5.classList.toggle('col-sm-4');
+                    item5.classList.toggle('col-sm-9');
+                    let item51 = document.getElementsByClassName('item5-1')[0];
+                    if (item51.className.indexOf('box-input-search') != -1) {
+                        item51.classList.toggle('box-input-search');
+                    }
+                    item51.classList.toggle('col-sm-6');
+                    item51.classList.toggle('col-sm-12');
+                    let item6 = document.getElementsByClassName('item6')[0];
+                    item6.classList.toggle('col-sm-1');
+                    item6.classList.toggle('col-sm-3');
+                }
+            }
+            var x2 = window.matchMedia("(min-width:576px) and (max-width: 767.98px)")
+            myFunction2(x2) // Call listener function at run time
+            x2.addListener(myFunction2) // Attach listener function on state changes
+
+            function myFunction3(x3) {
+                if (x3.matches && breakPoint3 == false && clickSearch == true && cancelBtn == false) { // If media query matches
+                    breakPoint3 = true;
+                    console.log(3);
+                    let item5 = document.getElementsByClassName('item5')[0];
+                    item5.classList.toggle('col-4');
+                    item5.classList.toggle('col-9');
+                    let item51 = document.getElementsByClassName('item5-1')[0];
+                    if (item51.className.indexOf('box-input-search') != -1) {
+                        item51.classList.toggle('box-input-search');
+                    }
+                    item51.classList.toggle('col-6');
+                    item51.classList.toggle('col-12');
+                    let item6 = document.getElementsByClassName('item6')[0];
+                    item6.classList.toggle('col-1');
+                    item6.classList.toggle('col-3');
+                }
+            }
+            var x3 = window.matchMedia("(max-width:576px)")
+            myFunction3(x3) // Call listener function at run time
+            x3.addListener(myFunction3) // Attach listener function on state changes
+
+            function myFunction4(x4) {
+                if (x4.matches && breakPoint1 == true && clickSearch == true && cancelBtn == false) { // If media query matches
+                    breakPoint4 = true;
+                    console.log(4);
+                    document.getElementsByClassName('item1')[0].removeAttribute('style');
+                    let item5 = document.getElementsByClassName('item5')[0];
+                    item5.classList.remove('padding-left-48');
+                    let item51 = document.getElementsByClassName('item5-1')[0];
+                }
+            }
+            var x4 = window.matchMedia("(min-width:992px)")
+            myFunction4(x4) // Call listener function at run time
+            x4.addListener(myFunction4) // Attach listener function on state changes
+
+
         }
+    });
 
-        let classBoxMen = document.getElementsByClassName('box-men')[0];
-        classBoxMen.style.display = 'none';
-
-        let classBoxWomen = document.getElementsByClassName('box-women')[0];
-        classBoxWomen.style.display = 'none';
-
-        let classBoxKids = document.getElementsByClassName('box-kids')[0];
-        classBoxKids.style.display = 'none';
-
-        let classPreCart = document.getElementsByClassName('pre-cart')[0];
-        classPreCart.style.display = 'none';
-
-        let classPreSearchContain = document.getElementsByClassName('pre-l-search-contain')[0];
-        classPreSearchContain.style.float = 'none';
-        classPreSearchContain.style.display = 'flex';
-        classPreSearchContain.style.justifyContent = 'center';
-        let classPreSearchInputbox = document.getElementsByClassName('pre-l-search-input-box')[0];
-        classPreSearchInputbox.style.float = 'none';
-
-        const mediaQuery = window.matchMedia('(min-width: 890px)')
-        function handleTabletChange(e, bool) {
-            // Check if the media query is true
-            if (e.matches && bool === true) {
-                let classPreSearchInputbox = document.getElementsByClassName('pre-l-search-input-box')[0];
-                classPreSearchInputbox.style.width = '656px';
+}
+controller.clickGlass = () => {
+    document.getElementById('btnSearch').addEventListener('click', () => {
+        if (clickGlassSearch == false && clickSearch == false) {
+            clickGlassSearch = true;
+            clickSearch = false;
+            function myFunctionBtn1(x7) {
+                console.log("(min-width: 768px) and (max-width: 991.98px)");
+                console.log('break1 ', breakPoint1);
+                console.log('break4 ', breakPoint4);
+                console.log('clickGlassSearch ', clickGlassSearch);
+                console.log('cancelBtn ', cancelBtn);
+                if (x7.matches && breakPoint4 == true && clickGlassSearch == true && cancelBtn == false) {
+                    console.log(1);
+                    document.getElementsByClassName('item1')[0].style.display = 'none';
+                    let item5 = document.getElementsByClassName('item5')[0];
+                    item5.classList.add('padding-left-48');
+                    breakPoint4 = false;
+                }
+                if (x7.matches && breakPoint1 == false && clickGlassSearch == true && cancelBtn == false) { // If media query matches
+                    breakPoint1 = true;
+                    document.getElementsByClassName('item2')[0].style.display = 'none';
+                    let item5 = document.getElementsByClassName('item5')[0];
+                    item5.classList.toggle('col-md-4');
+                    item5.classList.toggle('col-md-10');
+                    let item51 = document.getElementsByClassName('item5-1')[0];
+                    if (item51.className.indexOf('box-input-search') != -1) {
+                        item51.classList.toggle('box-input-search');
+                    }
+                    let item5All = document.getElementsByClassName('item5All')[0];
+                    if (item5All.className.indexOf('padding-right-48') != -1) {
+                        item5All.classList.toggle('padding-right-48');
+                    }
+                    item51.classList.toggle('col-md-6');
+                    item51.classList.toggle('col-md-12');
+                    let item6 = document.getElementsByClassName('item6')[0];
+                    item6.classList.toggle('col-md-1');
+                    item6.classList.toggle('col-md-2');
+                    if (item6.className.indexOf('hide-Cancel') != -1) {
+                        item6.classList.toggle('hide-Cancel');
+                        item6.classList.toggle('show-Cancel');
+                    }
+                    document.getElementsByClassName('item5-3')[0].style.display = 'none';
+                    document.getElementsByClassName('item5-5')[0].style.display = 'none';
+                    document.getElementsByClassName('item5-6')[0].style.display = 'none';
+                }
 
             }
-            if (!e.matches && bool === true) {
-                let classPreSearchInputbox = document.getElementsByClassName('pre-l-search-input-box')[0];
-                classPreSearchInputbox.style.width = '300px';
+            var x7 = window.matchMedia("(min-width: 768px) and (max-width: 991.98px)")
+            myFunctionBtn1(x7) // Call listener function at run time
+            x7.addListener(myFunctionBtn1) // Attach listener function on state changes
 
+            function myFunctionBtn2(x8) {
+                if (x8.matches && breakPoint2 == false && clickGlassSearch == true && cancelBtn == false) { // If media query matches
+                    breakPoint2 = true;
+                    console.log("(min-width:576px) and (max-width: 767.98px)");
+                    document.getElementsByClassName('item1')[0].style.display = 'none';
+                    document.getElementsByClassName('item2')[0].style.display = 'none';
+                    let item5 = document.getElementsByClassName('item5')[0];
+                    item5.classList.toggle('col-sm-4');
+                    item5.classList.toggle('col-sm-9');
+                    item5.classList.add('padding-left-48');
+                    let item51 = document.getElementsByClassName('item5-1')[0];
+                    if (item51.className.indexOf('box-input-search') != -1) {
+                        item51.classList.toggle('box-input-search');
+                    }
+                    let item5All = document.getElementsByClassName('item5All')[0];
+                    if (item5All.className.indexOf('padding-right-48') != -1) {
+                        item5All.classList.toggle('padding-right-48');
+                    }
+                    item51.classList.toggle('col-sm-6');
+                    item51.classList.toggle('col-sm-12');
+                    let item6 = document.getElementsByClassName('item6')[0];
+                    item6.classList.toggle('col-sm-1');
+                    item6.classList.toggle('col-sm-3');
+                    if (item6.className.indexOf('hide-Cancel') != -1) {
+                        item6.classList.toggle('hide-Cancel');
+                        item6.classList.toggle('show-Cancel');
+                    }
+
+                    document.getElementsByClassName('item5-3')[0].style.display = 'none';
+                    document.getElementsByClassName('item5-5')[0].style.display = 'none';
+                    document.getElementsByClassName('item5-6')[0].style.display = 'none';
+                }
             }
+            var x8 = window.matchMedia("(min-width:576px) and (max-width: 767.98px)")
+            myFunctionBtn2(x8) // Call listener function at run time
+            x8.addListener(myFunctionBtn2) // Attach listener function on state changes
+
+            function myFunctionBtn3(x9) {
+                if (x9.matches && breakPoint3 == false && clickGlassSearch == true && cancelBtn == false) { // If media query matches
+                    breakPoint3 = true;
+                    console.log("(max-width:576px)");
+                    document.getElementsByClassName('item1')[0].style.display = 'none';
+                    document.getElementsByClassName('item2')[0].style.display = 'none';
+                    let item5 = document.getElementsByClassName('item5')[0];
+                    item5.classList.toggle('col-4');
+                    item5.classList.toggle('col-9');
+                    item5.classList.add('padding-left-48');
+                    let item51 = document.getElementsByClassName('item5-1')[0];
+                    if (item51.className.indexOf('box-input-search') != -1) {
+                        item51.classList.toggle('box-input-search');
+                    }
+                    let item5All = document.getElementsByClassName('item5All')[0];
+                    if (item5All.className.indexOf('padding-right-48') != -1) {
+                        item5All.classList.toggle('padding-right-48');
+                    }
+                    item51.classList.toggle('col-6');
+                    item51.classList.toggle('col-12');
+                    let item6 = document.getElementsByClassName('item6')[0];
+                    item6.classList.toggle('col-1');
+                    item6.classList.toggle('col-3');
+                    if (item6.className.indexOf('hide-Cancel') != -1) {
+                        item6.classList.toggle('hide-Cancel');
+                        item6.classList.toggle('show-Cancel');
+                    }
+                    document.getElementsByClassName('item5-3')[0].style.display = 'none';
+                    document.getElementsByClassName('item5-5')[0].style.display = 'none';
+                    document.getElementsByClassName('item5-6')[0].style.display = 'none';
+                }
+            }
+            var x9 = window.matchMedia("(max-width:576px)")
+            myFunctionBtn3(x9) // Call listener function at run time
+            x9.addListener(myFunctionBtn3) // Attach listener function on state changes
+
+            function myFunctionBtn4(x10) {
+                if (x10.matches && breakPoint1 == true && clickGlassSearch == true && cancelBtn == false) { // If media query matches
+                    breakPoint4 = true;
+                    console.log("(min-width:992px)");
+                    document.getElementsByClassName('item2')[0].style.display = 'none';
+                    document.getElementsByClassName('item3')[0].style.display = 'none';
+                    document.getElementsByClassName('item4')[0].style.display = 'none';
+                    document.getElementsByClassName('item1')[0].removeAttribute('style');
+                    document.getElementsByClassName('item2')[0].style.display = 'none';
+                    let item5 = document.getElementsByClassName('item5')[0];
+                    item5.classList.remove('padding-left-48');
+                    if (item5.className.indexOf('col-lg-10') == -1) {
+                        item5.classList.toggle('col-lg-4');
+                        item5.classList.toggle('col-lg-10');
+                    }
+                    let item5All = document.getElementsByClassName('item5All')[0];
+                    if (item5All.className.indexOf('padding-right-48') != -1) {
+                        item5All.classList.toggle('padding-right-48');
+                    }
+
+                    let item51 = document.getElementsByClassName('item5-1')[0];
+                    if (item51.className.indexOf('col-lg-12') == -1) {
+                        item51.classList.toggle('col-lg-6');
+                        item51.classList.toggle('col-lg-12');
+                    }
+                    let item6 = document.getElementsByClassName('item6')[0];
+                    if (item6.className.indexOf('hide-Cancel') != -1) {
+                        item6.classList.toggle('hide-Cancel');
+                        item6.classList.toggle('show-Cancel');
+                    }
+                    document.getElementsByClassName('item5-3')[0].style.display = 'none';
+                    document.getElementsByClassName('item5-4')[0].style.display = 'none';
+                    document.getElementsByClassName('item5-5')[0].style.display = 'none';
+                }
+            }
+            var x10 = window.matchMedia("(min-width:992px)")
+            myFunctionBtn4(x10) // Call listener function at run time
+            x10.addListener(myFunctionBtn4) // Attach listener function on state changes
         }
-        // Register event listener
-        mediaQuery.addListener(handleTabletChange);
-
-        // Initial check
-        handleTabletChange(mediaQuery, clickSearch);
-
-        let preCancelBtn = document.getElementsByClassName('pre-cancel-btn')[0];
-        preCancelBtn.style.display = 'block';
-        let boxProductSearch = document.getElementById('productSearch');
-        boxProductSearch.classList.remove('hide-product-search');
-        boxProductSearch.classList.add('show-product-search');
-    }
     })
 }
-
 controller.cancelSearch = () => {
-    document.getElementById('pre-cancel-search').addEventListener('click', () => {
-        clickSearch = false;
-        let classNvabarFrame = document.getElementsByClassName('nvabar-frame')[0];
-        classNvabarFrame.removeAttribute('style');
-
-        let classHeader = document.getElementsByClassName('pre-1-header')[0];
-        if (classHeader.className.indexOf('vs-is-open') !== -1) {
-            classHeader.className = classHeader.className.replace(' vs-is-open', '');
+    document.getElementById("cancelBtn").addEventListener('click', () => {
+        let newPreSearch = document.getElementsByClassName('new-pre-l-search')[0];
+        if (newPreSearch.className.indexOf('hide-product-search') == -1) {
+            newPreSearch.classList.toggle('hide-product-search');
+            newPreSearch.classList.toggle('show-product-search');
         }
+        document.getElementsByClassName('show-nvabar')[0].removeAttribute('style');
+        clickSearch = false;
+        clickGlassSearch = false;
+        cancelBtn = true;
+        function myFunctionCancel4(x5) {
+            if (x5.matches && clickSearch == false && cancelBtn == true) { // If media query matches
+                console.log(1);
+                document.getElementsByClassName('item2')[0].removeAttribute('style');
+                document.getElementsByClassName('item3')[0].removeAttribute('style');
+                document.getElementsByClassName('item4')[0].removeAttribute('style');
+                let item5 = document.getElementsByClassName('item5')[0];
+                if (item5.className.indexOf('padding-left-48') != -1) {
+                    item5.classList.toggle('padding-left-48');
+                }
+                if (item5.className.indexOf('col-lg-10') != -1) {
+                    item5.classList.toggle('col-lg-4');
+                    item5.classList.toggle('col-lg-10');
+                }
+                if (item5.className.indexOf('col-md-10') != -1) {
+                    breakPoint1 = false;
+                    item5.classList.toggle('col-md-4');
+                    item5.classList.toggle('col-md-10');
+                }
+                if (item5.className.indexOf('col-sm-9') != -1) {
+                    breakPoint2 = false;
+                    item5.classList.toggle('col-sm-4');
+                    item5.classList.toggle('col-sm-9');
+                }
+                if (item5.className.indexOf('col-9') != -1) {
+                    breakPoint3 = false;
+                    item5.classList.toggle('col-4');
+                    item5.classList.toggle('col-9');
+                }
+                let item5All = document.getElementsByClassName('item5All')[0];
+                if (item5All.className.indexOf('padding-right-48') == -1) {
+                    item5All.classList.toggle('padding-right-48');
+                }
+                let item51 = document.getElementsByClassName('item5-1')[0];
+                if (item51.className.indexOf('col-lg-12') != -1) {
+                    item51.classList.toggle('col-lg-6');
+                    item51.classList.toggle('col-lg-12');
+                }
+                if (item51.className.indexOf('box-input-search') == -1) {
+                    item51.classList.toggle('box-input-search');
+                }
+                if (item51.className.indexOf('col-md-12') != -1) {
+                    item51.classList.toggle('col-md-6');
+                    item51.classList.toggle('col-md-12');
+                }
+                if (item51.className.indexOf('col-sm-12') != -1) {
+                    item51.classList.toggle('col-sm-6');
+                    item51.classList.toggle('col-sm-12');
+                }
+                if (item51.className.indexOf('col-12') != -1) {
+                    item51.classList.toggle('col-6');
+                    item51.classList.toggle('col-12');
+                }
+                document.getElementsByClassName('item5-3')[0].removeAttribute('style');
+                document.getElementsByClassName('item5-4')[0].removeAttribute('style');
+                document.getElementsByClassName('item5-5')[0].removeAttribute('style');
+                document.getElementsByClassName('item5-6')[0].removeAttribute('style');
+                let item6 = document.getElementsByClassName('item6')[0];
+                if (item6.className.indexOf('hide-Cancel') == -1) {
+                    item6.classList.toggle('hide-Cancel');
+                    item6.classList.toggle('show-Cancel');
+                }
 
-        let classBoxMen = document.getElementsByClassName('box-men')[0];
-        classBoxMen.removeAttribute('style');
+                if (item6.className.indexOf('col-md-2') != -1) {
+                    item6.classList.toggle('col-md-1');
+                    item6.classList.toggle('col-md-2');
+                }
+                if (item6.className.indexOf('col-sm-3') != -1) {
+                    item6.classList.toggle('col-sm-3');
+                    item6.classList.toggle('col-sm-1');
+                }
+                if (item6.className.indexOf('col-3') != -1) {
+                    item6.classList.toggle('col-1');
+                    item6.classList.toggle('col-3');
+                }
+                breakPoint4 = true;
+                cancelBtn = false;
+                clickGlassSearch = false;
+                clickSearch = false;
+                console.log('break1 ', breakPoint1);
+                console.log('break4 ', breakPoint4);
+                console.log('click ', clickSearch);
+            }
+            else if (!x5.matches && clickSearch == false && cancelBtn == true) {
+                console.log(2);
+                document.getElementsByClassName('item1')[0].removeAttribute('style');
+                document.getElementsByClassName('item2')[0].removeAttribute('style');
+                document.getElementsByClassName('item3')[0].removeAttribute('style');
+                document.getElementsByClassName('item4')[0].removeAttribute('style');
+                let item5 = document.getElementsByClassName('item5')[0];
+                if (item5.className.indexOf('padding-left-48') != -1) {
+                    item5.classList.toggle('padding-left-48');
+                }
+                if (item5.className.indexOf('col-lg-10') != -1) {
+                    item5.classList.toggle('col-lg-4');
+                    item5.classList.toggle('col-lg-10');
+                }
+                if (item5.className.indexOf('col-md-10') != -1) {
+                    breakPoint1 = false;
+                    item5.classList.toggle('col-md-4');
+                    item5.classList.toggle('col-md-10');
+                }
+                if (item5.className.indexOf('col-sm-9') != -1) {
+                    breakPoint2 = false;
+                    item5.classList.toggle('col-sm-4');
+                    item5.classList.toggle('col-sm-9');
+                }
+                if (item5.className.indexOf('col-9') != -1) {
+                    breakPoint3 = false;
+                    item5.classList.toggle('col-4');
+                    item5.classList.toggle('col-9');
+                }
+                let item5All = document.getElementsByClassName('item5All')[0];
+                if (item5All.className.indexOf('padding-right-48') == -1) {
+                    item5All.classList.toggle('padding-right-48');
+                }
+                let item51 = document.getElementsByClassName('item5-1')[0];
+                if (item51.className.indexOf('col-lg-12') != -1) {
+                    item51.classList.toggle('col-lg-6');
+                    item51.classList.toggle('col-lg-12');
+                }
+                if (item51.className.indexOf('box-input-search') == -1) {
+                    item51.classList.toggle('box-input-search');
+                }
+                if (item51.className.indexOf('col-md-12') != -1) {
+                    item51.classList.toggle('col-md-6');
+                    item51.classList.toggle('col-md-12');
+                }
+                if (item51.className.indexOf('col-sm-12') != -1) {
+                    item51.classList.toggle('col-sm-6');
+                    item51.classList.toggle('col-sm-12');
+                }
+                if (item51.className.indexOf('col-12') != -1) {
+                    item51.classList.toggle('col-6');
+                    item51.classList.toggle('col-12');
+                }
+                document.getElementsByClassName('item5-3')[0].removeAttribute('style');
+                document.getElementsByClassName('item5-4')[0].removeAttribute('style');
+                document.getElementsByClassName('item5-5')[0].removeAttribute('style');
+                document.getElementsByClassName('item5-6')[0].removeAttribute('style');
+                let item6 = document.getElementsByClassName('item6')[0];
+                if (item6.className.indexOf('hide-Cancel') == -1) {
+                    item6.classList.toggle('hide-Cancel');
+                    item6.classList.toggle('show-Cancel');
+                }
+                if (item6.className.indexOf('col-md-2') != -1) {
+                    item6.classList.toggle('col-md-1');
+                    item6.classList.toggle('col-md-2');
+                }
+                if (item6.className.indexOf('col-sm-3') != -1) {
+                    item6.classList.toggle('col-sm-3');
+                    item6.classList.toggle('col-sm-1');
+                }
+                if (item6.className.indexOf('col-3') != -1) {
+                    item6.classList.toggle('col-1');
+                    item6.classList.toggle('col-3');
+                }
+                cancelBtn = false;
+                clickGlassSearch = false;
+                clickSearch = false;
+                breakPoint1 = false;
+                breakPoint2 = false;
+                breakPoint3 = false;
+                breakPoint4 = true;
+            }
+        }
+        var x5 = window.matchMedia("(min-width:992px)")
+        myFunctionCancel4(x5) // Call listener function at run time
+        x5.addListener(myFunctionCancel4) // Attach listener function on state changes
+    });
 
-        let classBoxWomen = document.getElementsByClassName('box-women')[0];
-        classBoxWomen.removeAttribute('style');
-
-        let classBoxKids = document.getElementsByClassName('box-kids')[0];
-        classBoxKids.removeAttribute('style');
-
-        let classPreCart = document.getElementsByClassName('pre-cart')[0];
-        classPreCart.removeAttribute('style');
-
-        let classPreSearchContain = document.getElementsByClassName('pre-l-search-contain')[0];
-        classPreSearchContain.removeAttribute('style');
-
-        let classPreSearchInputbox = document.getElementsByClassName('pre-l-search-input-box')[0];
-        classPreSearchInputbox.removeAttribute('style');
-
-        let preCancelBtn = document.getElementsByClassName('pre-cancel-btn')[0];
-        preCancelBtn.removeAttribute('style');
-
-        let boxProductSearch = document.getElementById('productSearch');
-        boxProductSearch.classList.add('hide-product-search');
-        boxProductSearch.classList.remove('show-product-search');
-    })
 }
 
 controller.functionExpandOption = () => {
-    document.getElementById('expand-option').addEventListener('click', () => {
+    document.getElementById('expandOption').addEventListener('click', () => {
         let classMobileShow = document.getElementsByClassName('pre-mobile-menu')[0];
-        if (classMobileShow.className.indexOf('pre-mobile-hide') !== -1) {
-            classMobileShow.className = classMobileShow.className.replace(' pre-mobile-hide', '')
-            classMobileShow.className += ' pre-mobile-show';
+        if (classMobileShow.className.indexOf('pre-mobile-show') == -1) {
+            classMobileShow.classList.toggle('pre-mobile-hide');
+            classMobileShow.classList.toggle('pre-mobile-show');
         }
-    })
+    });
+
 }
 
 controller.functionCloseExpand = () => {
@@ -275,6 +631,8 @@ controller.functionCloseExpand = () => {
 }
 controller.logout = () => {
     document.getElementById('logout-btn').addEventListener("click", () => {
+    });
+    document.getElementById('quitePage').addEventListener('click', () => {
         model.getLogout();
     })
 };
@@ -325,7 +683,7 @@ controller.scrollBtn = () => {
 controller.stickyHeadMenShoes = () => {
     let fixedNavbar = document.getElementsByClassName('men-shoes-slidebar')[0];
 
-    let positionNvabar1 = document.querySelector('.pos-logo1');
+    let positionNvabar1 = document.querySelector('.logo-nvabar');
     let positionNvabar2 = document.querySelector('.pre-header2');
     let positionNvabar3 = document.querySelector('.format-text-title');
     let positionNvabar4 = document.querySelector('.out-box-footer');
@@ -927,33 +1285,55 @@ controller.forgotPassword = () => {
     })
 }
 controller.search = async () => {
-    let keyword = document.getElementById('visual-search');
+    let keyword = document.getElementById('inputSearch');
     keyword.addEventListener('input', async () => {
+
         if (keyword.value !== '') {
+            console.log(keyword.value);
+            let newPreSearch = document.getElementsByClassName('new-pre-l-search')[0];
+            if (newPreSearch.className.indexOf('hide-product-search') != -1) {
+                newPreSearch.classList.toggle('hide-product-search');
+                newPreSearch.classList.toggle('show-product-search');
+            }
             let data = await model.searchShoes(keyword.value);
+            console.log(data);
             await view.showSearch(data);
         }
-        else{
-            document.getElementById('shoesSearch').innerHTML = ''
+        else {
+            document.getElementById('shoesSearch').innerHTML = '';
+            let newPreSearch = document.getElementsByClassName('new-pre-l-search')[0];
+            if (newPreSearch.className.indexOf('hide-product-search') == -1) {
+                newPreSearch.classList.toggle('hide-product-search');
+                newPreSearch.classList.toggle('show-product-search');
+            }
         }
     });
 }
-controller.clickChat = async(idUser, idInputMessage)=>{
-    document.getElementById('idChat').addEventListener('click',async()=>{
-        if(auth.currentUser.email == 'thienbinh1155@gmail.com'){
+controller.clickChat = async (idUser, idInputMessage) => {
+    document.getElementById('idChat').addEventListener('click', async () => {
+        if (auth.currentUser.email == 'thienbinh1155@gmail.com') {
             view.selectWebPage('chatPage');
         }
-        else{
+        else {
+
             let value = document.getElementsByClassName('form-chat')[0];
             value.style.visibility = 'visible';
             value.style.opacity = '1';
             value.style.transform = 'translateY(0px)';
             model.createNewMessage();
             await model.renderMessage(idUser);
-            document.getElementById('sendMessage').addEventListener('click',async()=>{
+            document.getElementById('sendMessage').addEventListener('click', async () => {
                 await model.sendMessageToFirestore(idInputMessage);
                 document.getElementById('inputMessage').value = '';
-            })
+            });
+            var input = document.getElementById("inputMessage");
+            input.addEventListener("keypress", function (event) {
+                if (event.key === "Enter") {
+                    event.preventDefault();
+                    model.sendMessageToFirestore(idInputMessage);
+                    document.getElementById('inputMessage').value = '';
+                }
+            });
         }
     })
 }
@@ -962,10 +1342,10 @@ controller.readMessages = (idUser) => {
     let targetId = document.querySelectorAll(".sideBar-body");
     console.log(targetId);
     for (let i = 0; i < targetId.length; i++) {
-        targetId[i].addEventListener("click", async() => {
+        targetId[i].addEventListener("click", async () => {
             controller.idMessage = targetId[i].id
             view.initialMessage(idUser);
-            await model.getMessagesFromFirestore(targetId[i].id,idUser);
+            await model.getMessagesFromFirestore(targetId[i].id, idUser);
             await model.getNameGuess(targetId[i].id);
         })
     }
@@ -1033,10 +1413,478 @@ controller.generateKeywords = (nameData) => {
 
     return keywords;
 }
+// ReviewPage
+controller.clicReview = () => {
+    document.getElementById('detailReview').addEventListener('click', async () => {
+        document.getElementsByClassName('box-detail-review')[0].style.borderBottom = 'none';
+        let value = document.getElementsByClassName('star-rating');
+        for (let i = 0; i < value.length; i++) {
+            if (value[i].className.indexOf('hide-rating') != -1) {
+                value[i].classList.toggle('hide-rating');
+                value[i].classList.toggle('show-rating');
+            }
+        };
+        let url = document.getElementsByClassName('mainImg')[0].src;
+        let data = await model.readReview(url);
+        console.log(data);
+        if (data.check == true) {
+            if (data.content.length > 3) {
+                let moreRevies = document.getElementsByClassName('more-review')[0];
+                if (moreRevies.className.indexOf('hide-rating') != -1) {
+                    moreRevies.classList.toggle('hide-rating');
+                    moreRevies.classList.toggle('show-rating');
+                }
+                var divData = '';
+                for (let i = 0; i < 3; i++) {
+                    switch (data.content[i].star) {
+                        case 1:
+                            divData +=
+                                `<div class="detail-review">
+                                <i class="fa-regular fa-star fill-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <span class="text-user padding-left-10">&ensp;${data.content[i].username}&ensp;${data.content[i].time}</span>
+                                <br>
+                                <span class="text-content-review">${data.content[i].comment}</span>
+                            </div>`
+                            break;
+                        case 2:
+                            divData +=
+                                `<div class="detail-review">
+                                    <i class="fa-regular fa-star fill-star"></i>
+                                    <i class="fa-regular fa-star fill-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <span class="text-user padding-left-10">&ensp;${data.content[i].username}&ensp;${data.content[i].time}</span>
+                                    <br>
+                                    <span class="text-content-review">${data.content[i].comment}</span>
+                                </div>`
+                            break;
+                        case 3:
+                            divData +=
+                                `<div class="detail-review">
+                                    <i class="fa-regular fa-star fill-star"></i>
+                                    <i class="fa-regular fa-star fill-star"></i>
+                                    <i class="fa-regular fa-star fill-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <span class="text-user padding-left-10">&ensp;${data.content[i].username}&ensp;${data.content[i].time}</span>
+                                    <br>
+                                    <span class="text-content-review">${data.content[i].comment}</span>
+                                </div>`
+                            break;
+                        case 4:
+                            divData +=
+                                `<div class="detail-review">
+                                    <i class="fa-regular fa-star fill-star"></i>
+                                    <i class="fa-regular fa-star fill-star"></i>
+                                    <i class="fa-regular fa-star fill-star"></i>
+                                    <i class="fa-regular fa-star fill-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <span class="text-user padding-left-10">&ensp;${data.content[i].username}&ensp;${data.content[i].time}</span>
+                                    <br>
+                                    <span class="text-content-review">${data.content[i].comment}</span>
+                                </div>`
+                            break;
+                        case 5:
+                            divData +=
+                                `<div class="detail-review">
+                                <i class="fa-regular fa-star fill-star"></i>
+                                <i class="fa-regular fa-star fill-star"></i>
+                                <i class="fa-regular fa-star fill-star"></i>
+                                <i class="fa-regular fa-star fill-star"></i>
+                                <i class="fa-regular fa-star fill-star"></i>
+                                <span class="text-user padding-left-10">&ensp;${data.content[i].username}&ensp;${data.content[i].time}</span>
+                                <br>
+                                <span class="text-content-review">${data.content[i].comment}</span>
+                            </div>`
+                            break;
+                    }
+                }
+                document.getElementById('idReview').innerHTML = divData;
+            }
+            else {
+                var divData = '';
+                for (let i = 0; i < data.content.length; i++) {
+                    switch (data.content[i].star) {
+                        case 1:
+                            divData +=
+                                `<div class="detail-review">
+                                <i class="fa-regular fa-star fill-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <span class="text-user padding-left-10">&ensp;${data.content[i].username}&ensp;${data.content[i].time}</span>
+                                <br>
+                                <span class="text-content-review">${data.content[i].comment}</span>
+                            </div>`
+                            break;
+                        case 2:
+                            divData +=
+                                `<div class="detail-review">
+                                    <i class="fa-regular fa-star fill-star"></i>
+                                    <i class="fa-regular fa-star fill-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <span class="text-user padding-left-10">&ensp;${data.content[i].username}&ensp;${data.content[i].time}</span>
+                                    <br>
+                                    <span class="text-content-review">${data.content[i].comment}</span>
+                                </div>`
+                            break;
+                        case 3:
+                            divData +=
+                                `<div class="detail-review">
+                                    <i class="fa-regular fa-star fill-star"></i>
+                                    <i class="fa-regular fa-star fill-star"></i>
+                                    <i class="fa-regular fa-star fill-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <span class="text-user padding-left-10">&ensp;${data.content[i].username}&ensp;${data.content[i].time}</span>
+                                    <br>
+                                    <span class="text-content-review">${data.content[i].comment}</span>
+                                </div>`
+                            break;
+                        case 4:
+                            divData +=
+                                `<div class="detail-review">
+                                    <i class="fa-regular fa-star fill-star"></i>
+                                    <i class="fa-regular fa-star fill-star"></i>
+                                    <i class="fa-regular fa-star fill-star"></i>
+                                    <i class="fa-regular fa-star fill-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <span class="text-user padding-left-10">&ensp;${data.content[i].username}&ensp;${data.content[i].time}</span>
+                                    <br>
+                                    <span class="text-content-review">${data.content[i].comment}</span>
+                                </div>`
+                            break;
+                        case 5:
+                            divData +=
+                                `<div class="detail-review">
+                                <i class="fa-regular fa-star fill-star"></i>
+                                <i class="fa-regular fa-star fill-star"></i>
+                                <i class="fa-regular fa-star fill-star"></i>
+                                <i class="fa-regular fa-star fill-star"></i>
+                                <i class="fa-regular fa-star fill-star"></i>
+                                <span class="text-user padding-left-10">&ensp;${data.content[i].username}&ensp;${data.content[i].time}</span>
+                                <br>
+                                <span class="text-content-review">${data.content[i].comment}</span>
+                            </div>`
+                            break;
+                    }
+                }
+                document.getElementById('idReview').innerHTML = divData;
+            }
+        };
+    });
+}
+controller.clickMoreDetail = () => {
+    document.getElementById('viewProductDetail').addEventListener('click', async () => {
+        document.getElementsByClassName('smallImg')[0].src = document.getElementsByClassName('mainImg')[0].src;
+        document.getElementById('exampleModal').classList.add('padding-hide');
+        document.getElementById('body').classList.add('padding-hide');
+    });
+}
+controller.clickWriteReview = () => {
+    document.getElementById('writeReview').addEventListener('click', () => {
+        let inputComment = document.getElementsByClassName('input-comment')[0];
+        if (inputComment.className.indexOf('hide-input-comment') != -1) {
+            inputComment.classList.toggle('hide-input-comment');
+            inputComment.classList.toggle('show-input-comment');
+        }
+        else {
+            inputComment.classList.toggle('hide-input-comment');
+            inputComment.classList.toggle('show-input-comment');
+        }
+        let submitComment = document.getElementsByClassName('submit-comment')[0];
+        if (submitComment.className.indexOf('hide-submit-comment') != -1) {
+            submitComment.classList.toggle('hide-submit-comment');
+            submitComment.classList.toggle('show-submit-comment');
+        }
+        else {
+            submitComment.classList.toggle('hide-submit-comment');
+            submitComment.classList.toggle('show-submit-comment');
+        }
+        let star = document.getElementsByClassName('click-star')[0];
+        if (star.className.indexOf('hide-star-rating') != -1) {
+            star.classList.toggle('hide-star-rating');
+            star.classList.toggle('show-star-rating');
+        }
+        else {
+            star.classList.toggle('hide-star-rating');
+            star.classList.toggle('show-star-rating');
+        }
+    })
+}
+controller.clickStar = () => {
+    let star = document.getElementsByClassName('class-star');
+    for (let i = 0; i < star.length; i++) {
+        star[i].addEventListener('click', () => {
+            if (star[i].className.indexOf('fill-star') == -1) {
+                star[i].classList.toggle('fill-star');
+            }
+            else {
+                star[i].classList.toggle('fill-star');
+            }
+        })
+    }
+}
+controller.checkStar = async (data) => {
+    if (data.countstar == 0) {
+        let inforStar = document.getElementsByClassName('error-star')[0];
+        if (inforStar.className.indexOf('hide-error') != -1) {
+            inforStar.classList.toggle('hide-error');
+            inforStar.classList.toggle('show-error');
+            document.getElementById('errorStar').innerText = "Please select an overall rating";
+        }
+    }
+    data.comment == "" ? (document.getElementById('errorComment').innerText = 'Please type a new comment') : (document.getElementById('errorComment').innerText = '');
+    if (data.countstar > 0 && data.comment != "") {
+        await model.wirteReview(data);
+    }
+}
+controller.hoverThumbImg = (cls, mainImg) => {
+    var allCls = document.getElementsByClassName(cls);
+    for (let i = 0; i < allCls.length; i++) {
+        allCls[i].addEventListener('mouseover', () => {
+            document.getElementsByClassName(mainImg)[0].src = allCls[i].src;
+        });
+    }
+}
+controller.clickMoreReview = () => {
+    document.getElementById('moreReviews').addEventListener('click', async () => {
+        document.getElementsByClassName('smallImgMoreRivew')[0].src = document.getElementsByClassName('mainImg')[0].src;
+        let url = document.getElementsByClassName('mainImg')[0].src;
+        let data = await model.readReview(url);
+        if (data.check == true) {
+            var divData = '';
+            for (let i = 0; i < data.content.length; i++) {
+                switch (data.content[i].star) {
+                    case 1:
+                        divData +=
+                            `
+                        <div class="row format-row padding-top-20">
+                            <div class="col-lg-2 col-md-3 col-sm-4 col-4">
+                                <i class="fa-regular fa-star fill-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <div class="col-lg-10 col-md-9 col-sm-8 col-8">
+                                <span class="text-user">${data.content[i].username}&ensp;${data.content[i].time}</span>
+                                <br>
+                                <span class="text-content-review">${data.content[i].comment}</span>
+                            </div>
+                        </div>
+                        `
+                        break;
+                    case 2:
+                        divData +=
+                            `
+                        <div class="row format-row padding-top-20">
+                            <div class="col-lg-2 col-md-3 col-sm-4 col-4">
+                                <i class="fa-regular fa-star fill-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <div class="col-lg-10 col-md-9 col-sm-8 col-8">
+                                <span class="text-user">${data.content[i].username}&ensp;${data.content[i].time}</span>
+                                <br>
+                                <span class="text-content-review">${data.content[i].comment}</span>
+                            </div>
+                        </div>
+                        `
+                        break;
+                    case 3:
+                        divData +=
+                            `
+                        <div class="row format-row padding-top-20">
+                            <div class="col-lg-2 col-md-3 col-sm-4 col-4">
+                                <i class="fa-regular fa-star fill-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <div class="col-lg-10 col-md-9 col-sm-8 col-8">
+                                <span class="text-user">${data.content[i].username}&ensp;${data.content[i].time}</span>
+                                <br>
+                                <span class="text-content-review">${data.content[i].comment}</span>
+                            </div>
+                        </div>
+                        `
+                        break;
+                    case 4:
+                        divData +=
+                            `
+                        <div class="row format-row padding-top-20">
+                            <div class="col-lg-2 col-md-3 col-sm-4 col-4">
+                                <i class="fa-regular fa-star fill-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <div class="col-lg-10 col-md-9 col-sm-8 col-8">
+                                <span class="text-user">${data.content[i].username}&ensp;${data.content[i].time}</span>
+                                <br>
+                                <span class="text-content-review">${data.content[i].comment}</span>
+                            </div>
+                        </div>
+                        `
+                        break;
+                    case 5:
+                        divData +=
+                            `
+                        <div class="row format-row padding-top-20">
+                            <div class="col-lg-2 col-md-3 col-sm-4 col-4">
+                                <i class="fa-regular fa-star fill-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <div class="col-lg-10 col-md-9 col-sm-8 col-8">
+                                <span class="text-user">${data.content[i].username}&ensp;${data.content[i].time}</span>
+                                <br>
+                                <span class="text-content-review">${data.content[i].comment}</span>
+                            </div>
+                        </div>
+                        `
+                        break;
+                }
+            }
+            document.getElementById('personReview').innerHTML = divData;
+        };
+    });
+}
+// Mobile
+// Men
+controller.clickGotoMen = () => {
+    document.getElementById('gotoMen').addEventListener('click', () => {
+
+        let classMobileShow = document.getElementsByClassName('pre-mobile-menu')[0];
+        if (classMobileShow.className.indexOf('pre-mobile-show') !== -1) {
+            classMobileShow.classList.toggle('pre-mobile-hide');
+            classMobileShow.classList.toggle('pre-mobile-show');
+        }
+        let classMobileShowMen = document.getElementsByClassName('pre-mobile-menu-men')[0];
+        if (classMobileShowMen.className.indexOf('pre-mobile-show-men') == -1) {
+            classMobileShowMen.classList.toggle('pre-mobile-hide-men');
+            classMobileShowMen.classList.toggle('pre-mobile-show-men');
+        }
+    });
+}
+controller.clickExpandMobileMen = () => {
+    document.getElementById('closeExpandMobileMen').addEventListener('click', () => {
+        let classMobileShowMen = document.getElementsByClassName('pre-mobile-menu-men')[0];
+        if (classMobileShowMen.className.indexOf('pre-mobile-show-men') !== -1) {
+            classMobileShowMen.classList.toggle('pre-mobile-hide-men');
+            classMobileShowMen.classList.toggle('pre-mobile-show-men');
+        }
+    });
+}
+controller.clickGobackAllMen = () => {
+    document.getElementById('gobackAllMen').addEventListener('click', () => {
+        let classMobileShowMen = document.getElementsByClassName('pre-mobile-menu-men')[0];
+        if (classMobileShowMen.className.indexOf('pre-mobile-show-men') !== -1) {
+            classMobileShowMen.classList.toggle('pre-mobile-hide-men');
+            classMobileShowMen.classList.toggle('pre-mobile-show-men');
+        }
+        let classMobileShow = document.getElementsByClassName('pre-mobile-menu')[0];
+        if (classMobileShow.className.indexOf('pre-mobile-show') == -1) {
+            classMobileShow.classList.toggle('pre-mobile-hide');
+            classMobileShow.classList.toggle('pre-mobile-show');
+        }
+    });
+}
+// Women
+controller.clickGotoWomen = () => {
+    document.getElementById('gotoWomen').addEventListener('click', () => {
+        let classMobileShow = document.getElementsByClassName('pre-mobile-menu')[0];
+        if (classMobileShow.className.indexOf('pre-mobile-show') !== -1) {
+            classMobileShow.classList.toggle('pre-mobile-hide');
+            classMobileShow.classList.toggle('pre-mobile-show');
+        }
+        let classMobileShowWomen = document.getElementsByClassName('pre-mobile-menu-women')[0];
+        if (classMobileShowWomen.className.indexOf('pre-mobile-show-women') == -1) {
+            classMobileShowWomen.classList.toggle('pre-mobile-hide-women');
+            classMobileShowWomen.classList.toggle('pre-mobile-show-women');
+        }
+    });
+}
+controller.clickExpandMobileWomen = () => {
+    document.getElementById('closeExpandMobileWomen').addEventListener('click', () => {
+        let classMobileShowMen = document.getElementsByClassName('pre-mobile-menu-women')[0];
+        if (classMobileShowMen.className.indexOf('pre-mobile-show-women') !== -1) {
+            classMobileShowMen.classList.toggle('pre-mobile-hide-women');
+            classMobileShowMen.classList.toggle('pre-mobile-show-women');
+        }
+    });
+}
+controller.clickGobackAllWomen = () => {
+    document.getElementById('gobackAllWomen').addEventListener('click', () => {
+        let classMobileShowMen = document.getElementsByClassName('pre-mobile-menu-women')[0];
+        if (classMobileShowMen.className.indexOf('pre-mobile-show-women') !== -1) {
+            classMobileShowMen.classList.toggle('pre-mobile-hide-women');
+            classMobileShowMen.classList.toggle('pre-mobile-show-women');
+        }
+        let classMobileShow = document.getElementsByClassName('pre-mobile-menu')[0];
+        if (classMobileShow.className.indexOf('pre-mobile-show') == -1) {
+            classMobileShow.classList.toggle('pre-mobile-hide');
+            classMobileShow.classList.toggle('pre-mobile-show');
+        }
+    })
+}
+// Kids
+controller.clickGotoKids = () => {
+    document.getElementById('gotoKids').addEventListener('click', () => {
+        let classMobileShow = document.getElementsByClassName('pre-mobile-menu')[0];
+        if (classMobileShow.className.indexOf('pre-mobile-show') !== -1) {
+            classMobileShow.classList.toggle('pre-mobile-hide');
+            classMobileShow.classList.toggle('pre-mobile-show');
+        }
+        let classMobileShowWomen = document.getElementsByClassName('pre-mobile-menu-kids')[0];
+        if (classMobileShowWomen.className.indexOf('pre-mobile-show-kids') == -1) {
+            classMobileShowWomen.classList.toggle('pre-mobile-hide-kids');
+            classMobileShowWomen.classList.toggle('pre-mobile-show-kids');
+        }
+    });
+}
+controller.clickExpandMobileKids = () => {
+    document.getElementById('closeExpandMobileKids').addEventListener('click', () => {
+        let classMobileShowMen = document.getElementsByClassName('pre-mobile-menu-kids')[0];
+        if (classMobileShowMen.className.indexOf('pre-mobile-show-kids') !== -1) {
+            classMobileShowMen.classList.toggle('pre-mobile-hide-kids');
+            classMobileShowMen.classList.toggle('pre-mobile-show-kids');
+        }
+    });
+}
+controller.clickGobackAllKids = () => {
+    document.getElementById('gobackAllKids').addEventListener('click', () => {
+        let classMobileShowMen = document.getElementsByClassName('pre-mobile-menu-kids')[0];
+        if (classMobileShowMen.className.indexOf('pre-mobile-show-kids') !== -1) {
+            classMobileShowMen.classList.toggle('pre-mobile-hide-kids');
+            classMobileShowMen.classList.toggle('pre-mobile-show-kids');
+        }
+        let classMobileShow = document.getElementsByClassName('pre-mobile-menu')[0];
+        if (classMobileShow.className.indexOf('pre-mobile-show') == -1) {
+            classMobileShow.classList.toggle('pre-mobile-hide');
+            classMobileShow.classList.toggle('pre-mobile-show');
+        }
+    });
+}
 function formatCash(str) {
     return str.split('').reverse().reduce((prev, next, index) => {
         return ((index % 3) ? next : (next + ',')) + prev
     })
 }
-export { validateEmail, formatCash };
+export { validateEmail, formatCash, changeclickSearch, changeclickGlassSearch, changecancelBtn, changebreakPoint1, changebreakPoint2, changebreakPoint3, changebreakPoint4 };
 export default controller;
