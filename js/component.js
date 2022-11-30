@@ -3154,9 +3154,9 @@ component.favoritePage = `
     </div>
     <!-- Slide Bar/ Menu -->
     <div class="row flex-men-shoes">
-        <div class="col-lg-12 col-md-12 padding-99">
+        <div class="col-lg-12 col-md-12 padding-0">
             <div class="men-shoes-slide-show-procuct">
-                <div class="men-shoes-box-padding">
+                <div class="men-shoes-box-padding-new">
                     <div class="grid-3-img-new" id="men-shoes-product_items">
 
                     </div>
@@ -3220,7 +3220,7 @@ component.checkoutPage = `
 <header class="pre-1-header top-stack-context">
     <nav class="row format-row">
         <div class="flex-header-menu box-header-menu col-lg-12 col-md-12 col-sm-12 col-12">
-            <div class="pre-1-logo pre10-sm col-lg-1 col-md-1 col-sm-1 col-1">
+            <div class="pre-1-logo pre10-sm col-lg-1 col-md-2 col-sm-3 col-4">
                 <a id="goto-home-page-signin">
                     <img class="pos-logo1" alt="logo"
                         src="//upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Letter_t.svg/42px-Letter_t.svg.png"
@@ -3229,9 +3229,9 @@ component.checkoutPage = `
                         data-file-width="22" data-file-height="60">
                 </a>
             </div>
-            <div class="col-lg-9 col-md-9 col-sm-9 col-9">
+            <div class="col-lg-9 col-md-7 col-sm-5 col-3">
             </div>
-            <div class="pre-cart flex-cart col-lg-2 col-md-2 col-sm-2 col-2">
+            <div class="pre-cart flex-cart col-lg-2 col-md-3 col-sm-4 col-5">
                 <div class="pre-chat col-lg-4 col-md-4 col-sm-4 col-4">
                 </div>
                 <a class="pre-chat col-lg-4 col-md-4 col-sm-4 col-4" id="idChat" title="Chat">
@@ -3271,8 +3271,8 @@ component.checkoutPage = `
 <!-- Start content -->
 <div class="row format-row">
     <div class="checkout-p-d-50 row format-row col-lg-12 col-md-12 col-sm-12 col-12">
-        <div class="col-lg-2 col-md-2 col-sm-2 col-2"></div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+        <div class="col-lg-1 hide-empty-content"></div>
+        <div class="col-lg-5 col-md-6 col-sm-12 col-12">
             <div class="row format-row">
                 <p class="format-text-head-checkout">How would you like to get your order?</p>
             </div>
@@ -3335,7 +3335,7 @@ component.checkoutPage = `
                 </div>
             </form>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+        <div class="col-lg-5 col-md-6 col-sm-12 col-12">
             <div class="row format-row">
                 <p class="format-text-head-checkout">In Your Bag</p>
             </div>
@@ -3359,27 +3359,29 @@ component.checkoutPage = `
                 
             </div>
         </div>
-        <div class="col-lg-2 col-md-2 col-sm-2 col-2">
-        <div class="form-chat pos-form-chat">
-        <div class="row format-row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-12 padding-0">
-                <div class="admin-text">Admin</div>
-            </div>
+        <div class="col-lg-1 hide-empty-content">
         </div>
-        <div class="row format-row new-message" id="messageBox">
+    </div>
+</div>
+<div class="row format-row">
+    <div class="col-lg-4 col-md-6 col-sm-8 col-12 form-chat pos-form-chat padding-0">
+        <div class="flex-box-admin">
+            <div class="admin-text">Admin</div>
+            <button type="button" id="closeChatBtn" aria-label="Close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
         </div>
-        <div class="row format-row">
-            <div class="col-lg-1 col-md-1 col-sm-1 col-1 padding-0">
-            </div>
-            <div class="col-lg-9 col-md-9 col-sm-9 col-9 padding-0 box-reply">
+        <div class="new-message" id="messageBox">
+        </div>
+        <div class="flex-box-reply">
+            <div class="box-reply">
                 <input type="text" class="new-repply" placeholder="Type a new message..." id="inputMessage">
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-2 flex-btn-reply">
+            <div class="flex-btn-reply">
                 <button type="button" id="sendMessage"><i class="fa-solid fa-paper-plane"></i></button>
             </div>
         </div>
-    </div>
-        </div>
+        
     </div>
 </div>
 <!-- End content -->

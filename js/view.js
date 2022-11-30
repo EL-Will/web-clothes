@@ -491,6 +491,10 @@ view.selectWebPage = (namePage) => {
             }
             let moveNavbarIntersectionObs1 = new IntersectionObserver(moveNavbar1);
             moveNavbarIntersectionObs1.observe(positionNvabar1);
+            document.getElementById('closeChatBtn').addEventListener('click',()=>{
+                let value = document.getElementsByClassName('form-chat')[0];
+                value.removeAttribute('style');
+            })
             break;
         case "changePasswordPage":
             document.getElementById('app').innerHTML = component.changePasswordPage;
@@ -1353,7 +1357,7 @@ view.setInforBagToCheckout = (data) => {
             <div class="box-img-bag col-lg-4 col-md-4 col-sm-4 col-4 p-d-l-0">
                 <img src="${data[i].url}" alt="" class="img-fluid">
             </div>
-            <div class="col-lg-7 col-md-7 col-sm-7 col-7">
+            <div class="col-lg-7 col-md-7 col-sm-7 col-7 p-d-l-0">
                 <span class="row format-row format-P1-bag">${data[i].name}</span>
                 <span class="row format-row formatnew-P2-bag">${data[i].gender}</span>
                 <span class="row format-row formatnew-P3-bag">Colour: ${data[i].color}</span>
@@ -1371,7 +1375,7 @@ view.setInforBagToCheckout = (data) => {
                     <sup style="text-decoration: underline;">đ</sup>
                 </div>
             </div>
-            <div class="col-lg-1 col-md-1 col-sm-1 col-1">
+            <div class="col-lg-1 col-md-1 col-sm-1 col-1 p-d-l-0 p-d-r-0">
                 <button class="delete-btn mrt-40-delete">
                     <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px"height="24px" fill="none">
                         <path stroke="currentColor" stroke-miterlimit="10" stroke-width="1.5"

@@ -148,23 +148,31 @@
 /* Chat */
 .form-chat{
     position: absolute;
-    background-color: #e9f5f9;
+    background-color: #f5f5f5;
     z-index: 1000;
     border-radius: 10px 10px 10px 10px;
     width:150%;
     height: 400px;
     right: 0px;
-    top: 20px;
+    top: 225px;
     opacity: 0;
     visibility: hidden;
     transform: translateY(200px);
     transition: opacity .2s,visibility 0s linear .2s,transform .60s ease;
 }
+.flex-box-admin{
+    background-color: rgba(255, 255, 255, 0.329);
+    padding: 0px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+}
 .admin-text{
+    width: 95%;
     text-align: center;
     color:black;
     font-size: 20px;
-    background-color: #65ccf1;
+    /* background-color: #65ccf1; */
     border-radius: 10px 10px 0px 0px;
 }
 .new-message {
@@ -178,6 +186,7 @@
 }
 .box-reply{
     height: 35px;
+    width: 95%;
 }
 .new-repply{
     width: 100%;
@@ -186,11 +195,17 @@
     padding-left: 10px;
 }
 .flex-btn-reply{
-    
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+.flex-box-reply{
+    padding: 0px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    
 }
 .message-body {
     margin: 0 !important;
@@ -249,4 +264,9 @@
     margin: 0 !important;
     font-size: 12px;
     color: #9a9a9a;
+}
+@media (max-width: 991px){
+    .hide-empty-content{
+        display: none;
+    }
 }
