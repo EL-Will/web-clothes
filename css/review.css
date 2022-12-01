@@ -209,3 +209,16 @@
 .center-items{
     align-items: center !important;
 }
+/* Toats */
+
+/*  */
+
+@media(max-width: 567px){
+    .padding-0-567{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .padding-r-0-567{
+        padding-right: 0px;
+    }
+}

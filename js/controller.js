@@ -138,14 +138,10 @@ const changebreakPoint3 = () => breakPoint3 = false;
 const changebreakPoint4 = () => breakPoint4 = false;
 controller.catchClickEvent = () => {
     document.getElementsByClassName("input-search")[0].addEventListener('click', () => {
-        console.log(1);
-        console.log('clickGlassSearch ', clickGlassSearch);
-        console.log('clickSearch ', clickSearch);
         if (clickGlassSearch == false && clickSearch == false) {
             document.getElementsByClassName('show-nvabar')[0].style.display = 'none';
             clickSearch = true;
             clickGlassSearch = false;
-            console.log(clickSearch);
             document.getElementsByClassName('item2')[0].style.display = 'none';
             document.getElementsByClassName('item3')[0].style.display = 'none';
             document.getElementsByClassName('item4')[0].style.display = 'none';
@@ -164,13 +160,8 @@ controller.catchClickEvent = () => {
             let item6 = document.getElementsByClassName('item6')[0];
             item6.classList.toggle('hide-Cancel');
             item6.classList.toggle('show-Cancel');
-
-            console.log('break1 ', breakPoint1);
-            console.log('break4 ', breakPoint4);
-            console.log('click ', clickSearch);
             function myFunction(x1) {
                 if (x1.matches && breakPoint4 == true && clickSearch == true && cancelBtn == false) {
-                    console.log(1);
                     document.getElementsByClassName('item1')[0].style.display = 'none';
                     let item5 = document.getElementsByClassName('item5')[0];
                     item5.classList.add('padding-left-48');
@@ -178,7 +169,6 @@ controller.catchClickEvent = () => {
                 }
                 if (x1.matches && breakPoint1 == false && clickSearch == true && cancelBtn == false) { // If media query matches
                     breakPoint1 = true;
-                    console.log(1);
                     let item5 = document.getElementsByClassName('item5')[0];
                     item5.classList.toggle('col-md-4');
                     item5.classList.toggle('col-md-10');
@@ -201,7 +191,6 @@ controller.catchClickEvent = () => {
                 if (x2.matches && breakPoint2 == false && clickSearch == true && cancelBtn == false) { // If media query matches
                     breakPoint2 = true;
                     let item5 = document.getElementsByClassName('item5')[0];
-                    console.log(2);
                     item5.classList.toggle('col-sm-4');
                     item5.classList.toggle('col-sm-9');
                     let item51 = document.getElementsByClassName('item5-1')[0];
@@ -222,7 +211,6 @@ controller.catchClickEvent = () => {
             function myFunction3(x3) {
                 if (x3.matches && breakPoint3 == false && clickSearch == true && cancelBtn == false) { // If media query matches
                     breakPoint3 = true;
-                    console.log(3);
                     let item5 = document.getElementsByClassName('item5')[0];
                     item5.classList.toggle('col-4');
                     item5.classList.toggle('col-9');
@@ -244,7 +232,6 @@ controller.catchClickEvent = () => {
             function myFunction4(x4) {
                 if (x4.matches && breakPoint1 == true && clickSearch == true && cancelBtn == false) { // If media query matches
                     breakPoint4 = true;
-                    console.log(4);
                     document.getElementsByClassName('item1')[0].removeAttribute('style');
                     let item5 = document.getElementsByClassName('item5')[0];
                     item5.classList.remove('padding-left-48');
@@ -266,13 +253,7 @@ controller.clickGlass = () => {
             clickGlassSearch = true;
             clickSearch = false;
             function myFunctionBtn1(x7) {
-                console.log("(min-width: 768px) and (max-width: 991.98px)");
-                console.log('break1 ', breakPoint1);
-                console.log('break4 ', breakPoint4);
-                console.log('clickGlassSearch ', clickGlassSearch);
-                console.log('cancelBtn ', cancelBtn);
                 if (x7.matches && breakPoint4 == true && clickGlassSearch == true && cancelBtn == false) {
-                    console.log(1);
                     document.getElementsByClassName('item1')[0].style.display = 'none';
                     let item5 = document.getElementsByClassName('item5')[0];
                     item5.classList.add('padding-left-48');
@@ -314,7 +295,6 @@ controller.clickGlass = () => {
             function myFunctionBtn2(x8) {
                 if (x8.matches && breakPoint2 == false && clickGlassSearch == true && cancelBtn == false) { // If media query matches
                     breakPoint2 = true;
-                    console.log("(min-width:576px) and (max-width: 767.98px)");
                     document.getElementsByClassName('item1')[0].style.display = 'none';
                     document.getElementsByClassName('item2')[0].style.display = 'none';
                     let item5 = document.getElementsByClassName('item5')[0];
@@ -351,7 +331,6 @@ controller.clickGlass = () => {
             function myFunctionBtn3(x9) {
                 if (x9.matches && breakPoint3 == false && clickGlassSearch == true && cancelBtn == false) { // If media query matches
                     breakPoint3 = true;
-                    console.log("(max-width:576px)");
                     document.getElementsByClassName('item1')[0].style.display = 'none';
                     document.getElementsByClassName('item2')[0].style.display = 'none';
                     let item5 = document.getElementsByClassName('item5')[0];
@@ -387,7 +366,6 @@ controller.clickGlass = () => {
             function myFunctionBtn4(x10) {
                 if (x10.matches && breakPoint1 == true && clickGlassSearch == true && cancelBtn == false) { // If media query matches
                     breakPoint4 = true;
-                    console.log("(min-width:992px)");
                     document.getElementsByClassName('item2')[0].style.display = 'none';
                     document.getElementsByClassName('item3')[0].style.display = 'none';
                     document.getElementsByClassName('item4')[0].style.display = 'none';
@@ -1270,14 +1248,12 @@ controller.search = async () => {
     keyword.addEventListener('input', async () => {
 
         if (keyword.value !== '') {
-            console.log(keyword.value);
             let newPreSearch = document.getElementsByClassName('new-pre-l-search')[0];
             if (newPreSearch.className.indexOf('hide-product-search') != -1) {
                 newPreSearch.classList.toggle('hide-product-search');
                 newPreSearch.classList.toggle('show-product-search');
             }
             let data = await model.searchShoes(keyword.value);
-            console.log(data);
             await view.showSearch(data);
         }
         else {
@@ -1649,14 +1625,14 @@ controller.clickMoreReview = () => {
                         divData +=
                             `
                         <div class="row format-row padding-top-20">
-                            <div class="col-lg-2 col-md-3 col-sm-4 col-4">
+                            <div class="col-lg-2 col-md-3 col-sm-4 col-5 padding-0-567">
                                 <i class="fa-regular fa-star fill-star"></i>
                                 <i class="fa-regular fa-star"></i>
                                 <i class="fa-regular fa-star"></i>
                                 <i class="fa-regular fa-star"></i>
                                 <i class="fa-regular fa-star"></i>
                             </div>
-                            <div class="col-lg-10 col-md-9 col-sm-8 col-8">
+                            <div class="col-lg-10 col-md-9 col-sm-8 col-7 padding-r-0-567">
                                 <span class="text-user">${data.content[i].username}&ensp;${data.content[i].time}</span>
                                 <br>
                                 <span class="text-content-review">${data.content[i].comment}</span>
@@ -1668,14 +1644,14 @@ controller.clickMoreReview = () => {
                         divData +=
                             `
                         <div class="row format-row padding-top-20">
-                            <div class="col-lg-2 col-md-3 col-sm-4 col-4">
+                            <div class="col-lg-2 col-md-3 col-sm-4 col-5 padding-0-567">
                                 <i class="fa-regular fa-star fill-star"></i>
                                 <i class="fa-regular fa-star"></i>
                                 <i class="fa-regular fa-star"></i>
                                 <i class="fa-regular fa-star"></i>
                                 <i class="fa-regular fa-star"></i>
                             </div>
-                            <div class="col-lg-10 col-md-9 col-sm-8 col-8">
+                            <div class="col-lg-10 col-md-9 col-sm-8 col-7 padding-r-0-567">
                                 <span class="text-user">${data.content[i].username}&ensp;${data.content[i].time}</span>
                                 <br>
                                 <span class="text-content-review">${data.content[i].comment}</span>
@@ -1687,14 +1663,14 @@ controller.clickMoreReview = () => {
                         divData +=
                             `
                         <div class="row format-row padding-top-20">
-                            <div class="col-lg-2 col-md-3 col-sm-4 col-4">
+                            <div class="col-lg-2 col-md-3 col-sm-4 col-5 padding-0-567">
                                 <i class="fa-regular fa-star fill-star"></i>
                                 <i class="fa-regular fa-star"></i>
                                 <i class="fa-regular fa-star"></i>
                                 <i class="fa-regular fa-star"></i>
                                 <i class="fa-regular fa-star"></i>
                             </div>
-                            <div class="col-lg-10 col-md-9 col-sm-8 col-8">
+                            <div class="col-lg-10 col-md-9 col-sm-8 col-7 padding-r-0-567">
                                 <span class="text-user">${data.content[i].username}&ensp;${data.content[i].time}</span>
                                 <br>
                                 <span class="text-content-review">${data.content[i].comment}</span>
@@ -1706,14 +1682,14 @@ controller.clickMoreReview = () => {
                         divData +=
                             `
                         <div class="row format-row padding-top-20">
-                            <div class="col-lg-2 col-md-3 col-sm-4 col-4">
+                            <div class="col-lg-2 col-md-3 col-sm-4 col-5 padding-0-567">
                                 <i class="fa-regular fa-star fill-star"></i>
                                 <i class="fa-regular fa-star"></i>
                                 <i class="fa-regular fa-star"></i>
                                 <i class="fa-regular fa-star"></i>
                                 <i class="fa-regular fa-star"></i>
                             </div>
-                            <div class="col-lg-10 col-md-9 col-sm-8 col-8">
+                            <div class="col-lg-10 col-md-9 col-sm-8 col-7 padding-r-0-567">
                                 <span class="text-user">${data.content[i].username}&ensp;${data.content[i].time}</span>
                                 <br>
                                 <span class="text-content-review">${data.content[i].comment}</span>
@@ -1725,14 +1701,14 @@ controller.clickMoreReview = () => {
                         divData +=
                             `
                         <div class="row format-row padding-top-20">
-                            <div class="col-lg-2 col-md-3 col-sm-4 col-4">
+                            <div class="col-lg-2 col-md-3 col-sm-4 col-5 padding-0-567">
                                 <i class="fa-regular fa-star fill-star"></i>
                                 <i class="fa-regular fa-star"></i>
                                 <i class="fa-regular fa-star"></i>
                                 <i class="fa-regular fa-star"></i>
                                 <i class="fa-regular fa-star"></i>
                             </div>
-                            <div class="col-lg-10 col-md-9 col-sm-8 col-8">
+                            <div class="col-lg-10 col-md-9 col-sm-8 col-7 padding-r-0-567">
                                 <span class="text-user">${data.content[i].username}&ensp;${data.content[i].time}</span>
                                 <br>
                                 <span class="text-content-review">${data.content[i].comment}</span>
@@ -1745,6 +1721,108 @@ controller.clickMoreReview = () => {
             document.getElementById('personReview').innerHTML = divData;
         };
     });
+}
+controller.addToBagFromReviewPage = async () => {
+    let arrPro = await model.readAllProductFromFirestore();
+    let arrProInBag = await model.readBag();
+    let idImgBag = [];
+    for (let i in arrProInBag) {
+        let obj = {
+            id: arrProInBag[i].id,
+            indexcolor: arrProInBag[i].index
+        }
+        idImgBag.push(obj);
+    }
+    let arrProFavourite = await model.readFavourite();
+    let idImgFavourite = [];
+    for (let i in arrProFavourite) {
+        let obj = {
+            id: arrProFavourite[i].id,
+            indexcolor: arrProFavourite[i].index
+        }
+        idImgFavourite.push(obj);
+    }
+    let nameUrl = [];
+    for (let i in arrPro) {
+        nameUrl.push(arrPro[i].url);
+    }
+    document.getElementById('addToBag').addEventListener('click', async () => {
+        if (auth.currentUser.uid != null) {
+            let boolB = true;
+            let thumb = document.getElementById('thumbImg');
+            let sourceImg = document.getElementsByClassName('mainImg')[0].src;
+            let color = 0;
+            if (thumb.className.indexOf('show-thumb-img') != -1) {
+                let arrColor = document.getElementsByClassName('thumb-color');
+                for (let i = 0; i < arrColor.length; i++) {
+                    if (arrColor[i].src == sourceImg) {
+                        color = i;
+                    }
+                }
+            }
+            else {
+                color = 0;
+            }
+            let check = false;
+            let index = nameUrl.indexOf(sourceImg);
+            let idB = arrPro[index].id;
+            for (let i in idImgBag) {
+                if (idB == idImgBag[i].id) {
+                    for (let j in idImgBag[i].indexcolor) {
+                        if (color == idImgBag[i].indexcolor[j]) {
+                            check = true;
+                        }
+                    }
+                }
+            }
+            if (check == false) {
+                await model.setValueBagToFirebase(idB, boolB, color);
+            }
+            else {
+                alert('Sp da co');
+            }
+        }
+    });
+    document.getElementById('addToFavourite').addEventListener('click', async () => {
+        if (auth.currentUser.uid != null) {
+            let boolF = true;
+            let thumb = document.getElementById('thumbImg');
+            let sourceImg = document.getElementsByClassName('mainImg')[0].src;
+            let color = 0;
+            if (thumb.className.indexOf('show-thumb-img') != -1) {
+                let arrColor = document.getElementsByClassName('thumb-color');
+                for (let i = 0; i < arrColor.length; i++) {
+                    if (arrColor[i].src == sourceImg) {
+                        color = i;
+                    }
+                }
+            }
+            else {
+                color = 0;
+            }
+            let check = false;
+            let index = nameUrl.indexOf(sourceImg);
+            let idF = arrPro[index].id;
+            for (let i in idImgFavourite) {
+                if (idF == idImgFavourite[i].id) {
+                    for (let j in idImgFavourite[i].indexcolor) {
+                        if (color == idImgFavourite[i].indexcolor[j]) {
+                            check = true;
+                        }
+                    }
+                }
+            }
+            if (check == false) {
+                await model.setValueFavoriteToFirebase(idF, boolF, color);
+            }
+            else {
+                console.log(1);
+                // document.getElementById('addToFavourite').setAttribute(`data-toggle="modal" data-target="#exampleModalLogout"`);
+            }
+
+        }
+    });
+
 }
 // Mobile
 // Men
@@ -1868,5 +1946,6 @@ function formatCash(str) {
         return ((index % 3) ? next : (next + ',')) + prev
     })
 }
+
 export { validateEmail, formatCash, changeclickSearch, changeclickGlassSearch, changecancelBtn, changebreakPoint1, changebreakPoint2, changebreakPoint3, changebreakPoint4 };
 export default controller;

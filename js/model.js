@@ -386,10 +386,8 @@ model.setValueBagToFirebase = async (idB, boolB, indexcolor) => {
     let accessListBag = db.collection('Bag').doc(keyDoc);
     accessListBag.get().then((doc) => {
         if (doc.exists) {
-            console.log(1);
             let bagRef = [];
             bagRef = doc.data().bag;
-            console.log(bagRef);
             if (bagRef.length != 0) {
                 for (let i in bagRef) {
                     if (idB == bagRef[i].id) {
@@ -2056,7 +2054,48 @@ model.notifyMessageAudio = async () => {
     }
 
 }
-
+model.readAllProductFromFirestore=async()=>{
+    let arr1 =[];
+    let arr2 =[]
+    await db.collection('Image').doc('hightligths').get()
+    .then((doc)=>{
+        arr1 = doc.data().image;
+    })
+    .catch((error)=>{
+        console.log(error.message);
+    });
+    await db.collection('Image').doc('menShoes').get()
+    .then((doc)=>{
+        arr2 = doc.data().image;
+    })
+    .catch((error)=>{
+        console.log(error.message);
+    });
+    let allArr = arr1.concat(arr2);
+    return allArr;
+}
+model.readBag=async()=>{
+    let arr1 =[];
+    await db.collection('Bag').doc(auth.currentUser.uid).get()
+    .then((doc)=>{
+        arr1 = doc.data().bag;
+    })
+    .catch((error)=>{
+        console.log(error.message);
+    });
+    return arr1;
+}
+model.readFavourite=async()=>{
+    let arr1 =[];
+    await db.collection('Favorite').doc(auth.currentUser.uid).get()
+    .then((doc)=>{
+        arr1 = doc.data().favorite;
+    })
+    .catch((error)=>{
+        console.log(error.message);
+    });
+    return arr1;
+}
 // 'images/hightligths/'
 // model.getUrlListImage = async (path) => {
 //     let arrIDimg = [];

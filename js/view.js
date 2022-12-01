@@ -13,7 +13,7 @@ let arrShoeImage = [];
 view.selectWebPage = (namePage) => {
     switch (namePage) {
         case "homePageUnSingIn":
-            document.getElementById('app').innerHTML = component.homePageUnSingin;
+            document.getElementById('app').innerHTML = (component.homePageUnSingin + component.footer);
             //justin-img
             model.getUrlFileImage('images/banners/banner1.webp', 'banner-img');
             model.getUrlFileImage('images/justin/justin.webp', 'justin-img');
@@ -64,7 +64,7 @@ view.selectWebPage = (namePage) => {
             });
             break;
         case "homePageSingIn":
-            document.getElementById('app').innerHTML = component.homePageSingin;
+            document.getElementById('app').innerHTML = (component.homePageSingin + component.footer);
             model.getInforUser();
             model.getUrlFileImage('images/banners/banner1.webp', 'banner-img');
             model.getUrlFileImage('images/justin/justin.webp', 'justin-img');
@@ -125,7 +125,7 @@ view.selectWebPage = (namePage) => {
             controller.logout('gotoLogoutMobile');
             break;
         case "singinPage":
-            document.getElementById('app').innerHTML = component.singinPage;
+            document.getElementById('app').innerHTML = (component.singinPage+ component.footer)
             let singinForm = document.getElementById('form-singin');
             singinForm.addEventListener('submit', (e) => {
                 e.preventDefault();
@@ -190,7 +190,7 @@ view.selectWebPage = (namePage) => {
             });
             break;
         case "singupPage":
-            document.getElementById('app').innerHTML = component.singupPage;
+            document.getElementById('app').innerHTML = (component.singupPage+ component.footer);
             let singupForm = document.getElementById('form-singup');
             singupForm.addEventListener('submit', (e) => {
                 e.preventDefault();
@@ -267,7 +267,7 @@ view.selectWebPage = (namePage) => {
             });
             break;
         case "menShoesSinginPage":
-            document.getElementById('app').innerHTML = component.menShoesSinginPage;
+            document.getElementById('app').innerHTML = (component.menShoesSinginPage+ component.footer);
             model.getInforUser();
             model.getInforImageOfMenshoes('Image', 'menShoes');
             controller.stickyHeadMenShoes();
@@ -326,7 +326,7 @@ view.selectWebPage = (namePage) => {
             controller.logout('gotoLogoutMobile');
             break;
         case "menShoesUnSigninPage":
-            document.getElementById('app').innerHTML = component.menShoesUnSigninPage;
+            document.getElementById('app').innerHTML = (component.menShoesUnSigninPage+ component.footer);
             model.getInforImageOfMenshoes('Image', 'menShoes');
             controller.stickyHeadMenShoes();
             controller.displaySortBy();
@@ -376,7 +376,7 @@ view.selectWebPage = (namePage) => {
             });
             break;
         case "bagPage":
-            document.getElementById('app').innerHTML = component.bagPage;
+            document.getElementById('app').innerHTML = (component.bagPage+ component.footer);
             model.getInforUser();
             model.getCountFromBag('Bag');
             controller.increaseBtn();
@@ -438,7 +438,7 @@ view.selectWebPage = (namePage) => {
             controller.logout('gotoLogoutMobile');
             break;
         case "favoritePage":
-            document.getElementById('app').innerHTML = component.favoritePage;
+            document.getElementById('app').innerHTML = (component.favoritePage+ component.footer);
             model.getInforUser();
             model.getCountFromBag('Bag');
             // model.getInforFavorite('Image', 'menShoes', 'Favorite');
@@ -495,7 +495,7 @@ view.selectWebPage = (namePage) => {
             controller.logout('gotoLogoutMobile');
             break;
         case "checkoutPage":
-            document.getElementById('app').innerHTML = component.checkoutPage;
+            document.getElementById('app').innerHTML = (component.checkoutPage+ component.footer);
             model.getTotalPriceFromBag('Bag');
             controller.clickRemoveFromBag();
             controller.getAddress();
@@ -525,7 +525,6 @@ view.selectWebPage = (namePage) => {
             controller.clickChat('messageBox', 'inputMessage');
             // let positionNvabar1 = document.getElementById('idChat');
             // const moveNavbar1 = (e) => {
-
             //     if (!e[0].isIntersecting) {
             //         if (auth.currentUser.email != 'thienbinh1155@gmail.com') {
             //             let value = document.getElementsByClassName('form-chat')[0];
@@ -542,7 +541,7 @@ view.selectWebPage = (namePage) => {
             model.notifyMessageAudio();
             break;
         case "changePasswordPage":
-            document.getElementById('app').innerHTML = component.changePasswordPage;
+            document.getElementById('app').innerHTML = (component.changePasswordPage+ component.footer);
             model.getInforUser();
             controller.expandAccount();
             controller.closeAccount();
@@ -611,7 +610,7 @@ view.selectWebPage = (namePage) => {
             controller.logout('gotoLogoutMobile');
             break;
         case "profilePage":
-            document.getElementById('app').innerHTML = component.profilePage;
+            document.getElementById('app').innerHTML = (component.profilePage+ component.footer);
             model.getInforUser();
             controller.expandAccount();
             controller.closeAccount();
@@ -662,7 +661,7 @@ view.selectWebPage = (namePage) => {
             
             break;
         case "detailProductPage":
-            document.getElementById('app').innerHTML = component.detailProductPage;
+            document.getElementById('app').innerHTML = (component.detailProductPage+ component.footer);
             model.getInforUser();
             model.getCountFromBag('Bag');
             controller.expandAccount();
@@ -751,6 +750,7 @@ view.selectWebPage = (namePage) => {
             controller.clickGotoKids();
             controller.clickExpandMobileKids();
             controller.clickGobackAllKids();
+            controller.addToBagFromReviewPage();
             controller.logout('logout-btn');
             controller.logout('gotoLogoutMobile');
             break;
@@ -829,8 +829,11 @@ view.setHighLigthImg = (arr) => {
             changebreakPoint2();
             changebreakPoint3();
             changebreakPoint4();
-            view.selectWebPage('detailProductPage');
-            view.setInforToReviewPage(arr[i]);
+            if(auth.currentUser != null){
+                view.selectWebPage('detailProductPage');
+                view.setInforToReviewPage(arr[i]);
+            }
+            
         });
     }
 }
