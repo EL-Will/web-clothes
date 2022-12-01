@@ -2016,7 +2016,7 @@ model.notifyMessageAudio = async()=>{
     let audio = new Audio('../audio/Nhac-chuong-tin-nhan-1-tieng-www_tiengdong_com.mp3');
     if(auth.currentUser.email != 'thienbinh1155@gmail.com'){
         await db.collection('listmessage').doc(auth.currentUser.uid).onSnapshot(doc=>{
-            data = doc.data().message;
+            let data = doc.data().message;
             console.log(data);
             let lastMessage = data[data.length-1];
             if(lastMessage!=data[data.length] && lastMessage.email != auth.currentUser.email){
