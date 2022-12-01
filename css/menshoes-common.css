@@ -353,6 +353,6 @@
     .grid-3-img {
         display: grid;
         column-gap: 15px;
-        grid-template-columns: 100%;
+        grid-template-columns: 48% 48%;
     }
 }

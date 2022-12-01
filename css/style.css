@@ -774,10 +774,10 @@ a{
         column-gap: 15px;
         grid-template-columns: 31.2% 31.2% 31.2%;
     }
-    .content-footer2 {
+    /* .content-footer2 {
         display: flex;
-        justify-content: center;
-    }
+        justify-content: start;
+    } */
 
 }
 @media (max-width:576px) {
@@ -835,10 +835,10 @@ a{
         column-gap: 15px;
         grid-template-columns: 46.8% 46.8%;
     }
-    .content-footer2 {
+    /* .content-footer2 {
         display: flex;
-        justify-content: center;
-    }
+        justify-content: start;
+    } */
 }
 .padding-top-bottom{
     padding-left: 0px;

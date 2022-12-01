@@ -537,3 +537,11 @@ a{
     font-size: 20px;
 }
 /*-------------------------------- End Mobile Menu--------------------------------------- */
+@media(max-width:576px){
+    .format-text2 {
+        color: #111111;
+        font-weight: 500;
+        font-size: 40px !important;
+        line-height: 60px;
+    }
+}
