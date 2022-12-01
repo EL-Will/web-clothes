@@ -523,19 +523,18 @@ view.selectWebPage = (namePage) => {
                 }
             });
             controller.clickChat('messageBox', 'inputMessage');
+            // let positionNvabar1 = document.getElementById('idChat');
+            // const moveNavbar1 = (e) => {
 
-            let positionNvabar1 = document.getElementById('idChat');
-            const moveNavbar1 = (e) => {
-
-                if (!e[0].isIntersecting) {
-                    if (auth.currentUser.email != 'thienbinh1155@gmail.com') {
-                        let value = document.getElementsByClassName('form-chat')[0];
-                        value.removeAttribute('style');
-                    }
-                }
-            }
-            let moveNavbarIntersectionObs1 = new IntersectionObserver(moveNavbar1);
-            moveNavbarIntersectionObs1.observe(positionNvabar1);
+            //     if (!e[0].isIntersecting) {
+            //         if (auth.currentUser.email != 'thienbinh1155@gmail.com') {
+            //             let value = document.getElementsByClassName('form-chat')[0];
+            //             value.removeAttribute('style');
+            //         }
+            //     }
+            // }
+            // let moveNavbarIntersectionObs1 = new IntersectionObserver(moveNavbar1);
+            // moveNavbarIntersectionObs1.observe(positionNvabar1);
             document.getElementById('closeChatBtn').addEventListener('click',()=>{
                 let value = document.getElementsByClassName('form-chat')[0];
                 value.removeAttribute('style');
