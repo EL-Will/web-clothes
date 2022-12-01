@@ -1977,7 +1977,7 @@ model.wirteReview = async (obj) => {
         console.log("Error getting document:", error);
     });
 }
-model.readReview = async(url)=>{
+model.readReview = async (url) => {
     let boolData = false;
     let value = {};
     let accessReview = db.collection('Reviews').doc('DetailReview');
@@ -1996,7 +1996,7 @@ model.readReview = async(url)=>{
                     break;
                 }
             }
-            if(check==false){
+            if (check == false) {
                 value = {
                     check: boolData
                 }
@@ -2012,19 +2012,49 @@ model.readReview = async(url)=>{
     });
     return value;
 }
-model.notifyMessageAudio = async()=>{
+model.notifyMessageAudio = async () => {
     let audio = new Audio("../audio/Nhac-chuong-tin-nhan-1-tieng-www_tiengdong_com.mp3");
-    if(auth.currentUser.email != 'thienbinh1155@gmail.com'){
-        await db.collection('listmessage').doc(auth.currentUser.uid).onSnapshot(doc=>{
+    if (auth.currentUser.email != 'thienbinh1155@gmail.com') {
+        await db.collection('listmessage').doc(auth.currentUser.uid).onSnapshot(doc => {
             let data = doc.data().message;
             console.log(data);
-            let lastMessage = data[data.length-1];
-            if(lastMessage!=data[data.length] && lastMessage.email != auth.currentUser.email){
+            let lastMessage = data[data.length - 1];
+            if (lastMessage != data[data.length] && lastMessage.email != auth.currentUser.email) {
                 audio.play()
             }
         });
     }
-    
+    else {
+        let email = auth.currentUser.email;
+        let currentId = auth.currentUser.uid;
+        try {
+            let arr = [];
+            const docRef = db.collection("listchat");
+            const snapshot = await docRef.get();
+            snapshot.forEach((doc) => {
+                let temporaryObj = JSON.parse(JSON.stringify(doc.data()));
+                let objUser = {
+                    ...temporaryObj,
+                    id: doc.id
+                }
+                arr.push(objUser);
+            });
+            for(let i in arr){
+                await db.collection('listmessage').doc(arr[i].id).onSnapshot(doc => {
+                    let data = doc.data().message;
+                    let lastMessage = data[data.length - 1];
+                    if (lastMessage != data[data.length] && lastMessage.email != 'thienbinh1155@gmail.com') {
+                        audio.play()
+                    }
+                });
+            }
+        }
+        catch (error) {
+            console.log(error.message);
+        }
+
+    }
+
 }
 
 // 'images/hightligths/'

@@ -658,6 +658,7 @@ view.selectWebPage = (namePage) => {
                 });
                 controller.logout('logout-btn');
                 view.setProfileNameCheckout('exampleModalLabel1');
+                model.notifyMessageAudio();
             }
             
             break;
