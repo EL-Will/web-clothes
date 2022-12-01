@@ -1497,14 +1497,14 @@ component.menShoesSinginPage = `
                 <span class="pre-link-label headline-3">Men</span>
             </button>
             <div class="nav-btn pre-link flex-btn"></div>
-            <button class="nav-btn pre-link flex-btn" id="gotoMenShoes">
+            <a class="nav-btn pre-link flex-btn" href="#men-shoes-margin-top">
                 <span class="pre-link-label headline-3">Shoes</span>
                 <svg aria-hidden="true" class="pre-chevron chev-root d-sm-b d-lg-h" focusable="false"
                     viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
                     <path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033">
                     </path>
                 </svg>
-            </button>
+            </a>
             <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoJordanMenShoes">
                 <span class="pre-link-label headline-4">Jordan</span>
             </button>

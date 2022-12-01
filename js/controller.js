@@ -885,25 +885,6 @@ let quickSortDecrease = (arr) => {
 //----------------------------Start Favorite------------------------------//
 
 controller.clickFavorite = () => {
-    // let targetId = document.querySelectorAll('.favorite-btn');
-    // let idFavorite = 0;
-    // let boolF;
-
-    // for (let i = 0; i < targetId.length; i++) {
-    //     targetId[i].addEventListener('click', () => {
-    //         if (firebase.auth().currentUser !== null) {
-    //             idFavorite = arr[i].id;
-    //             boolF = true;
-    //             if (idFavorite != 0) {
-    //                 model.setValueFavoriteToFirebase(idFavorite, boolF);
-    //                 view.clickFavorite(targetId[i]);
-    //             }
-    //         }
-    //         else {
-    //             view.selectWebPage('singinPage');
-    //         }
-    //     })
-    // }
     let idFavorite;
     let indexcolour;
     let boolF;
@@ -1881,6 +1862,7 @@ controller.clickGobackAllKids = () => {
         }
     });
 }
+
 function formatCash(str) {
     return str.split('').reverse().reduce((prev, next, index) => {
         return ((index % 3) ? next : (next + ',')) + prev

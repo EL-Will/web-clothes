@@ -421,6 +421,9 @@ view.selectWebPage = (namePage) => {
             document.getElementById('gotoChangePasswordMobile').addEventListener('click', () => {
                 view.selectWebPage('changePasswordPage');
             });
+            document.getElementById('gotoMenShoes').addEventListener('click',()=>{
+                view.selectWebPage('menShoesSinginPage');
+            });
             view.setProfileNameCheckout('exampleModalLabel1');
             controller.clickGotoMen();
             controller.clickExpandMobileMen();
@@ -474,6 +477,9 @@ view.selectWebPage = (namePage) => {
             });
             document.getElementById('gotoChangePasswordMobile').addEventListener('click', () => {
                 view.selectWebPage('changePasswordPage');
+            });
+            document.getElementById('gotoMenShoes').addEventListener('click',()=>{
+                view.selectWebPage('menShoesSinginPage');
             });
             view.setProfileNameCheckout('exampleModalLabel1');
             controller.clickGotoMen();
@@ -730,6 +736,9 @@ view.selectWebPage = (namePage) => {
             });
             document.getElementById('goto-homepage-singin').addEventListener('click', () => {
                 view.selectWebPage('homePageSingIn');
+            });
+            document.getElementById('gotoMenShoes').addEventListener('click',()=>{
+                view.selectWebPage('menShoesSinginPage');
             });
             view.setProfileNameCheckout('exampleModalLabel1');
             controller.clickMoreReview();
