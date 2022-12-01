@@ -350,9 +350,31 @@
         /* padding-right: 44px;
         padding-left: 51px; */
     }
+    .box-bag .bag-btn{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        margin: 8px;
+        background: rgb(255, 255, 255);
+        z-index: 1;
+    }
+    .box-favorite .favorite-btn{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        margin: 8px;
+        background: rgb(255, 255, 255);
+        z-index: 1;
+    }
     .grid-3-img {
         display: grid;
         column-gap: 15px;
-        grid-template-columns: 48% 48%;
+        grid-template-columns: 48.5% 48.5%;
     }
 }
