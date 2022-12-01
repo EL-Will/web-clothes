@@ -539,7 +539,8 @@ view.selectWebPage = (namePage) => {
             document.getElementById('closeChatBtn').addEventListener('click',()=>{
                 let value = document.getElementsByClassName('form-chat')[0];
                 value.removeAttribute('style');
-            })
+            });
+            model.notifyMessageAudio();
             break;
         case "changePasswordPage":
             document.getElementById('app').innerHTML = component.changePasswordPage;
@@ -656,7 +657,6 @@ view.selectWebPage = (namePage) => {
                     view.selectWebPage('profilePage');
                 });
                 controller.logout('logout-btn');
-                controller.logout('gotoLogoutMobile');
                 view.setProfileNameCheckout('exampleModalLabel1');
             }
             
