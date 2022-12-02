@@ -722,6 +722,12 @@ a{
         display: flex;
         justify-content: flex-end;
     }
+    .padding-right48-new{
+        padding-right: 24px !important;
+    }
+    .padding-left48-new{
+        padding-left: 24px !important;
+    }
 }
 @media (min-width:576px) and (max-width: 767.98px) {
     .show-box-gender {
@@ -774,11 +780,6 @@ a{
         column-gap: 15px;
         grid-template-columns: 31.2% 31.2% 31.2%;
     }
-    /* .content-footer2 {
-        display: flex;
-        justify-content: start;
-    } */
-
 }
 @media (max-width:576px) {
     .show-box-gender {

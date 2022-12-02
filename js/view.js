@@ -349,7 +349,7 @@ view.selectWebPage = (namePage) => {
             document.getElementById('goto-homepage-unsingin').addEventListener('click', () => {
                 view.selectWebPage('homePageUnSingIn');
             });
-            document.getElementById('gotoHomePageSinginHeader').addEventListener('click', () => {
+            document.getElementById('gotoHomePageUnSinginHeader').addEventListener('click', () => {
                 view.selectWebPage('homePageUnSingIn');
             });
             document.getElementById('gotoFavouriteDesktop').addEventListener('click', () => {
@@ -754,6 +754,95 @@ view.selectWebPage = (namePage) => {
             controller.logout('logout-btn');
             controller.logout('gotoLogoutMobile');
             break;
+        case "detailProductPageUnSignin":
+            document.getElementById('app').innerHTML = (component.navUnsignin + component.header1Unsignin + component.detailProductPageUnSignin+ component.footer);
+            controller.functionVisualSearch();
+            controller.clearSearch();
+            controller.catchClickEvent();
+            controller.clickGlass();
+            controller.cancelSearch();
+            controller.functionExpandOption();
+            controller.functionCloseExpand();
+            controller.search();
+            controller.clicReview();
+            controller.clickMoreDetail();
+            controller.clickWriteReview();
+            controller.clickStar();
+            let review2 = document.getElementById('review');
+            review2.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                let paramUrl = document.getElementsByClassName('mainImg')[0].src;
+                let dayKu = new Date();
+                let timeStamp = `${dayKu.getFullYear()}-${dayKu.getMonth() + 1}-${dayKu.getDate()} AT ${dayKu.getHours()}:${dayKu.getMinutes()}`;
+                let countStar = 0;
+                let star = document.getElementsByClassName('class-star');
+                for (let i = 0; i < star.length; i++) {
+                    if (star[i].className.indexOf('fill-star') != -1) {
+                        countStar++;
+                    }
+                }
+                let fname = '';
+                if(auth.currentUser != null){
+                    fname = auth.currentUser.displayName;
+                }
+                let data = {
+                    url: paramUrl,
+                    username: fname,
+                    comment: review2.textReview.value,
+                    countstar: countStar,
+                    time: timeStamp
+                };
+                controller.checkStar(data);
+                review2.textReview.value = '';
+                for (let i = 0; i < star.length; i++) {
+                    if (star[i].className.indexOf('fill-star') != -1) {
+                        star[i].classList.toggle('fill-star');
+                    }
+                }
+            })
+            document.getElementById('sing-up-btn').addEventListener('click', () => {
+                view.selectWebPage('singupPage');
+            });
+            document.getElementById('sing-in-btn').addEventListener('click', () => {
+                view.selectWebPage('singinPage');
+            });
+            document.getElementById("gotoMenDesktop").addEventListener('click', () => {
+                view.selectWebPage('menShoesUnSigninPage');
+                model.getInforUser();
+            });
+            document.getElementById('gotoFavouriteDesktop').addEventListener('click', () => {
+                view.selectWebPage('singinPage');
+            });
+            document.getElementById('gotoBagDesktop').addEventListener('click', () => {
+                view.selectWebPage('singinPage');
+            });
+            document.getElementById('gotoMenShoes').addEventListener('click',()=>{
+                view.selectWebPage('menShoesUnSigninPage');
+            });
+            document.getElementById('gotoSigninMobile').addEventListener('click',()=>{
+                view.selectWebPage('singinPage');
+            });
+            document.getElementById('gotoSignupMobile').addEventListener('click',()=>{
+                view.selectWebPage('singupPage');
+            });
+            document.getElementById('goto-homepage-unsingin').addEventListener('click', () => {
+                view.selectWebPage('homePageUnSingIn');
+            });
+            document.getElementById('gotoHomePageUnSinginHeader').addEventListener('click', () => {
+                view.selectWebPage('homePageUnSingIn');
+            });
+            controller.clickMoreReview();
+            controller.clickGotoMen();
+            controller.clickExpandMobileMen();
+            controller.clickGobackAllMen();
+            controller.clickGotoWomen();
+            controller.clickExpandMobileWomen();
+            controller.clickGobackAllWomen();
+            controller.clickGotoKids();
+            controller.clickExpandMobileKids();
+            controller.clickGobackAllKids();
+            controller.addToBagFromReviewPage();
+            break;
     }
 }
 
@@ -833,6 +922,10 @@ view.setHighLigthImg = (arr) => {
                 view.selectWebPage('detailProductPage');
                 view.setInforToReviewPage(arr[i]);
             }
+            else{
+                view.selectWebPage('detailProductPageUnSignin');
+                view.setInforToReviewPage(arr[i]);
+            }
             
         });
     }
@@ -865,7 +958,10 @@ view.setMenShoesImg = (arr, arrf, arrb) => {
                     <div class="men-shoes-box-img-infor-product">
                     <div class="colour-img">
                         <img src="${arr[i].url}" alt="shoes" class="img-fluid main-img" style="z-index: -1;">
-                        <ul class="box-colour-products hide-thumb"> 
+                        <div class="box-notificaton1">
+                            <span class="content-information1" id="contentInformation1"></span>
+                        </div>
+                        <ul class="box-colour-products hide-thumb margin-top-negative "> 
                         ${divData2}  
                         </ul>
                     </div>
@@ -887,7 +983,7 @@ view.setMenShoesImg = (arr, arrf, arrb) => {
                             </svg>
                         </button>
                     </div>
-                    <div class="men-shoes-box-infor-product">
+                    <div class="men-shoes-box-infor-product new-margin-top-negative">
                         <span>${arr[i].name}</span>
                         <br>
                         <span style="color: rgb(145, 143, 143)">${arr[i].gender}</span>
@@ -903,7 +999,10 @@ view.setMenShoesImg = (arr, arrf, arrb) => {
                     <div class="men-shoes-box-img-infor-product">
                     <div class="colour-img">
                         <img src="${arr[i].url}" alt="shoes" class="img-fluid main-img" style="z-index: -1;">
-                        <ul class="box-colour-products hide-thumb">  
+                        <div class="box-notificaton1">
+                            <span class="content-information1" id="contentInformation1">Add To Bag</span>
+                        </div>
+                        <ul class="box-colour-products hide-thumb margin-top-negative ">  
                         ${divData2} 
                         </ul>
                     </div>
@@ -925,7 +1024,7 @@ view.setMenShoesImg = (arr, arrf, arrb) => {
                             </svg>
                         </button>
                     </div>
-                    <div class="men-shoes-box-infor-product">
+                    <div class="men-shoes-box-infor-product new-margin-top-negative">
                         <span>${arr[i].name}</span>
                         <br>
                         <span style="color: rgb(145, 143, 143)">${arr[i].gender}</span>
@@ -942,7 +1041,10 @@ view.setMenShoesImg = (arr, arrf, arrb) => {
                     <div class="men-shoes-box-img-infor-product">
                     <div class="colour-img">
                         <img src="${arr[i].url}" alt="shoes" class="img-fluid main-img" style="z-index: -1;">
-                        <ul class="box-colour-products hide-thumb">
+                        <div class="box-notificaton1">
+                            <span class="content-information1" id="contentInformation1"></span>
+                        </div>
+                        <ul class="box-colour-products hide-thumb margin-top-negative ">
                         </ul>
                     </div>
                     <div class="box-favorite">
@@ -963,7 +1065,7 @@ view.setMenShoesImg = (arr, arrf, arrb) => {
                             </svg>
                         </button>
                     </div>
-                    <div class="men-shoes-box-infor-product">
+                    <div class="men-shoes-box-infor-product new-margin-top-negative">
                         <span>${arr[i].name}</span>
                         <br>
                         <span style="color: rgb(145, 143, 143)">${arr[i].gender}</span>
@@ -988,7 +1090,10 @@ view.setMenShoesImg = (arr, arrf, arrb) => {
             <div class="men-shoes-box-img-infor-product">
             <div class="colour-img">
                 <img src="${arr[i].url}" alt="shoes" class="img-fluid main-img" style="z-index: -1;">
-                <ul class="box-colour-products hide-thumb">
+                <div class="box-notificaton1">
+                    <span class="content-information1" id="contentInformation1"></span>
+                </div>
+                <ul class="box-colour-products hide-thumb margin-top-negative ">
                 ${divData2}  
                 </ul>
             </div>
@@ -1010,7 +1115,7 @@ view.setMenShoesImg = (arr, arrf, arrb) => {
                     </svg>
                 </button>
             </div>
-            <div class="men-shoes-box-infor-product">
+            <div class="men-shoes-box-infor-product new-margin-top-negative">
                 <span>${arr[i].name}</span>
                 <br>
                 <span style="color: rgb(145, 143, 143)">${arr[i].gender}</span>
@@ -1026,7 +1131,10 @@ view.setMenShoesImg = (arr, arrf, arrb) => {
             <div class="men-shoes-box-img-infor-product">
             <div class="colour-img">
                 <img src="${arr[i].url}" alt="shoes" class="img-fluid main-img" style="z-index: -1;">
-                <ul class="box-colour-products hide-thumb">   
+                <div class="box-notificaton1">
+                    <span class="content-information1" id="contentInformation1"></span>
+                </div>
+                <ul class="box-colour-products hide-thumb margin-top-negative ">   
                 </ul>
             </div>
             <div class="box-favorite">
@@ -1047,7 +1155,7 @@ view.setMenShoesImg = (arr, arrf, arrb) => {
                     </svg>
                 </button>
             </div>
-            <div class="men-shoes-box-infor-product">
+            <div class="men-shoes-box-infor-product new-margin-top-negative">
                 <span>${arr[i].name}</span>
                 <br>
                 <span style="color: rgb(145, 143, 143)">${arr[i].gender}</span>
@@ -1074,7 +1182,10 @@ view.setMenShoesImg = (arr, arrf, arrb) => {
                     <div class="men-shoes-box-img-infor-product">
                     <div class="colour-img">
                         <img src="${arr[i].url}" alt="shoes" class="img-fluid main-img" style="z-index: -1;">
-                        <ul class="box-colour-products  hide-thumb"> 
+                        <div class="box-notificaton1">
+                            <span class="content-information1" id="contentInformation1"></span>
+                        </div>
+                        <ul class="box-colour-products hide-thumb margin-top-negative "> 
                         ${divData2}  
                         </ul>
                     </div>
@@ -1096,7 +1207,7 @@ view.setMenShoesImg = (arr, arrf, arrb) => {
                             </svg>
                         </button>
                     </div>
-                    <div class="men-shoes-box-infor-product">
+                    <div class="men-shoes-box-infor-product new-margin-top-negative">
                         <span>${arr[i].name}</span>
                         <br>
                         <span style="color: rgb(145, 143, 143)">${arr[i].gender}</span>
@@ -1112,7 +1223,10 @@ view.setMenShoesImg = (arr, arrf, arrb) => {
                     <div class="men-shoes-box-img-infor-product">
                     <div class="colour-img">
                         <img src="${arr[i].url}" alt="shoes" class="img-fluid main-img" style="z-index: -1;">
-                        <ul class="box-colour-products  hide-thumb">  
+                        <div class="box-notificaton1">
+                            <span class="content-information1" id="contentInformation1"></span>
+                        </div>
+                        <ul class="box-colour-products hide-thumb margin-top-negative ">  
                         ${divData2} 
                         </ul>
                     </div>
@@ -1134,7 +1248,7 @@ view.setMenShoesImg = (arr, arrf, arrb) => {
                             </svg>
                         </button>
                     </div>
-                    <div class="men-shoes-box-infor-product">
+                    <div class="men-shoes-box-infor-product new-margin-top-negative">
                         <span>${arr[i].name}</span>
                         <br>
                         <span style="color: rgb(145, 143, 143)">${arr[i].gender}</span>
@@ -1151,7 +1265,10 @@ view.setMenShoesImg = (arr, arrf, arrb) => {
                     <div class="men-shoes-box-img-infor-product">
                     <div class="colour-img">
                         <img src="${arr[i].url}" alt="shoes" class="img-fluid main-img" style="z-index: -1;">
-                        <ul class="box-colour-products hide-thumb">
+                        <div class="box-notificaton1">
+                            <span class="content-information1" id="contentInformation1"></span>
+                        </div>
+                        <ul class="box-colour-products hide-thumb margin-top-negative ">
                         </ul>
                     </div>
                     <div class="box-favorite">
@@ -1172,7 +1289,7 @@ view.setMenShoesImg = (arr, arrf, arrb) => {
                             </svg>
                         </button>
                     </div>
-                    <div class="men-shoes-box-infor-product">
+                    <div class="men-shoes-box-infor-product new-margin-top-negative">
                         <span>${arr[i].name}</span>
                         <br>
                         <span style="color: rgb(145, 143, 143)">${arr[i].gender}</span>
@@ -1197,7 +1314,10 @@ view.setMenShoesImg = (arr, arrf, arrb) => {
                     <div class="men-shoes-box-img-infor-product">
                     <div class="colour-img">
                         <img src="${arr[i].url}" alt="shoes" class="img-fluid main-img" style="z-index: -1;">
-                        <ul class="box-colour-products hide-thumb">  
+                        <div class="box-notificaton1">
+                            <span class="content-information1" id="contentInformation1"></span>
+                        </div>
+                        <ul class="box-colour-products hide-thumb margin-top-negative ">  
                         ${divData2} 
                         </ul>
                     </div>
@@ -1219,7 +1339,7 @@ view.setMenShoesImg = (arr, arrf, arrb) => {
                             </svg>
                         </button>
                     </div>
-                    <div class="men-shoes-box-infor-product">
+                    <div class="men-shoes-box-infor-product new-margin-top-negative">
                         <span>${arr[i].name}</span>
                         <br>
                         <span style="color: rgb(145, 143, 143)">${arr[i].gender}</span>
@@ -1236,7 +1356,10 @@ view.setMenShoesImg = (arr, arrf, arrb) => {
                     <div class="men-shoes-box-img-infor-product">
                     <div class="colour-img">
                         <img src="${arr[i].url}" alt="shoes" class="img-fluid main-img" style="z-index: -1;">
-                        <ul class="box-colour-products hide-thumb">
+                        <div class="box-notificaton1">
+                            <span class="content-information1" id="contentInformation1"></span>
+                        </div>
+                        <ul class="box-colour-products hide-thumb margin-top-negative ">
                         </ul>
                     </div>
                     <div class="box-favorite">
@@ -1257,7 +1380,7 @@ view.setMenShoesImg = (arr, arrf, arrb) => {
                             </svg>
                         </button>
                     </div>
-                    <div class="men-shoes-box-infor-product">
+                    <div class="men-shoes-box-infor-product new-margin-top-negative">
                         <span>${arr[i].name}</span>
                         <br>
                         <span style="color: rgb(145, 143, 143)">${arr[i].gender}</span>
@@ -1282,13 +1405,20 @@ view.setMenShoesImg = (arr, arrf, arrb) => {
     var classFavorBtn = document.getElementsByClassName('favorite-btn');
     for (let i = 0; i < classColourImg.length; i++) {
         classColourImg[i].addEventListener('click', () => {
-            view.selectWebPage('detailProductPage');
-            view.setInforToReviewPage(arr[i]);
+            if(auth.currentUser != null){
+                view.selectWebPage('detailProductPage');
+                view.setInforToReviewPage(arr[i]);
+            }
+            else{
+                view.selectWebPage('detailProductPageUnSignin');
+                view.setInforToReviewPage(arr[i]);
+            }
         });
         classColourImg[i].addEventListener('mouseover', () => {
             if (arr[i].hasOwnProperty('thumburl')) {
                 classThumb[i].classList.remove('hide-thumb');
                 var classThumbColour = classThumb[i].children;
+                document.getElementsByClassName('new-margin-top-negative')[i].style.marginTop = '0px';
                 for (let z = 0; z < classThumbColour.length; z++) {
                     classThumbColour[z].addEventListener('mouseover', async () => {
                         await model.readDataBagFavoriteImage(arr, i, z, classBagBtn, classMainImg, classThumbColour, classFavorBtn)
@@ -1297,6 +1427,7 @@ view.setMenShoesImg = (arr, arrf, arrb) => {
             }
         });
         classColourImg[i].addEventListener('mouseleave', () => {
+            document.getElementsByClassName('new-margin-top-negative')[i].removeAttribute('style');
             classThumb[i].classList.add('hide-thumb');
         });
     }
@@ -1509,8 +1640,14 @@ view.showSearch = async (data) => {
             changebreakPoint2();
             changebreakPoint3();
             changebreakPoint4();
-            view.selectWebPage('detailProductPage');
-            view.setInforToReviewPage(data[i]);
+            if(auth.currentUser != null){
+                view.selectWebPage('detailProductPage');
+                view.setInforToReviewPage(data[i]);
+            }
+            else{
+                view.selectWebPage('detailProductPageUnSignin');
+                view.setInforToReviewPage(data[i]);
+            }
         });
     }
 }

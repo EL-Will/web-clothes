@@ -1586,7 +1586,7 @@ component.menShoesUnSigninPage = `
 <header>
 <div class="row format-row padding-top-10 padding-bottom-10 flex-header-1">
     <div class="col-lg-1 col-md-2 col-sm-3 col-3 padding-0 padding-left-48 item1">
-        <a id="gotoHomePageSinginHeader">
+        <a id="gotoHomePageUnSinginHeader">
             <img alt="logo"
                 src="//upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Letter_t.svg/42px-Letter_t.svg.png"
                 decoding="async" width="22" height="60"
@@ -3974,10 +3974,13 @@ component.detailProductPage = `
 <div class="pre-header2 pre-header2-shadow">
 </div>
 <div class="row format-row padding-top-20">
-        <div class="col-lg-4 col-md-4 col-sm-6 col-12 padding-0 padding-left-48 padding-right-new padding-left-new">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12 padding-0 padding-left-48 padding-left48-new padding-right48-new padding-right-new padding-left-new">
             <img src="" alt="" class="resize-image mainImg">
+            <div class="box-notificaton">
+                <span class="content-information" id="contentInformation">Add To Bag</span>
+            </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-6 col-12 padding-0 padding-left-12 padding-right48-new padding-right-new padding-left-new padding-top-new">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12 padding-0 padding-left-12 padding-left48-new padding-right48-new padding-right-new padding-left-new padding-top-new margin-top-80">
             <div class="inforBag">
                 <span class="text-name nameproduct">Name</span>
                 <br>
@@ -4057,10 +4060,193 @@ component.detailProductPage = `
 
         </div>
         <div
-            class="col-lg-4 col-md-4 col-sm-12 col-12 padding-left-8 padding-left-12 padding-left48-new padding-right-48 padding-right-new padding-left-new padding-top-new">
+            class="col-lg-4 col-md-12 col-sm-12 col-12 padding-left-8 padding-left-12 padding-left48-new padding-right48-new padding-right-48 padding-right-new padding-left-new padding-top-new">
             <p class="text-review">Review</p>
             <div class="row format-row padding-0 box-detail-review" id="detailReview">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-6 padding-0 text-name" id="countReview">Review(16)</div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-6 padding-0 text-name" id="countReview"></div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-6 padding-0 flex-star">
+                    <div id="displayStar">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="padding-top-20 hide-rating star-rating">
+                <div id="displayDetailStar">
+                    
+                </div>
+            </div>
+            <div class="row format-row padding-0 padding-top-20 hide-rating star-rating" id="writeReview">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12 padding-0 box-write-review">
+                    <span class="text-name">Write Review</span>
+                </div>
+            </div>
+            <div class="padding-top-20 hide-star-rating click-star">
+                <div>
+                    <span class="padding-right-12">Overall Rating</span>
+                    <i class="fa-regular fa-star class-star" id="star1"></i>
+                    <i class="fa-regular fa-star class-star" id="star2"></i>
+                    <i class="fa-regular fa-star class-star" id="star3"></i>
+                    <i class="fa-regular fa-star class-star" id="star4"></i>
+                    <i class="fa-regular fa-star class-star" id="star5"></i>
+                    <span class="padding-left-12" id="personalRating"></span>
+                </div>
+            </div>
+            <div class="hide-error error-star">
+                <span id="errorStar"></span>
+            </div>
+            <form id="review">
+            <div class="padding-top-20 hide-input-comment input-comment">
+                <textarea rows="10" cols="100%" class="input-review" name="textReview" id="inputReview" placeholder="Type a comment..."></textarea>
+            </div>
+            <div>
+                <span id="errorComment"></span>
+            </div>
+            <div class="padding-top-20 hide-submit-comment submit-comment">
+                <button class="submit-review" id="submitReview">Submit</button>
+            </div>
+            </form>
+            <div class="review" id="idReview">
+            
+            </div>
+            <div class="row format-row padding-0 padding-top-20 hide-rating more-review" id="moreReviews">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12 padding-0 box-write-review">
+                    <button class="text-name" data-toggle="modal" data-target="#exampleModal2">More Reviews</button>
+                </div>
+                <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog new-modal-dialog" role="document">
+                        <div class="modal-content new-modal-content">
+                            <div class="modal-header center-items">
+                                <div class="modal-title col-lg-1 col-md-2 col-sm-2 col-3" id="exampleModalLabel2">
+                                    <img src="" alt="" class="resize-image smallImgMoreRivew">
+                                </div>
+                                <div class="modal-title col-lg-10 col-md-8 col-sm-8 col-7" id="displayRating">
+                                    
+                                </div>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body new-modal-body padding-top-20" id="personReview">
+                               
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-dark" id="quiteCheckout"
+                                    data-dismiss="modal">OK</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row format-row padding-0 padding-top-20 hide-rating star-rating bottom-line">
+            </div>
+        </div>
+    </div>
+    <div class="line-space"></div>
+   
+`
+component.detailProductPageUnSignin = `
+  <div class="row format-row new-pre-l-search hide-product-search" id="productSearch">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12 padding-0">
+        <div class="grid-6-img" id="shoesSearch">
+        
+        </div>
+    </div>
+  </div>
+<div class="pre-header2 pre-header2-shadow">
+</div>
+<div class="row format-row padding-top-20">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12 padding-0 padding-left-48 padding-left48-new padding-right48-new padding-right-new padding-left-new">
+            <img src="" alt="" class="resize-image mainImg">
+            <div class="box-notificaton">
+                <span class="content-information" id="contentInformation">Add To Bag</span>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12 padding-0 padding-left-12 padding-left48-new padding-right48-new padding-right-new padding-left-new padding-top-new margin-top-80">
+            <div class="inforBag">
+                <span class="text-name nameproduct">Name</span>
+                <br>
+                <span class="text-gender gender">Gender</span>
+                <br>
+                <span class="text-color color">Color</span>
+                <br>
+                <span class="text-price price">Price<sup style="text-decoration: underline;">đ</sup></span>
+                <p class="text-inform padding-top-10">Open the box and transport yourself. Inspired by bringing elements of the outdoors inside and vice versa, this rendition of the hoops original celebrates those things we can't do without. Swoosh characters on the tongue and a sleek finish put a fresh spin on what you know best: era-echoing, '80s construction, bold details and nothin'-but-net style.</p>
+            </div>
+            <div class="box-thumb-img hide-thumb-img" id="thumbImg">
+            
+            </div>
+            <div class="box-view-product-detail">
+                <button id="viewProductDetail" class="view-product-detail-btn" data-toggle="modal"
+                    data-target="#exampleModal">
+                    <span class="text-name">View Product Detail</span>
+                </button>
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog new-modal-dialog" role="document">
+                        <div class="modal-content new-modal-content">
+                            <div class="modal-header">
+                                <div class="modal-title col-lg-1 col-md-2 col-sm-3 col-3" id="exampleModalLabel">
+                                    <img src="" alt="" class="resize-image smallImg">
+                                </div>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body new-modal-body padding-top-20">
+                                <p>From hoops staple to urban street legend, the Nike AF-1 React takes another
+                                    step forward into shoe iconography. Amplified features from the outsole to the
+                                    branding add dramatic expression to the storied look while Nike React tech assists
+                                    with a smooth ride. Stand out to fit in.
+                                </p>
+                                <p class="padding-top-20">
+                                    Benefits
+                                </p>
+                                <ul class="benefits">
+                                    <li>Nike React technology is a lightweight, durable foam that delivers a smooth,
+                                        responsive ride.</li>
+                                    <li>Originally designed for performance hoops, Nike Air unit in the heel provides
+                                        lightweight cushioning.</li>
+                                    <li>Crisp leather ages to soft perfection, while translucent textile keeps it airy
+                                        and light.</li>
+                                    <li>Iconic lines on the upper have been amplified for a dramatic look.</li>
+                                    <li>Rubber outsole with translucent accents adds traction and durability.</li>
+                                    <li>Colour Shown: Sail/Barely Volt/Ghost Green/Black</li>
+                                    <li>Style: DM0573-101</li>
+                                    <li>Country/Region of Origin: Vietnam</li>
+                                </ul>
+                                <p class="padding-top-20">Air Force 1</p>
+                                <p>Debuting in 1982 as a basketball must-have, the Air Force 1 came into
+                                    its own in the '90s. The clean look of the classic white-on-white AF-1
+                                    was endorsed from the basketball courts to the street and beyond. Finding
+                                    its rhythm in hip-hop culture, releasing limited collabs and colourways,
+                                    Air Force 1 became an iconic sneaker around the globe. And with over 2,000
+                                    iterations of this staple, its impact on fashion, music and sneaker culture
+                                    can't be denied.
+                                </p>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-dark" id="quiteCheckout"
+                                    data-dismiss="modal">OK</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="add-to-bag" id="addToBag">Add to Bag</button>
+            <div class="padding-top-20">
+                <button class="add-to-favourites" id="addToFavourite">Add to Favourites</button>
+            </div>
+
+        </div>
+        <div
+            class="col-lg-4 col-md-12 col-sm-12 col-12 padding-left-8 padding-left-12 padding-left48-new padding-right48-new padding-right-48 padding-right-new padding-left-new padding-top-new">
+            <p class="text-review">Review</p>
+            <div class="row format-row padding-0 box-detail-review" id="detailReview">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-6 padding-0 text-name" id="countReview"></div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-6 padding-0 flex-star">
                     <div id="displayStar">
                         
@@ -4219,5 +4405,348 @@ component.footer =`
         </div>
     </footer>
 `
-
+component.navUnsignin = `
+<nav class="row format-row nvabar-frame z3 show-nvabar hidden-nvabar">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-4 padding-0">
+            <div class="row format-row padding-left-48">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-2 padding-0">
+                    <a id="goto-homepage-unsingin" class="logo-nvabar z3">
+                        <svg height="24px" width="24px" fill="#111" viewBox="0 0 26 32">
+                            <path
+                                d="M14.4 5.52v-.08q0-.56.36-1t.92-.44 1 .36.48.96-.36 1-.96.4l-.24.08.08.12-.08.44-.16 1.28q.08.08.08.16l-.16.8q-.08.16-.16.24l-.08.32q-.16.64-.28 1.04t-.2.64V12q-.08.4-.12.64t-.28.8q-.16.32 0 1.04l.08.08q0 .24.2.56t.2.56q.08 1.6-.24 2.72l.16.48q.96.48.56 1.04l.4.16q.96.48 1.36.84t.8.76q.32.08.48.24l.24.08q1.68 1.12 3.36 2.72l.32.24v.08l-.08.16.24.16h.08q.24.16.32.16h.08q.08 0 .16-.08l.16-.08q.16-.16.32-.24h.32q.08 0 0 .08l-.32.16-.4.48h.56l.56.08q.24-.08.4-.16l.4-.24q.24-.08.48.16h.08q.08.08-.08.24l-.96.88q-.4.32-.72.4l-1.04.72q-.08.08-.16 0l-.24-.32-.16-.32-.2-.28-.24-.32-.2-.24-.16-.2-.32-.24q-.16 0-.32-.08l-1.04-.8q-.24 0-.56-.24-1.2-1.04-1.6-1.28l-.48-.32-.96-.16q-.48-.08-1.28-.48l-.64-.32q-.64-.32-.88-.32l-.32-.16q-.32-.08-.48-.16l-.16-.16q-.16 0-.32.08l-1.6.8-2 .88q-.8.64-1.52 1.04l-.88.4-1.36.96q-.16.16-.32 0l-.16.16q-.24.08-.32.08l-.32.16v.16h-.16l-.16.24q-.16.32-.32.36t-.2.12-.08.12l-.16.16-.24.16-.36-.04-.48.08-.32.08q-.4.08-.64-.12t-.4-.6q-.16-.24.16-.4l.08-.08q.08-.08.24-.08h.48L1.6 26l.32-.08q0-.16.08-.24.08-.08.24-.08v-.08q-.08-.16-.08-.32-.08-.16-.04-.24t.08-.08h.04l.08.24q.08.4.24.24l.08-.16q.08-.16.24-.16l.16.16.16-.16-.08-.08q0-.08.08-.08l.32-.32q.4-.48.96-.88 1.12-.88 2.4-1.36.4-.4.88-.4.32-.56.96-1.2.56-.4.8-.56.16-.32.4-.32H10l.16-.16q.16-.08.24-.16v-.4q0-.4.08-.64t.4-.24l.32-.32q-.16-.32-.16-.72h-.08q-.16-.24-.16-.48-.24-.4-.32-.64h-.24q-.08.24-.4.32l-.08.16q-.32.56-.56.84t-.88.68q-.4.4-.56.88-.08.24 0 .48l-.08.16h.08q0 .16.08.16h.08q.16.08.16.2t-.24.08-.36-.16-.2-.12l-.24.24q-.16.24-.32.2t-.08-.12l.08-.08q.08-.16 0-.16l-.64.16q-.08.08-.2 0t.04-.16l.4-.16q0-.08-.08-.08-.32.16-.64.08l-.4-.08-.08-.08q0-.08.08-.08.32.08.8-.08l.56-.24.64-.72.08-.16q.32-.64.68-1.16t.76-.84l.08-.32q.16-.32.32-.56t.4-.64l.24-.32q.32-.48.72-.48l.24-.24q.08-.08.08-.24l.16-.16-.08-.08q-.48-.4-.48-.72-.08-.56.36-.96t.88-.36.68.28l.16.16q.08 0 .08.08l.32.16v.24q.16.16.16.24.16-.24.48-.56l.4-1.28q0-.32.16-.64l.16-.24v-.16l.24-.96h.16l.24-.96q.08-.24 0-.56l-.32-.8z">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-4 padding-0">
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-4 padding-0 flex-box-signin-signup">
+            <div class="row format-row padding-right-48">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-2 padding-0">
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-10 col-10 padding-0">
+                    <div class="row format-row nav1-hover-account">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-4 padding-0 nav1-text-account"></div>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-8 padding-0 nav1-text-account">
+                          <a id="sing-up-btn" class="pre-singup-item body-singup mr-singup ml-singup">
+                          <span id="id-singup">Sign Up</span>
+                          </a>
+                          <span class="line-body">|</span>
+                          <a class="nva-btn mr-singin ml-singin" id="sing-in-btn">
+                          <span id="title-singin-member">Sign In</span>
+                          </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+</nav>
+`
+component.header1Unsignin =`
+<header>
+        <div class="row format-row padding-top-10 padding-bottom-10 flex-header-1">
+            <div class="col-lg-1 col-md-2 col-sm-3 col-3 padding-0 padding-left-48 item1">
+                <a id="gotoHomePageUnSinginHeader">
+                    <img alt="logo"
+                        src="//upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Letter_t.svg/42px-Letter_t.svg.png"
+                        decoding="async" width="22" height="60"
+                        srcset="//upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Letter_t.svg/63px-Letter_t.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Letter_t.svg/84px-Letter_t.svg.png 2x"
+                        data-file-width="22" data-file-height="60">
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-5 col-4 padding-0 empty-header1 item2"></div>
+            <div class="col-lg-2 col-md-3 col-sm-2 col-2 padding-0 show-box-gender item3">
+                <div class="row format-row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-4 format-text-header1 box-men">
+                        <a id="gotoMenDesktop">Men</a>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-4 format-text-header1 box-women">
+                        <a id="gotoWomenDesktop">Women</a>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-4 format-text-header1 box-kids">
+                        <a id="gotoKidsDesktop">Kids</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-1 col-md-1 col-sm-1 col-1 padding-0 empty-header2 item4"></div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-5 padding-0 item5">
+                <div class="row format-row padding-right-48 item5All">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-6 padding-0 box-input-search item5-1">
+                        <input placeholder="Search" type="text" id="inputSearch"
+                            class="pre-search-input show-input-search input-search">
+                        <button class="pre-clear-search pre-clear-search-hide" id="btnClear">
+                            <svg aria-hidden="true" class="pre-nav-design-icon" focusable="false" viewBox="0 0 24 24"
+                                role="img" width="24px" height="24px" fill="none">
+                                <path stroke="currentColor" stroke-width="1.5"
+                                    d="M18.973 5.027L5.028 18.972M5.027 5.027l13.945 13.945">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="col-lg-6 col-md-3 col-sm-5 col-4 padding-0 empty-header3 item5-2"></div>
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-4 padding-0 flex-header-start item5-3">
+                        <button class="pre-search-btn pre-search-hover" id="btnSearch">
+                            <svg aria-hidden="true" class="pre-nav-design-icon" focusable="false" viewBox="0 0 24 24"
+                                role="img" width="24px" height="24px" fill="none">
+                                <path stroke="currentColor" stroke-width="1.5"
+                                    d="M13.962 16.296a6.716 6.716 0 01-3.462.954 6.728 6.728 0 01-4.773-1.977A6.728 6.728 0 013.75 10.5c0-1.864.755-3.551 1.977-4.773A6.728 6.728 0 0110.5 3.75c1.864 0 3.551.755 4.773 1.977A6.728 6.728 0 0117.25 10.5a6.726 6.726 0 01-.921 3.407c-.517.882-.434 1.988.289 2.711l3.853 3.853">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-4 padding-0 flex-header-3 hide-favorite-btn item5-4">
+                        <a id="gotoFavouriteDesktop" title="Favourites" class="pre-favorite">
+                            <svg aria-hidden="true" class="pre-nav-design-icon" focusable="false" viewBox="0 0 24 24"
+                                role="img" width="24px" height="24px" fill="none">
+                                <path stroke="currentColor" stroke-width="1.5"
+                                    d="M16.794 3.75c1.324 0 2.568.516 3.504 1.451a4.96 4.96 0 010 7.008L12 20.508l-8.299-8.299a4.96 4.96 0 010-7.007A4.923 4.923 0 017.205 3.75c1.324 0 2.568.516 3.504 1.451l.76.76.531.531.53-.531.76-.76a4.926 4.926 0 013.504-1.451">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-4 padding-0 flex-header-3 hide-menu-btn item5-6">
+                        <button class="pre-expand-option pre-expand-option-hover" title="Mobile Menu" id="expandOption">
+                            <svg aria-hidden="true" class="pre-nav-design-icon" focusable="false" viewBox="0 0 24 24"
+                                role="img" width="24px" height="24px" fill="none">
+                                <path stroke="currentColor" stroke-width="1.5" d="M21 5.25H3M21 12H3m18 6.75H3"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-4 padding-0 flex-header-4 item5-5">
+                        <button class="pre-bag-btn pre-bag-hover" id="gotoBagDesktop" title="Bag Items">
+                            <svg aria-hidden="true" class="pre-nav-design-icon" focusable="false" viewBox="0 0 24 24"
+                                role="img" width="24px" height="24px" fill="none">
+                                <path stroke="currentColor" stroke-width="1.5"
+                                    d="M8.25 8.25V6a2.25 2.25 0 012.25-2.25h3a2.25 2.25 0 110 4.5H3.75v8.25a3.75 3.75 0 003.75 3.75h9a3.75 3.75 0 003.75-3.75V8.25H17.5">
+                                </path>
+                            </svg>
+                            <span class="format-content-bag" id="countTotal"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-1 col-md-1 col-sm-1 col-1 padding-right-48 end-text-cancel hide-Cancel item6">
+                <button type="submit" class="pre-cancel-btn" id="cancelBtn">
+                    Cancel
+                </button>
+            </div>
+            <div class="pre-mobile-menu pre-mobile-hide z10">
+                <div class="pre-panel pre-panel-root">
+                    <button class="pre-btn-mobile-menu close-nav-btn pre-btn-icon ripple" id="close-expand-mobile">
+                        <svg aria-hidden="true" class="pre-close-icon" focusable="false" viewBox="0 0 24 24" role="img"
+                            width="18px" height="18px" fill="none">
+                            <path stroke="currentColor" stroke-width="1.5"
+                                d="M18.973 5.027L5.028 18.972M5.027 5.027l13.945 13.945">
+                            </path>
+                        </svg>
+                    </button>
+                    <button class="nav-btn pre-link flex-btn" id="gotoMen">
+                        <span class="pre-link-label headline-3">Men</span>
+                        <svg aria-hidden="true" class="pre-chevron chev-root pre-chevron-next d-sm-b d-lg-h"
+                            focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
+                            <path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033">
+                            </path>
+                        </svg>
+                    </button>
+                    <button class="nav-btn pre-link flex-btn" id="gotoWomen">
+                        <span class="pre-link-label headline-3">Women</span>
+                        <svg aria-hidden="true" class="pre-chevron chev-root pre-chevron-next d-sm-b d-lg-h"
+                            focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
+                            <path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033">
+                            </path>
+                        </svg>
+                    </button>
+                    <button class="nav-btn pre-link flex-btn" id="gotoKids">
+                        <span class="pre-link-label headline-3">Kids</span>
+                        <svg aria-hidden="true" class="pre-chevron chev-root pre-chevron-next d-sm-b d-lg-h"
+                            focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
+                            <path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033">
+                            </path>
+                        </svg>
+                    </button>
+                    <button class="nav-btn pre-link flex-btn" id="gotoSigninMobile">
+                        <span class="pre-link-label headline-4">Sign In</span>
+                    </button>
+                    <button class="nav-btn pre-link flex-btn" id="gotoSignupMobile">
+                        <span class="pre-link-label headline-4">Sign Up</span>
+                    </button>
+                </div>
+            </div>
+            <div class="pre-mobile-menu-men pre-mobile-hide-men z10">
+                <div class="pre-panel pre-panel-root">
+                    <button class="pre-btn-mobile-menu close-nav-btn pre-btn-icon ripple" id="closeExpandMobileMen">
+                        <svg aria-hidden="true" class="pre-close-icon" focusable="false" viewBox="0 0 24 24" role="img"
+                            width="18px" height="18px" fill="none">
+                            <path stroke="currentColor" stroke-width="1.5"
+                                d="M18.973 5.027L5.028 18.972M5.027 5.027l13.945 13.945">
+                            </path>
+                        </svg>
+                    </button>
+                    <button class="nav-btn pre-link flex-btn" id="gobackAllMen">
+                        <svg aria-hidden="true" class="pre-chevron chev-root d-sm-b" focusable="false"
+                            viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
+                            <path stroke="currentColor" stroke-width="1.5" d="M15.525 18.966L8.558 12l6.967-6.967">
+                            </path>
+                        </svg>
+                        <span class="pre-link-label headline-3 padding-left-12">All</span>
+                    </button>
+                    <button class="nav-btn pre-link flex-btn">
+                        <span class="pre-link-label headline-3">Men</span>
+                    </button>
+                    <div class="nav-btn pre-link flex-btn"></div>
+                    <button class="nav-btn pre-link flex-btn" id="gotoMenShoes">
+                        <span class="pre-link-label headline-3">Shoes</span>
+                        <svg aria-hidden="true" class="pre-chevron chev-root d-sm-b d-lg-h" focusable="false"
+                            viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
+                            <path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033">
+                            </path>
+                        </svg>
+                    </button>
+                    <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoJordanMenShoes">
+                        <span class="pre-link-label headline-4">Jordan</span>
+                    </button>
+                    <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoRunningMenShoes">
+                        <span class="pre-link-label headline-4">Running</span>
+                    </button>
+                    <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoFootballMenShoes">
+                        <span class="pre-link-label headline-4">Football</span>
+                    </button>
+                    <button class="nav-btn pre-link flex-btn" id="gotoMenClothing">
+                        <span class="pre-link-label headline-3">Clothing</span>
+                        <svg aria-hidden="true" class="pre-chevron chev-root pre-chevron-next d-sm-b d-lg-h"
+                            focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
+                            <path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033">
+                            </path>
+                        </svg>
+                    </button>
+                    <button class="nav-btn pre-link flex-btn" id="gotoMenGear">
+                        <span class="pre-link-label headline-3">Grear</span>
+                        <svg aria-hidden="true" class="pre-chevron chev-root pre-chevron-next d-sm-b d-lg-h"
+                            focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
+                            <path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="pre-mobile-menu-women pre-mobile-hide-women z10">
+                <div class="pre-panel pre-panel-root">
+                    <button class="pre-btn-mobile-menu close-nav-btn pre-btn-icon ripple" id="closeExpandMobileWomen">
+                        <svg aria-hidden="true" class="pre-close-icon" focusable="false" viewBox="0 0 24 24" role="img"
+                            width="18px" height="18px" fill="none">
+                            <path stroke="currentColor" stroke-width="1.5"
+                                d="M18.973 5.027L5.028 18.972M5.027 5.027l13.945 13.945">
+                            </path>
+                        </svg>
+                    </button>
+                    <button class="nav-btn pre-link flex-btn" id="gobackAllWomen">
+                        <svg aria-hidden="true" class="pre-chevron chev-root d-sm-b" focusable="false"
+                            viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
+                            <path stroke="currentColor" stroke-width="1.5" d="M15.525 18.966L8.558 12l6.967-6.967">
+                            </path>
+                        </svg>
+                        <span class="pre-link-label headline-3 padding-left-12">All</span>
+                    </button>
+                    <button class="nav-btn pre-link flex-btn">
+                        <span class="pre-link-label headline-3">Women</span>
+                    </button>
+                    <div class="nav-btn pre-link flex-btn"></div>
+                    <button class="nav-btn pre-link flex-btn" id="gotoWomenShoes">
+                        <span class="pre-link-label headline-3">Shoes</span>
+                        <svg aria-hidden="true" class="pre-chevron chev-root d-sm-b d-lg-h" focusable="false"
+                            viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
+                            <path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033">
+                            </path>
+                        </svg>
+                    </button>
+                    <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoJordanWomenShoes">
+                        <span class="pre-link-label headline-4">Jordan</span>
+                    </button>
+                    <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoRunningWomenShoes">
+                        <span class="pre-link-label headline-4">Running</span>
+                    </button>
+                    <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoFootballWomenShoes">
+                        <span class="pre-link-label headline-4">Football</span>
+                    </button>
+                    <button class="nav-btn pre-link flex-btn" id="gotoWomenClothing">
+                        <span class="pre-link-label headline-3">Clothing</span>
+                        <svg aria-hidden="true" class="pre-chevron chev-root pre-chevron-next d-sm-b d-lg-h"
+                            focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
+                            <path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033">
+                            </path>
+                        </svg>
+                    </button>
+                    <button class="nav-btn pre-link flex-btn" id="gotoWomenGear">
+                        <span class="pre-link-label headline-3">Grear</span>
+                        <svg aria-hidden="true" class="pre-chevron chev-root pre-chevron-next d-sm-b d-lg-h"
+                            focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
+                            <path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="pre-mobile-menu-kids pre-mobile-hide-kids z10">
+                <div class="pre-panel pre-panel-root">
+                    <button class="pre-btn-mobile-menu close-nav-btn pre-btn-icon ripple" id="closeExpandMobileKids">
+                        <svg aria-hidden="true" class="pre-close-icon" focusable="false" viewBox="0 0 24 24" role="img"
+                            width="18px" height="18px" fill="none">
+                            <path stroke="currentColor" stroke-width="1.5"
+                                d="M18.973 5.027L5.028 18.972M5.027 5.027l13.945 13.945">
+                            </path>
+                        </svg>
+                    </button>
+                    <button class="nav-btn pre-link flex-btn" id="gobackAllKids">
+                        <svg aria-hidden="true" class="pre-chevron chev-root d-sm-b" focusable="false"
+                            viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
+                            <path stroke="currentColor" stroke-width="1.5" d="M15.525 18.966L8.558 12l6.967-6.967">
+                            </path>
+                        </svg>
+                        <span class="pre-link-label headline-3 padding-left-12">All</span>
+                    </button>
+                    <button class="nav-btn pre-link flex-btn">
+                        <span class="pre-link-label headline-3">Kids</span>
+                    </button>
+                    <div class="nav-btn pre-link flex-btn"></div>
+                    <button class="nav-btn pre-link flex-btn" id="gotoKidsShoes">
+                        <span class="pre-link-label headline-3">Shoes</span>
+                        <svg aria-hidden="true" class="pre-chevron chev-root d-sm-b d-lg-h" focusable="false"
+                            viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
+                            <path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033">
+                            </path>
+                        </svg>
+                    </button>
+                    <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoJordanKidsShoes">
+                        <span class="pre-link-label headline-4">Jordan</span>
+                    </button>
+                    <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoRunningKidsShoes">
+                        <span class="pre-link-label headline-4">Running</span>
+                    </button>
+                    <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoFootballKidsShoes">
+                        <span class="pre-link-label headline-4">Football</span>
+                    </button>
+                    <button class="nav-btn pre-link flex-btn" id="gotoKidsClothing">
+                        <span class="pre-link-label headline-3">Clothing</span>
+                        <svg aria-hidden="true" class="pre-chevron chev-root pre-chevron-next d-sm-b d-lg-h"
+                            focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
+                            <path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033">
+                            </path>
+                        </svg>
+                    </button>
+                    <button class="nav-btn pre-link flex-btn" id="gotoKidsGear">
+                        <span class="pre-link-label headline-3">Grear</span>
+                        <svg aria-hidden="true" class="pre-chevron chev-root pre-chevron-next d-sm-b d-lg-h"
+                            focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
+                            <path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+`
 export default component;

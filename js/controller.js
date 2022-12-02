@@ -881,6 +881,16 @@ controller.clickFavorite = () => {
                             }
                             model.deleteItemsInValueFavoriteFromFirebase(obj);
                             view.clickFavorite(targetId[i]);
+                            let value1 = document.getElementsByClassName('content-information1')[i];
+                            value1.innerText = "Remove From Favourite";
+                            value1.style.color = "white";
+                            let value = document.getElementsByClassName('box-notificaton1')[i];
+                            value.style.transform = 'scale(1)';
+                            value.style.backgroundColor = "black";
+                            setTimeout(() => {
+                                value.removeAttribute('style');
+                                value1.removeAttribute('style');
+                            }, 3000);
                         }
                         else {
                             let index;
@@ -901,6 +911,16 @@ controller.clickFavorite = () => {
                                 }
                                 model.deleteItemsInValueFavoriteFromFirebase(obj);
                                 view.clickFavorite(targetId[i]);
+                                let value1 = document.getElementsByClassName('content-information1')[i];
+                                value1.innerText = "Remove From Favourite";
+                                value1.style.color = "white";
+                                let value = document.getElementsByClassName('box-notificaton1')[i];
+                                value.style.transform = 'scale(1)';
+                                value.style.backgroundColor = "black";
+                                setTimeout(() => {
+                                    value.removeAttribute('style');
+                                    value1.removeAttribute('style');
+                                }, 3000);
                             }
                             else {
                                 indexcolour = newArr[i].thumburl.indexOf(classMainImg[i].src) + 1;
@@ -908,12 +928,28 @@ controller.clickFavorite = () => {
                                 boolF = true;
                                 model.setValueFavoriteToFirebase(idFavorite, boolF, indexcolour);
                                 view.clickFavorite(targetId[i]);
+                                document.getElementsByClassName('content-information1')[i].innerText = "Add To Favourite";
+                                let value = document.getElementsByClassName('box-notificaton1')[i];
+                                value.style.transform = 'scale(1)';
+                                setTimeout(() => {
+                                    value.removeAttribute('style')
+                                }, 3000);
                             }
                         }
                     }
                     else {
                         model.deleteValueFavoriteFromFirebase(newArr[i].id);
                         view.clickFavorite(targetId[i]);
+                        let value1 = document.getElementsByClassName('content-information1')[i];
+                        value1.innerText = "Remove From Favourite";
+                        value1.style.color = "white";
+                        let value = document.getElementsByClassName('box-notificaton1')[i];
+                        value.style.transform = 'scale(1)';
+                        value.style.backgroundColor = "black";
+                        setTimeout(() => {
+                            value.removeAttribute('style');
+                            value1.removeAttribute('style');
+                        }, 3000);
                     }
                 }
                 else {
@@ -928,6 +964,12 @@ controller.clickFavorite = () => {
                     if (idFavorite != 0) {
                         model.setValueFavoriteToFirebase(idFavorite, boolF, indexcolour);
                         view.clickFavorite(targetId[i]);
+                        document.getElementsByClassName('content-information1')[i].innerText = "Add To Favourite";
+                        let value = document.getElementsByClassName('box-notificaton1')[i];
+                        value.style.transform = 'scale(1)';
+                        setTimeout(() => {
+                            value.removeAttribute('style')
+                        }, 3000);
                     }
                 }
             }
@@ -974,9 +1016,18 @@ controller.clickBag = async () => {
                                 ...newArr[i],
                                 indexV: 0
                             }
-
                             model.deleteItemsInValueBagFromFirebase(obj);
                             view.clickBag(targetId[i]);
+                            let value1 = document.getElementsByClassName('content-information1')[i];
+                            value1.innerText = "Remove From Bag";
+                            value1.style.color = "white";
+                            let value = document.getElementsByClassName('box-notificaton1')[i];
+                            value.style.transform = 'scale(1)';
+                            value.style.backgroundColor = "black";
+                            setTimeout(() => {
+                                value.removeAttribute('style');
+                                value1.removeAttribute('style');
+                            }, 3000);
                         }
                         else {
                             let index;
@@ -997,6 +1048,16 @@ controller.clickBag = async () => {
                                 }
                                 model.deleteItemsInValueBagFromFirebase(obj);
                                 view.clickBag(targetId[i]);
+                                let value1 = document.getElementsByClassName('content-information1')[i];
+                                value1.innerText = "Remove From Bag";
+                                value1.style.color = "white";
+                                let value = document.getElementsByClassName('box-notificaton1')[i];
+                                value.style.transform = 'scale(1)';
+                                value.style.backgroundColor = "black";
+                                setTimeout(() => {
+                                    value.removeAttribute('style');
+                                    value1.removeAttribute('style');
+                                }, 3000);
                             }
                             else {
                                 console.log(3);
@@ -1005,12 +1066,28 @@ controller.clickBag = async () => {
                                 boolB = true;
                                 model.setValueBagToFirebase(idBag, boolB, indexcolour);
                                 view.clickBag(targetId[i]);
+                                document.getElementsByClassName('content-information1')[i].innerText = "Add To Bag";
+                                let value = document.getElementsByClassName('box-notificaton1')[i];
+                                value.style.transform = 'scale(1)';
+                                setTimeout(() => {
+                                    value.removeAttribute('style')
+                                }, 3000);
                             }
                         }
                     }
                     else {
                         model.deleteValueBagFromFirebase(newArr[i].id, 'Image', 'manShoes');
                         view.clickBag(targetId[i]);
+                        let value1 = document.getElementsByClassName('content-information1')[i];
+                        value1.innerText = "Remove From Bag";
+                        value1.style.color = "white";
+                        let value = document.getElementsByClassName('box-notificaton1')[i];
+                        value.style.transform = 'scale(1)';
+                        value.style.backgroundColor = "black";
+                        setTimeout(() => {
+                            value.removeAttribute('style');
+                            value1.removeAttribute('style');
+                        }, 3000);
                     }
                 }
                 else {
@@ -1025,6 +1102,12 @@ controller.clickBag = async () => {
                     if (idBag != 0) {
                         model.setValueBagToFirebase(idBag, boolB, indexcolour);
                         view.clickBag(targetId[i]);
+                        document.getElementsByClassName('content-information1')[i].innerText = "Add To Bag";
+                        let value = document.getElementsByClassName('box-notificaton1')[i];
+                        value.style.transform = 'scale(1)';
+                        setTimeout(() => {
+                            value.removeAttribute('style')
+                        }, 3000);
                     }
                 }
             }
@@ -1587,21 +1670,27 @@ controller.clickStar = () => {
             else {
                 star[i].classList.toggle('fill-star');
             }
+
         })
     }
 }
 controller.checkStar = async (data) => {
-    if (data.countstar == 0) {
-        let inforStar = document.getElementsByClassName('error-star')[0];
-        if (inforStar.className.indexOf('hide-error') != -1) {
-            inforStar.classList.toggle('hide-error');
-            inforStar.classList.toggle('show-error');
-            document.getElementById('errorStar').innerText = "Please select an overall rating";
+    if (auth.currentUser != null) {
+        if (data.countstar == 0) {
+            let inforStar = document.getElementsByClassName('error-star')[0];
+            if (inforStar.className.indexOf('hide-error') != -1) {
+                inforStar.classList.toggle('hide-error');
+                inforStar.classList.toggle('show-error');
+                document.getElementById('errorStar').innerText = "Please select an overall rating";
+            }
+        }
+        data.comment == "" ? (document.getElementById('errorComment').innerText = 'Please type a new comment') : (document.getElementById('errorComment').innerText = '');
+        if (data.countstar > 0 && data.comment != "") {
+            await model.wirteReview(data);
         }
     }
-    data.comment == "" ? (document.getElementById('errorComment').innerText = 'Please type a new comment') : (document.getElementById('errorComment').innerText = '');
-    if (data.countstar > 0 && data.comment != "") {
-        await model.wirteReview(data);
+    else {
+        view.selectWebPage('singinPage');
     }
 }
 controller.hoverThumbImg = (cls, mainImg) => {
@@ -1723,31 +1812,22 @@ controller.clickMoreReview = () => {
     });
 }
 controller.addToBagFromReviewPage = async () => {
-    let arrPro = await model.readAllProductFromFirestore();
-    let arrProInBag = await model.readBag();
-    let idImgBag = [];
-    for (let i in arrProInBag) {
-        let obj = {
-            id: arrProInBag[i].id,
-            indexcolor: arrProInBag[i].index
-        }
-        idImgBag.push(obj);
-    }
-    let arrProFavourite = await model.readFavourite();
-    let idImgFavourite = [];
-    for (let i in arrProFavourite) {
-        let obj = {
-            id: arrProFavourite[i].id,
-            indexcolor: arrProFavourite[i].index
-        }
-        idImgFavourite.push(obj);
-    }
-    let nameUrl = [];
-    for (let i in arrPro) {
-        nameUrl.push(arrPro[i].url);
-    }
     document.getElementById('addToBag').addEventListener('click', async () => {
-        if (auth.currentUser.uid != null) {
+        if (auth.currentUser != null) {
+            let arrPro = await model.readAllProductFromFirestore();
+            let arrProInBag = await model.readBag();
+            let idImgBag = [];
+            for (let i in arrProInBag) {
+                let obj = {
+                    id: arrProInBag[i].id,
+                    indexcolor: arrProInBag[i].index
+                }
+                idImgBag.push(obj);
+            }
+            let nameUrl = [];
+            for (let i in arrPro) {
+                nameUrl.push(arrPro[i].url);
+            }
             let boolB = true;
             let thumb = document.getElementById('thumbImg');
             let sourceImg = document.getElementsByClassName('mainImg')[0].src;
@@ -1777,14 +1857,44 @@ controller.addToBagFromReviewPage = async () => {
             }
             if (check == false) {
                 await model.setValueBagToFirebase(idB, boolB, color);
+                document.getElementById('contentInformation').innerText = 'Add To Bag';
+                let value = document.getElementsByClassName('box-notificaton')[0];
+                value.style.transform = 'scale(1)';
+                setTimeout(() => {
+                    value.removeAttribute('style');
+                }, 3000);
+
             }
             else {
-                alert('Sp da co');
+                document.getElementById('contentInformation').innerText = 'Product Already In The Bag';
+                let value = document.getElementsByClassName('box-notificaton')[0];
+                value.style.transform = 'scale(1)';
+                setTimeout(() => {
+                    value.removeAttribute('style');
+                }, 3000);
+
             }
+        }
+        else{
+            view.selectWebPage('singinPage');
         }
     });
     document.getElementById('addToFavourite').addEventListener('click', async () => {
-        if (auth.currentUser.uid != null) {
+        if (auth.currentUser != null) {
+            let arrPro = await model.readAllProductFromFirestore();
+            let arrProFavourite = await model.readFavourite();
+            let idImgFavourite = [];
+            for (let i in arrProFavourite) {
+                let obj = {
+                    id: arrProFavourite[i].id,
+                    indexcolor: arrProFavourite[i].index
+                }
+                idImgFavourite.push(obj);
+            }
+            let nameUrl = [];
+            for (let i in arrPro) {
+                nameUrl.push(arrPro[i].url);
+            }
             let boolF = true;
             let thumb = document.getElementById('thumbImg');
             let sourceImg = document.getElementsByClassName('mainImg')[0].src;
@@ -1814,15 +1924,28 @@ controller.addToBagFromReviewPage = async () => {
             }
             if (check == false) {
                 await model.setValueFavoriteToFirebase(idF, boolF, color);
+                document.getElementById('contentInformation').innerText = 'Add To Favourite';
+                let value = document.getElementsByClassName('box-notificaton')[0];
+                value.style.transform = 'scale(1)';
+                setTimeout(() => {
+                    value.removeAttribute('style');
+                }, 3000);
             }
             else {
-                console.log(1);
-                // document.getElementById('addToFavourite').setAttribute(`data-toggle="modal" data-target="#exampleModalLogout"`);
+                document.getElementById('contentInformation').innerText = 'Product Already In The Favourite';
+                let value = document.getElementsByClassName('box-notificaton')[0];
+                value.style.transform = 'scale(1)';
+                setTimeout(() => {
+                    value.removeAttribute('style');
+                }, 3000);
+
             }
 
         }
+        else{
+            view.selectWebPage('singinPage');
+        }
     });
-
 }
 // Mobile
 // Men
