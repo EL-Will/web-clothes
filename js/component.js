@@ -465,6 +465,8 @@ component.homePageSingin = `
                                         <li class="content-expand"><a class="logout-btn" id="gotoProfile">Profile</a></li>
                                         <li class="content-expand"><a class="logout-btn" id="gotoChangePass">Change Password</a>
                                         </li>
+                                        <li class="content-expand"><a class="logout-btn" id="gotoHistoryBuy">History Buy</a>
+                                        </li>
                                         <li class="content-expand"><button class="logout-btn"
                                                 id="logout-btn" data-toggle="modal" data-target="#exampleModalLogout">Logout</button></li>
                                     </ul>
@@ -618,6 +620,9 @@ component.homePageSingin = `
                     </button>
                     <button class="nav-btn pre-link flex-btn" id="gotoChangePasswordMobile">
                         <span class="pre-link-label headline-4">Change Password</span>
+                    </button>
+                    <button class="nav-btn pre-link flex-btn" id="gotoHistoryBuyMobile">
+                        <span class="pre-link-label headline-4">History Buy</span>
                     </button>
                     <button class="nav-btn pre-link flex-btn" id="gotoLogoutMobile" data-toggle="modal" data-target="#exampleModalLogout">
                         <span class="pre-link-label headline-4">Logout</span>
@@ -1120,6 +1125,8 @@ component.menShoesSinginPage = `
                                 <li class="content-expand"><a class="logout-btn" id="gotoProfile">Profile</a></li>
                                 <li class="content-expand"><a class="logout-btn" id="gotoChangePass">Change Password</a>
                                 </li>
+                                <li class="content-expand"><a class="logout-btn" id="gotoHistoryBuy">History Buy</a>
+                                </li>
                                 <li class="content-expand"><button class="logout-btn"
                                         id="logout-btn" data-toggle="modal" data-target="#exampleModalLogout">Logout</button></li>
                             </ul>
@@ -1273,6 +1280,9 @@ component.menShoesSinginPage = `
             </button>
             <button class="nav-btn pre-link flex-btn" id="gotoChangePasswordMobile">
                 <span class="pre-link-label headline-4">Change Password</span>
+            </button>
+            <button class="nav-btn pre-link flex-btn" id="gotoHistoryBuyMobile">
+                <span class="pre-link-label headline-4">History Buy</span>
             </button>
             <button class="nav-btn pre-link flex-btn" id="gotoLogoutMobile" data-toggle="modal" data-target="#exampleModalLogout">
                 <span class="pre-link-label headline-4">Logout</span>
@@ -2015,6 +2025,8 @@ component.bagPage = `
                                 <li class="content-expand"><a class="logout-btn" id="gotoProfile">Profile</a></li>
                                 <li class="content-expand"><a class="logout-btn" id="gotoChangePass">Change Password</a>
                                 </li>
+                                <li class="content-expand"><a class="logout-btn" id="gotoHistoryBuy">History Buy</a>
+                                </li>
                                 <li class="content-expand"><button class="logout-btn"
                                         id="logout-btn" data-toggle="modal" data-target="#exampleModalLogout">Logout</button></li>
                             </ul>
@@ -2168,6 +2180,9 @@ component.bagPage = `
             </button>
             <button class="nav-btn pre-link flex-btn" id="gotoChangePasswordMobile">
                 <span class="pre-link-label headline-4">Change Password</span>
+            </button>
+            <button class="nav-btn pre-link flex-btn" id="gotoHistoryBuyMobile">
+                <span class="pre-link-label headline-4">History Buy</span>
             </button>
             <button class="nav-btn pre-link flex-btn" id="gotoLogoutMobile" data-toggle="modal" data-target="#exampleModalLogout">
                 <span class="pre-link-label headline-4">Logout</span>
@@ -2464,6 +2479,8 @@ component.favoritePage = `
                                 <li class="content-expand"><a class="logout-btn" id="gotoProfile">Profile</a></li>
                                 <li class="content-expand"><a class="logout-btn" id="gotoChangePass">Change Password</a>
                                 </li>
+                                <li class="content-expand"><a class="logout-btn" id="gotoHistoryBuy">History Buy</a>
+                                </li>
                                 <li class="content-expand"><button class="logout-btn"
                                         id="logout-btn" data-toggle="modal" data-target="#exampleModalLogout">Logout</button></li>
                             </ul>
@@ -2617,6 +2634,9 @@ component.favoritePage = `
             </button>
             <button class="nav-btn pre-link flex-btn" id="gotoChangePasswordMobile">
                 <span class="pre-link-label headline-4">Change Password</span>
+            </button>
+            <button class="nav-btn pre-link flex-btn" id="gotoHistoryBuyMobile">
+                <span class="pre-link-label headline-4">History Buy</span>
             </button>
             <button class="nav-btn pre-link flex-btn" id="gotoLogoutMobile" data-toggle="modal" data-target="#exampleModalLogout">
                 <span class="pre-link-label headline-4">Logout</span>
@@ -2958,7 +2978,10 @@ component.checkoutPage = `
                         <span class="circle"></span>
                     </div>
                 </div>
-                <div class="row format-row form-mt-20 form-mb-20">
+                <div class="box-notificaton2">
+                    <span class="content-information2" id="contentInformation2"></span>
+                </div>
+                <div class="row format-row form-mt-20 form-mb-20 new-margin-top-negative2">
                     <button type="submit" class="submit-btn text-submit padding-submit-btn">Submit</button>
                 </div>
             </form>
@@ -3173,6 +3196,8 @@ component.profilePage = `
                             <ul>
                                 <li class="content-expand"><a class="logout-btn" id="gotoProfile">Profile</a></li>
                                 <li class="content-expand"><a class="logout-btn" id="gotoChangePass">Change Password</a>
+                                </li>
+                                <li class="content-expand"><a class="logout-btn" id="gotoHistoryBuy">History Buy</a>
                                 </li>
                                 <li class="content-expand"><button class="logout-btn"
                                         id="logout-btn" data-toggle="modal" data-target="#exampleModalLogout">Logout</button></li>
@@ -3422,7 +3447,7 @@ component.profilePage = `
  
 `
 component.chatPage =
-  ` <!-- Star Header 1 -->
+    ` <!-- Star Header 1 -->
   <nav class="row format-row nvabar-frame z3 show-nvabar hidden-nvabar">
   <div class="col-lg-4 col-md-4 col-sm-4 col-4 padding-0">
       <div class="row format-row padding-left-48">
@@ -3623,6 +3648,8 @@ component.detailProductPage = `
                                 <li class="content-expand"><a class="logout-btn" id="gotoProfile">Profile</a></li>
                                 <li class="content-expand"><a class="logout-btn" id="gotoChangePass">Change Password</a>
                                 </li>
+                                <li class="content-expand"><a class="logout-btn" id="gotoHistoryBuy">History Buy</a>
+                                </li>
                                 <li class="content-expand"><button class="logout-btn"
                                         id="logout-btn" data-toggle="modal" data-target="#exampleModalLogout">Logout</button></li>
                             </ul>
@@ -3776,6 +3803,9 @@ component.detailProductPage = `
             </button>
             <button class="nav-btn pre-link flex-btn" id="gotoChangePasswordMobile">
                 <span class="pre-link-label headline-4">Change Password</span>
+            </button>
+            <button class="nav-btn pre-link flex-btn" id="gotoHistoryBuyMobile">
+                <span class="pre-link-label headline-4">History Buy</span>
             </button>
             <button class="nav-btn pre-link flex-btn" id="gotoLogoutMobile" data-toggle="modal" data-target="#exampleModalLogout">
                 <span class="pre-link-label headline-4">Logout</span>
@@ -4329,7 +4359,7 @@ component.detailProductPageUnSignin = `
     <div class="line-space"></div>
    
 `
-component.footer =`
+component.footer = `
 <footer>
         <div class="out-box-footer">
             <div class="border-box-footer">
@@ -4445,7 +4475,7 @@ component.navUnsignin = `
         </div>
 </nav>
 `
-component.header1Unsignin =`
+component.header1Unsignin = `
 <header>
         <div class="row format-row padding-top-10 padding-bottom-10 flex-header-1">
             <div class="col-lg-1 col-md-2 col-sm-3 col-3 padding-0 padding-left-48 item1">
@@ -4749,4 +4779,86 @@ component.header1Unsignin =`
         </div>
     </header>
 `
+component.navSignin = `
+<nav class="row format-row nvabar-frame z3">
+<div class="col-lg-4 col-md-4 col-sm-4 col-2 padding-0">
+    <div class="row format-row padding-left-48 padding-left-12">
+        <div class="col-lg-2 col-md-12 col-sm-12 col-12 padding-0">
+            <a id="goto-homepage-singin" class="logo-nvabar z3">
+                <svg height="24px" width="24px" fill="#111" viewBox="0 0 26 32">
+                    <path
+                        d="M14.4 5.52v-.08q0-.56.36-1t.92-.44 1 .36.48.96-.36 1-.96.4l-.24.08.08.12-.08.44-.16 1.28q.08.08.08.16l-.16.8q-.08.16-.16.24l-.08.32q-.16.64-.28 1.04t-.2.64V12q-.08.4-.12.64t-.28.8q-.16.32 0 1.04l.08.08q0 .24.2.56t.2.56q.08 1.6-.24 2.72l.16.48q.96.48.56 1.04l.4.16q.96.48 1.36.84t.8.76q.32.08.48.24l.24.08q1.68 1.12 3.36 2.72l.32.24v.08l-.08.16.24.16h.08q.24.16.32.16h.08q.08 0 .16-.08l.16-.08q.16-.16.32-.24h.32q.08 0 0 .08l-.32.16-.4.48h.56l.56.08q.24-.08.4-.16l.4-.24q.24-.08.48.16h.08q.08.08-.08.24l-.96.88q-.4.32-.72.4l-1.04.72q-.08.08-.16 0l-.24-.32-.16-.32-.2-.28-.24-.32-.2-.24-.16-.2-.32-.24q-.16 0-.32-.08l-1.04-.8q-.24 0-.56-.24-1.2-1.04-1.6-1.28l-.48-.32-.96-.16q-.48-.08-1.28-.48l-.64-.32q-.64-.32-.88-.32l-.32-.16q-.32-.08-.48-.16l-.16-.16q-.16 0-.32.08l-1.6.8-2 .88q-.8.64-1.52 1.04l-.88.4-1.36.96q-.16.16-.32 0l-.16.16q-.24.08-.32.08l-.32.16v.16h-.16l-.16.24q-.16.32-.32.36t-.2.12-.08.12l-.16.16-.24.16-.36-.04-.48.08-.32.08q-.4.08-.64-.12t-.4-.6q-.16-.24.16-.4l.08-.08q.08-.08.24-.08h.48L1.6 26l.32-.08q0-.16.08-.24.08-.08.24-.08v-.08q-.08-.16-.08-.32-.08-.16-.04-.24t.08-.08h.04l.08.24q.08.4.24.24l.08-.16q.08-.16.24-.16l.16.16.16-.16-.08-.08q0-.08.08-.08l.32-.32q.4-.48.96-.88 1.12-.88 2.4-1.36.4-.4.88-.4.32-.56.96-1.2.56-.4.8-.56.16-.32.4-.32H10l.16-.16q.16-.08.24-.16v-.4q0-.4.08-.64t.4-.24l.32-.32q-.16-.32-.16-.72h-.08q-.16-.24-.16-.48-.24-.4-.32-.64h-.24q-.08.24-.4.32l-.08.16q-.32.56-.56.84t-.88.68q-.4.4-.56.88-.08.24 0 .48l-.08.16h.08q0 .16.08.16h.08q.16.08.16.2t-.24.08-.36-.16-.2-.12l-.24.24q-.16.24-.32.2t-.08-.12l.08-.08q.08-.16 0-.16l-.64.16q-.08.08-.2 0t.04-.16l.4-.16q0-.08-.08-.08-.32.16-.64.08l-.4-.08-.08-.08q0-.08.08-.08.32.08.8-.08l.56-.24.64-.72.08-.16q.32-.64.68-1.16t.76-.84l.08-.32q.16-.32.32-.56t.4-.64l.24-.32q.32-.48.72-.48l.24-.24q.08-.08.08-.24l.16-.16-.08-.08q-.48-.4-.48-.72-.08-.56.36-.96t.88-.36.68.28l.16.16q.08 0 .08.08l.32.16v.24q.16.16.16.24.16-.24.48-.56l.4-1.28q0-.32.16-.64l.16-.24v-.16l.24-.96h.16l.24-.96q.08-.24 0-.56l-.32-.8z">
+                    </path>
+                </svg>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="col-lg-4 col-md-3 col-sm-1 col-1 padding-0">
+</div>
+<div class="col-lg-4 col-md-5 col-sm-7 col-9 padding-0" id="expand-account">
+    <div class="row format-row padding-right-48 padding-right-12">
+        <div class="col-lg-2 col-md-2 col-sm-1 col-1 padding-0">
+        </div>
+        <div class="col-lg-10 col-md-10 col-sm-11 col-11 padding-0">
+            <div class="row format-row nav1-hover-account">
+                <div class="col-lg-10 col-md-10 col-sm-10 col-10 padding-0 nav1-text-account">
+                    <span id="id-account"></span>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-2 padding-0 nav1-text-account">
+                    <svg aria-hidden="true" class="pre-nav-design-icon" focusable="false" viewBox="0 0 24 24"
+                        role="img" width="24px" height="24px" fill="none" data-var="glyph"
+                        style="display: inline-block;">
+                        <path stroke="currentColor" stroke-width="2"
+                            d="M3.75 21v-3a3.75 3.75 0 013.75-3.75h9A3.75 3.75 0 0120.25 18v3"></path>
+                        <path stroke="currentColor" stroke-width="2"
+                            d="M15.75 7.5a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pre-account-expand">
+                    <div class="pre-account-expand-content">
+                        <nav class="pre-acct-account pt24-sm pr24-sm pb24-sm pl24-sm">
+                            <p class="pl8-sm">Account</p>
+                            <ul>
+                                <li class="content-expand"><a class="logout-btn" id="gotoProfile">Profile</a></li>
+                                <li class="content-expand"><a class="logout-btn" id="gotoChangePass">Change Password</a>
+                                </li>
+                                <li class="content-expand"><a class="logout-btn" href="#renderHistoryBuy">History Buy</a>
+                                </li>
+                                <li class="content-expand"><button class="logout-btn"
+                                        id="logout-btn" data-toggle="modal" data-target="#exampleModalLogout">Logout</button></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+</div>
+</nav>
+<div class="modal fade" id="exampleModalLogout" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel1"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Do you want to quit of this page?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-dark" id="quitePage" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+`
+component.historyBuyPage = `
+<div id="renderHistoryBuy">
+</div>
+`
+
 export default component;

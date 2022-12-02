@@ -1253,8 +1253,8 @@ model.readInforFavoriteAndMenShoes = async (collect1, document, collect2) => {
 }
 
 model.setTotalPrice = async (collect, document) => {
-    var arrInforImg=[];
-    var arrInforShoes=[];
+    var arrInforImg = [];
+    var arrInforShoes = [];
     const accessInforImg = db.collection(collect).doc(document);
     await accessInforImg.get().then((doc) => {
         if (doc.exists) {
@@ -1265,20 +1265,20 @@ model.setTotalPrice = async (collect, document) => {
     }).catch((error) => {
         console.log("Error getting document:", error);
     });
-     // HightLigth//
-     var arrInforImgHL =[];
-     const accessInforImgHL = db.collection('Image').doc('hightligths');
-     await accessInforImgHL.get().then((doc) => {
-         if (doc.exists) {
-             arrInforImgHL = doc.data().image;
-         } else {
- 
-         }
-     }).catch((error) => {
-         console.log("Error getting document:", error);
-     });
-     // ---------//
-     arrInforImg = arrInforShoes.concat(arrInforImgHL);
+    // HightLigth//
+    var arrInforImgHL = [];
+    const accessInforImgHL = db.collection('Image').doc('hightligths');
+    await accessInforImgHL.get().then((doc) => {
+        if (doc.exists) {
+            arrInforImgHL = doc.data().image;
+        } else {
+
+        }
+    }).catch((error) => {
+        console.log("Error getting document:", error);
+    });
+    // ---------//
+    arrInforImg = arrInforShoes.concat(arrInforImgHL);
     var arrBag = [];
     let keyDoc = await firebase.auth().currentUser.uid;
     let accessListBag = db.collection('Bag').doc(keyDoc);
@@ -1424,6 +1424,22 @@ model.getTotalPriceFromBag = async (collect) => {
     let strSumPrice = '';
     strSumPrice = formatCash(totalPrice.toString());
     view.setTotalPrice(strSumPrice);
+}
+model.getTotalPriceAndProductFromBag = async (collect) => {
+    let keyDoc = await firebase.auth().currentUser.uid;
+    let totalPrice = 0;
+    let accessListBag = db.collection(collect).doc(keyDoc);
+    await accessListBag.get().then((doc) => {
+        if (doc.exists) {
+            totalPrice = doc.data().TotalPrice;
+        } else {
+        }
+    }).catch((error) => {
+        console.log("Error getting document:", error);
+    });
+    let strSumPrice = '';
+    strSumPrice = formatCash(totalPrice.toString());
+    return strSumPrice;
 }
 model.setCountProductToBag = async (obj) => {
     let keyDoc = await firebase.auth().currentUser.uid;
@@ -1992,6 +2008,58 @@ model.getNameGuess = async (idMess) => {
     }
 
 }
+model.writeHistoryOfBuy = async (data) => {
+    let keyDoc = await firebase.auth().currentUser.uid;
+    let accessListBuy = db.collection('Buy').doc(keyDoc);
+    await accessListBuy.get().then((doc) => {
+        if (doc.exists) {
+            let bagRef = [];
+            bagRef = doc.data().buy;
+            if (bagRef.length != 0) {
+                console.log(data);
+                db.collection("Buy").doc(keyDoc).update({
+                    buy: firebase.firestore.FieldValue.arrayUnion({
+                        ...data
+                    })
+                })
+                    .then(() => {
+                        console.log("Document successfully removed!");
+                    });
+            }
+            else {
+                db.collection("Buy").doc(keyDoc).set({
+                    buy: [
+                        {
+                            ...data
+                        }
+                    ]
+                })
+                    .then(() => {
+                        console.log("Document successfully written!");
+                    })
+                    .catch((error) => {
+                        console.error("Error writing document: ", error);
+                    });
+            }
+        } else {
+            db.collection("Buy").doc(keyDoc).set({
+                buy: [
+                    {
+                        ...data
+                    }
+                ]
+            })
+                .then(() => {
+                    console.log("Document successfully written!");
+                })
+                .catch((error) => {
+                    console.error("Error writing document: ", error);
+                });
+        }
+    }).catch((error) => {
+        console.log("Error getting document:", error);
+    });
+}
 model.wirteReview = async (obj) => {
 
     let accessReview = db.collection('Reviews').doc('DetailReview');
@@ -2194,6 +2262,17 @@ model.readFavourite = async () => {
             console.log(error.message);
         });
     return arr1;
+}
+model.readHistoryBuy = async()=>{
+    let data=[];
+    await db.collection('Buy').doc(auth.currentUser.uid).get()
+    .then((doc)=>{
+        data = doc.data().buy;
+    })
+    .catch((err)=>{
+        console.log(err.message);
+    });
+    view.setHistoryBuy(data);
 }
 // 'images/hightligths/'
 // model.getUrlListImage = async (path) => {

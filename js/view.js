@@ -97,7 +97,12 @@ view.selectWebPage = (namePage) => {
             document.getElementById('gotoProfileMobile').addEventListener('click', () => {
                 view.selectWebPage('profilePage');
             });
-            
+            document.getElementById('gotoHistoryBuy').addEventListener('click',()=>{
+                view.selectWebPage('historyBuyPage');
+            });
+            document.getElementById('gotoHistoryBuyMobile').addEventListener('click',()=>{
+                view.selectWebPage('historyBuyPage');
+            });
             controller.expandAccount();
             controller.closeAccount();
             controller.functionVisualSearch();
@@ -311,6 +316,12 @@ view.selectWebPage = (namePage) => {
             document.getElementById('gotoProfileMobile').addEventListener('click', () => {
                 view.selectWebPage('profilePage');
             });
+            document.getElementById('gotoHistoryBuy').addEventListener('click',()=>{
+                view.selectWebPage('historyBuyPage');
+            });
+            document.getElementById('gotoHistoryBuyMobile').addEventListener('click',()=>{
+                view.selectWebPage('historyBuyPage');
+            });
             view.setProfileNameCheckout('exampleModalLabel1');
             controller.search();
             controller.clickGotoMen();
@@ -424,6 +435,12 @@ view.selectWebPage = (namePage) => {
             document.getElementById('gotoMenShoes').addEventListener('click',()=>{
                 view.selectWebPage('menShoesSinginPage');
             });
+            document.getElementById('gotoHistoryBuy').addEventListener('click',()=>{
+                view.selectWebPage('historyBuyPage');
+            });
+            document.getElementById('gotoHistoryBuyMobile').addEventListener('click',()=>{
+                view.selectWebPage('historyBuyPage');
+            });
             view.setProfileNameCheckout('exampleModalLabel1');
             controller.clickGotoMen();
             controller.clickExpandMobileMen();
@@ -481,6 +498,12 @@ view.selectWebPage = (namePage) => {
             document.getElementById('gotoMenShoes').addEventListener('click',()=>{
                 view.selectWebPage('menShoesSinginPage');
             });
+            document.getElementById('gotoHistoryBuy').addEventListener('click',()=>{
+                view.selectWebPage('historyBuyPage');
+            });
+            document.getElementById('gotoHistoryBuyMobile').addEventListener('click',()=>{
+                view.selectWebPage('historyBuyPage');
+            });
             view.setProfileNameCheckout('exampleModalLabel1');
             controller.clickGotoMen();
             controller.clickExpandMobileMen();
@@ -511,16 +534,25 @@ view.selectWebPage = (namePage) => {
                 document.getElementById('body').classList.add('padding-hide');
             })
             let checkoutForm = document.getElementById('form-checkout');
-            checkoutForm.addEventListener('submit', (e) => {
+            checkoutForm.addEventListener('submit', async(e) => {
+                console.log(1);
                 e.preventDefault();
+                let dataPro = await model.readInforBagAndSize('Image', 'menShoes', 'Bag');
+                let price = await model.getTotalPriceAndProductFromBag('Bag');
+                let dayKu = new Date();
+                let timeStamp = `${dayKu.getFullYear()}-${dayKu.getMonth() + 1}-${dayKu.getDate()}` ;
                 const data = {
+                    time:timeStamp,
                     firstname: checkoutForm.firstname.value,
                     lastname: checkoutForm.lastname.value,
                     city: checkoutForm.city.value,
                     district: checkoutForm.district.value,
                     ward: checkoutForm.ward.value,
-                    country: checkoutForm.country.value
-                }
+                    country: checkoutForm.country.value,
+                    totalprice: price,
+                    product: dataPro
+                };
+                controller.submitBuy(data);
             });
             controller.clickChat('messageBox', 'inputMessage');
             // let positionNvabar1 = document.getElementById('idChat');
@@ -619,6 +651,9 @@ view.selectWebPage = (namePage) => {
             });
             document.getElementById('gotoChangePass').addEventListener('click', () => {
                 view.selectWebPage('changePasswordPage');
+            });
+            document.getElementById('gotoHistoryBuy').addEventListener('click',()=>{
+                view.selectWebPage('historyBuyPage');
             });
             document.getElementById('my-profile').addEventListener('mouseover', () => {
                 let newClass = document.getElementsByClassName('underline')[0];
@@ -739,6 +774,12 @@ view.selectWebPage = (namePage) => {
             document.getElementById('gotoMenShoes').addEventListener('click',()=>{
                 view.selectWebPage('menShoesSinginPage');
             });
+            document.getElementById('gotoHistoryBuy').addEventListener('click',()=>{
+                view.selectWebPage('historyBuyPage');
+            });
+            document.getElementById('gotoHistoryBuyMobile').addEventListener('click',()=>{
+                view.selectWebPage('historyBuyPage');
+            });
             view.setProfileNameCheckout('exampleModalLabel1');
             controller.clickMoreReview();
             controller.clickGotoMen();
@@ -842,6 +883,22 @@ view.selectWebPage = (namePage) => {
             controller.clickExpandMobileKids();
             controller.clickGobackAllKids();
             controller.addToBagFromReviewPage();
+            break;
+        case "historyBuyPage":
+            document.getElementById('app').innerHTML = (component.navSignin + component.historyBuyPage + component.footer);
+            model.readHistoryBuy();
+            model.getInforUser();
+            controller.expandAccount();
+            controller.closeAccount();
+            document.getElementById('goto-homepage-singin').addEventListener('click', () => {
+                view.selectWebPage('homePageSingIn');
+            });
+            document.getElementById('gotoChangePass').addEventListener('click', () => {
+                view.selectWebPage('changePasswordPage');
+            });
+            document.getElementById('gotoProfile').addEventListener('click', () => {
+                view.selectWebPage('profilePage');
+            });
             break;
     }
 }
@@ -1857,6 +1914,84 @@ view.setInforToReviewPage = async (obj) => {
     }
 
 }
-
+view.setHistoryBuy = (arr)=>{
+    var divData = '';
+    var divData2 ='';
+    var divData3 ='';
+    var divData4 ='';
+    for(let i in arr){
+        divData3 ='';
+        divData4 =`
+        <div class="col-lg-4 col-md-12 col-sm-12 col-12 pr-48 pl-48-991">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12 p-d-0">
+                <p class="text-Summary">Summary</p>
+            </div>
+            <div class="flex-subtotal mr-top-40">
+                <p class="subtotal">Subtotal</p>
+                <div>
+                    <span class="sub-price" id="sub-price">${arr[i].totalprice}</span>
+                    <sup style="text-decoration: underline;">đ</sup>
+                </div>
+            </div>
+            <div class="under-line"></div>
+            <div class="flex-total">
+                <p class="total">Total</p>
+                <div>
+                    <span class="total-price" id="total-price">${arr[i].totalprice}</span>
+                    <sup style="text-decoration: underline;">đ</sup>
+                </div>
+            </div>
+            <div class="under-line"></div>
+        </div>
+        `
+        for(let j in arr[i].product){
+            divData3 += `
+                <div class="display-products col-lg-12 col-md-12 col-sm-12 col-12 p-d-0 mr-top-40" id="display-bag-item">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 p-d-0">
+                        <div class="row format-row">
+                            <div class="box-img-infor-bag col-lg-4 col-md-4 col-sm-4 col-12 p-d-0">
+                                <div class="box-img-bag col-lg-12 col-md-12 col-sm-12 col-12 p-d-l-0 p-d-r-0-new">
+                                <img src="${arr[i].product[j].url}" alt="" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="price-bag pos-text-bag col-lg-8 col-md-8 col-sm-8 col-12 p-d-l-0 ">
+                                <div class="row format-row">
+                                    <div class="box-infor-bag col-lg-8 col-md-8 col-sm-8 col-7 p-d-0">
+                                        <span class="row format-row format-P1-bag">${arr[i].product[j].name}</span>
+                                        <span class="row format-row format-P2-bag">${arr[i].product[j].gender}</span>
+                                        <span class="row format-row format-P3-bag">Colour: ${arr[i].product[j].color}</span>
+                                        <span class="row format-row">Size: ${arr[i].product[j].size}</span>
+                                        <span class="row format-row">Quantity: ${arr[i].product[j].count}</span>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-5 p-d-0">
+                                        <span class="price">${arr[i].product[j].price}</span><sup style="text-decoration: underline;">đ</sup>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="under-line"></div>
+                </div>
+            
+        `
+        }
+        divData2 = `
+        <div class="row format-row mt-20">
+            <div class="col-lg-8 col-md-12 col-sm-12 col-12 text-Bag pl-48">Date:${arr[i].time}</div>
+        </div>
+        <div class="row format-row mt-20">
+            <div class="col-lg-8 col-md-12 col-sm-12 col-12 pl-48 pr-48-991">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 p-d-0">
+                    <p class="text-Bag">Product</p>
+                </div>
+                ${divData3}
+            </div>
+            ${divData4}
+        </div>
+        `;
+        divData += divData2;
+    }
+    document.getElementById('renderHistoryBuy').innerHTML=divData;
+}
 export { boolSingin, boolSingup, arrShoeImage }
 export default view;

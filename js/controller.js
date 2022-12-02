@@ -1349,6 +1349,7 @@ controller.search = async () => {
         }
     });
 }
+// Checkout
 controller.clickChat = async (idUser, idInputMessage) => {
     document.getElementById('idChat').addEventListener('click', async () => {
         if (auth.currentUser.email == 'thienbinh1155@gmail.com') {
@@ -1452,6 +1453,18 @@ controller.generateKeywords = (nameData) => {
     }, []);
 
     return keywords;
+}
+controller.submitBuy = async (data) => {
+    if (data.firstname != '' && data.lastname != '' && data.city != '' && data.district != '' && data.ward != '' && data.country != '') {
+        await model.writeHistoryOfBuy(data);
+        document.getElementById('contentInformation2').innerText = 'Submit Success';
+        let value = document.getElementsByClassName('box-notificaton2')[0];
+        value.style.transform = 'scale(1)';
+        setTimeout(() => {
+            value.removeAttribute('style');
+        }, 3000);
+        console.log(data);
+    }
 }
 // ReviewPage
 controller.clicReview = () => {
@@ -1875,7 +1888,7 @@ controller.addToBagFromReviewPage = async () => {
 
             }
         }
-        else{
+        else {
             view.selectWebPage('singinPage');
         }
     });
@@ -1942,7 +1955,7 @@ controller.addToBagFromReviewPage = async () => {
             }
 
         }
-        else{
+        else {
             view.selectWebPage('singinPage');
         }
     });
