@@ -209,7 +209,7 @@ model.getInforImageOfMenshoes = async (collect, document) => {
         });
     }
     if (checkImg == true) {
-        view.setMenShoesImg(arrInforImg, arrFvorite, arrBag);
+        view.setMenShoesImg(collect, document, arrInforImg, arrFvorite, arrBag);
     }
 }
 model.readDataBagFavoriteImage = async (arr, iValue, z, classBagBtn, classMainImg, classThumbColour, classFavorBtn) => {
@@ -290,7 +290,7 @@ model.getValueAndSortIncreaseInforImage = async (collect, document) => {
     }).catch((error) => {
         console.log("Error getting document:", error);
     });
-    controller.sortLowToHight(arrInforImg)
+    controller.sortLowToHight(collect, document, arrInforImg)
 }
 
 model.getValueAndSortDecreaseInforImage = async (collect, document) => {
@@ -305,7 +305,7 @@ model.getValueAndSortDecreaseInforImage = async (collect, document) => {
     }).catch((error) => {
         console.log("Error getting document:", error);
     });
-    controller.sortHightLow(arrInforImg)
+    controller.sortHightLow(collect, document, arrInforImg)
 }
 
 model.setValueFavoriteToFirebase = async (idF, boolF, indexcolor) => {
@@ -776,8 +776,19 @@ model.caculatePriceFromBag = async () => {
     }).catch((error) => {
         console.log("Error getting document:", error);
     });
+    // Jordan//
+    var arrInforImgJordan = [];
+    const accessInforImgJordan = db.collection('Image').doc('menJordan');
+    await accessInforImgJordan.get().then((doc) => {
+        if (doc.exists) {
+            arrInforImgJordan = doc.data().image;
+        } else {
+        }
+    }).catch((error) => {
+        console.log("Error getting document:", error);
+    });
+    arrInforImg = arrInforShoes.concat(arrInforImgHL, arrInforImgJordan);
     // ---------//
-    arrInforImg = arrInforShoes.concat(arrInforImgHL);
     var arrBag = [];
     let keyDoc = await firebase.auth().currentUser.uid;
     let accessListBag = db.collection('Bag').doc(keyDoc);
@@ -887,8 +898,19 @@ model.getInforBag = async (collect1, document, collect2) => {
     }).catch((error) => {
         console.log("Error getting document:", error);
     });
+    // Jordan//
+    var arrInforImgJordan = [];
+    const accessInforImgJordan = db.collection('Image').doc('menJordan');
+    await accessInforImgJordan.get().then((doc) => {
+        if (doc.exists) {
+            arrInforImgJordan = doc.data().image;
+        } else {
+        }
+    }).catch((error) => {
+        console.log("Error getting document:", error);
+    });
+    arrInforImg = arrInforShoes.concat(arrInforImgHL, arrInforImgJordan);
     // ---------//
-    arrInforImg = arrInforShoes.concat(arrInforImgHL);
     let keyDoc = await firebase.auth().currentUser.uid;
     const accessListBag = db.collection(collect2).doc(keyDoc);
     await accessListBag.get().then((doc) => {
@@ -947,6 +969,7 @@ model.getInforBag = async (collect1, document, collect2) => {
 model.readInforBag = async (collect1, document, collect2) => {
     var arrInforImg = [];
     var arrInforImgHL = [];
+    var arrInforImgJordan = [];
     var arrBag = [];
     const accessInforImg = db.collection(collect1).doc(document);
     await accessInforImg.get().then((doc) => {
@@ -967,7 +990,17 @@ model.readInforBag = async (collect1, document, collect2) => {
     }).catch((error) => {
         console.log("Error getting document:", error);
     });
-    let allProduct = arrInforImg.concat(arrInforImgHL);
+    // Jordan//
+    const accessInforImgJordan = db.collection('Image').doc('menJordan');
+    await accessInforImgJordan.get().then((doc) => {
+        if (doc.exists) {
+            arrInforImgJordan = doc.data().image;
+        } else {
+        }
+    }).catch((error) => {
+        console.log("Error getting document:", error);
+    });
+    let allProduct = arrInforImg.concat(arrInforImgHL, arrInforImgJordan);
     // ----------//
     let keyDoc = await firebase.auth().currentUser.uid;
     const accessListBag = db.collection(collect2).doc(keyDoc);
@@ -1052,8 +1085,19 @@ model.readInforBagAndSize = async (collect1, document, collect2) => {
     }).catch((error) => {
         console.log("Error getting document:", error);
     });
+    // Jordan//
+    var arrInforImgJordan = [];
+    const accessInforImgJordan = db.collection('Image').doc('menJordan');
+    await accessInforImgJordan.get().then((doc) => {
+        if (doc.exists) {
+            arrInforImgJordan = doc.data().image;
+        } else {
+        }
+    }).catch((error) => {
+        console.log("Error getting document:", error);
+    });
+    arrInforImg = arrInforShoes.concat(arrInforImgHL, arrInforImgJordan);
     // ---------//
-    arrInforImg = arrInforShoes.concat(arrInforImgHL);
     let keyDoc = await firebase.auth().currentUser.uid;
     const accessListBag = db.collection(collect2).doc(keyDoc);
     await accessListBag.get().then((doc) => {
@@ -1140,8 +1184,19 @@ model.readInforBagAndMenShoes = async (collect1, document, collect2) => {
     }).catch((error) => {
         console.log("Error getting document:", error);
     });
+    // Jordan//
+    var arrInforImgJordan = [];
+    const accessInforImgJordan = db.collection('Image').doc('menJordan');
+    await accessInforImgJordan.get().then((doc) => {
+        if (doc.exists) {
+            arrInforImgJordan = doc.data().image;
+        } else {
+        }
+    }).catch((error) => {
+        console.log("Error getting document:", error);
+    });
+    arrInforImg = arrInforShoes.concat(arrInforImgHL, arrInforImgJordan);
     // ---------//
-    arrInforImg = arrInforShoes.concat(arrInforImgHL);
     let keyDoc = await firebase.auth().currentUser.uid;
     const accessListBag = db.collection(collect2).doc(keyDoc);
     await accessListBag.get().then((doc) => {
@@ -1209,8 +1264,19 @@ model.readInforFavoriteAndMenShoes = async (collect1, document, collect2) => {
     }).catch((error) => {
         console.log("Error getting document:", error);
     });
+    // Jordan//
+    var arrInforImgJordan = [];
+    const accessInforImgJordan = db.collection('Image').doc('menJordan');
+    await accessInforImgJordan.get().then((doc) => {
+        if (doc.exists) {
+            arrInforImgJordan = doc.data().image;
+        } else {
+        }
+    }).catch((error) => {
+        console.log("Error getting document:", error);
+    });
+    arrInforImg = arrInforShoes.concat(arrInforImgHL, arrInforImgJordan);
     // ---------//
-    arrInforImg = arrInforShoes.concat(arrInforImgHL);
     let keyDoc = await firebase.auth().currentUser.uid;
     const accessListFavorite = db.collection(collect2).doc(keyDoc);
     await accessListFavorite.get().then((doc) => {
@@ -1277,8 +1343,19 @@ model.setTotalPrice = async (collect, document) => {
     }).catch((error) => {
         console.log("Error getting document:", error);
     });
+    // Jordan//
+    var arrInforImgJordan = [];
+    const accessInforImgJordan = db.collection('Image').doc('menJordan');
+    await accessInforImgJordan.get().then((doc) => {
+        if (doc.exists) {
+            arrInforImgJordan = doc.data().image;
+        } else {
+        }
+    }).catch((error) => {
+        console.log("Error getting document:", error);
+    });
+    arrInforImg = arrInforShoes.concat(arrInforImgHL, arrInforImgJordan);
     // ---------//
-    arrInforImg = arrInforShoes.concat(arrInforImgHL);
     var arrBag = [];
     let keyDoc = await firebase.auth().currentUser.uid;
     let accessListBag = db.collection('Bag').doc(keyDoc);
@@ -1686,13 +1763,29 @@ model.forgotPassword = async (email) => {
 }
 
 model.searchShoes = async (keyword) => {
-    let data = []
-    let res = db.collection('Image').doc('menShoes');
-    await res.get().then((doc) => {
+    let data = [];
+    let data1 = [];
+    let data2 = [];
+    let data3 = [];
+    let res1 = db.collection('Image').doc('menShoes');
+    await res1.get().then((doc) => {
         if (doc.exists) {
-            data = doc.data().image;
+            data1 = doc.data().image;
         }
     });
+    let res2 = db.collection('Image').doc('menJordan');
+    await res2.get().then((doc) => {
+        if (doc.exists) {
+            data2 = doc.data().image;
+        }
+    });
+    let res3 = db.collection('Image').doc('hightligths');
+    await res3.get().then((doc) => {
+        if (doc.exists) {
+            data3 = doc.data().image;
+        }
+    });
+    data = data1.concat(data2,data3);
     let nameProArr = data.reduce((arr, item) => {
         return [...arr, item.name]
     }, []);
@@ -2226,7 +2319,8 @@ model.notifyMessageAudio = async () => {
 }
 model.readAllProductFromFirestore = async () => {
     let arr1 = [];
-    let arr2 = []
+    let arr2 = [];
+    let arr3 = [];
     await db.collection('Image').doc('hightligths').get()
         .then((doc) => {
             arr1 = doc.data().image;
@@ -2241,7 +2335,14 @@ model.readAllProductFromFirestore = async () => {
         .catch((error) => {
             console.log(error.message);
         });
-    let allArr = arr1.concat(arr2);
+    await db.collection('Image').doc('menJordan').get()
+        .then((doc) => {
+            arr3 = doc.data().image;
+        })
+        .catch((error) => {
+            console.log(error.message);
+        });
+    let allArr = arr1.concat(arr2,arr3);
     return allArr;
 }
 model.readBag = async () => {
@@ -2266,15 +2367,15 @@ model.readFavourite = async () => {
         });
     return arr1;
 }
-model.readHistoryBuy = async()=>{
-    let data=[];
+model.readHistoryBuy = async () => {
+    let data = [];
     await db.collection('Buy').doc(auth.currentUser.uid).get()
-    .then((doc)=>{
-        data = doc.data().buy;
-    })
-    .catch((err)=>{
-        console.log(err.message);
-    });
+        .then((doc) => {
+            data = doc.data().buy;
+        })
+        .catch((err) => {
+            console.log(err.message);
+        });
     view.setHistoryBuy(data);
 }
 // 'images/hightligths/'

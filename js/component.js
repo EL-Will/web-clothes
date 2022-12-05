@@ -1320,7 +1320,7 @@ component.menShoesSinginPage = `
                 <span class="pre-link-label headline-3">Men</span>
             </button>
             <div class="nav-btn pre-link flex-btn"></div>
-            <a class="nav-btn pre-link flex-btn" href="#men-shoes-margin-top">
+            <a class="nav-btn pre-link flex-btn" id="gotoAllMenShoesMobile">
                 <span class="pre-link-label headline-3">Shoes</span>
                 <svg aria-hidden="true" class="pre-chevron chev-root d-sm-b d-lg-h" focusable="false"
                     viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
@@ -1328,13 +1328,13 @@ component.menShoesSinginPage = `
                     </path>
                 </svg>
             </a>
-            <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoJordanMenShoes">
+            <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoJordanMenShoesMobile">
                 <span class="pre-link-label headline-4">Jordan</span>
             </button>
-            <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoRunningMenShoes">
+            <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoRunningMenShoesMobile">
                 <span class="pre-link-label headline-4">Running</span>
             </button>
-            <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoFootballMenShoes">
+            <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoFootballMenShoesMobile">
                 <span class="pre-link-label headline-4">Football</span>
             </button>
             <button class="nav-btn pre-link flex-btn" id="gotoMenClothing">
@@ -1492,7 +1492,7 @@ component.menShoesSinginPage = `
         <div class="col-lg-4 col-md-4 move-to-center">
             <div class="box-shoe-clothing-gear">
                 <ul class="flex-box-title-child">
-                    <li><a href="#men-shoes-margin-top" class="format-text-title-child">Shoes</a></li>
+                    <li><a id="gotoAllMenShoesDesktop" class="format-text-title-child">Shoes</a></li>
                     <li><a href="#" class="format-text-title-child">Clothing</a></li>
                     <li><a href="#" class="format-text-title-child">Gear</a></li>
                 </ul>
@@ -1743,7 +1743,7 @@ component.menShoesUnSigninPage = `
                 <span class="pre-link-label headline-3">Men</span>
             </button>
             <div class="nav-btn pre-link flex-btn"></div>
-            <button class="nav-btn pre-link flex-btn" id="gotoMenShoes">
+            <button class="nav-btn pre-link flex-btn" id="gotoAllMenShoesMobile">
                 <span class="pre-link-label headline-3">Shoes</span>
                 <svg aria-hidden="true" class="pre-chevron chev-root d-sm-b d-lg-h" focusable="false"
                     viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
@@ -1751,13 +1751,13 @@ component.menShoesUnSigninPage = `
                     </path>
                 </svg>
             </button>
-            <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoJordanMenShoes">
+            <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoJordanMenShoesMobile">
                 <span class="pre-link-label headline-4">Jordan</span>
             </button>
-            <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoRunningMenShoes">
+            <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoRunningMenShoesMobile">
                 <span class="pre-link-label headline-4">Running</span>
             </button>
-            <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoFootballMenShoes">
+            <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoFootballMenShoesMobile">
                 <span class="pre-link-label headline-4">Football</span>
             </button>
             <button class="nav-btn pre-link flex-btn" id="gotoMenClothing">
@@ -1915,7 +1915,7 @@ component.menShoesUnSigninPage = `
         <div class="col-lg-4 col-md-4 move-to-center">
             <div class="box-shoe-clothing-gear">
                 <ul class="flex-box-title-child">
-                    <li><a href="#men-shoes-margin-top" class="format-text-title-child">Shoes</a></li>
+                    <li><a id="gotoAllMenShoesDesktop" class="format-text-title-child">Shoes</a></li>
                     <li><a href="#" class="format-text-title-child">Clothing</a></li>
                     <li><a href="#" class="format-text-title-child">Gear</a></li>
                 </ul>
@@ -1957,7 +1957,7 @@ component.menShoesUnSigninPage = `
                     <h3 class="men-shoes-wide"><b>Shoes</b></h3>
                 </div>
                 <div class="men-shoes-padding-64 men-shoes-large men-shoes-text-gray">
-                    <a href="#" class="men-shoes-item men-shoes-button">Jordan</a>
+                    <a id="gotoJordanMenShoesDesktop" class="men-shoes-item men-shoes-button">Jordan</a>
                     <a href="#" class="men-shoes-item men-shoes-button">Running</a>
                     <a href="#" class="men-shoes-item men-shoes-button">Football</a>
 

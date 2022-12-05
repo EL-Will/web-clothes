@@ -322,9 +322,26 @@ view.selectWebPage = (namePage) => {
             document.getElementById('gotoHistoryBuyMobile').addEventListener('click',()=>{
                 view.selectWebPage('historyBuyPage');
             });
-            // document.getElementById('gotoJordanMenShoesDesktop').addEventListener('click',()=>{
-            //     model.getInforImageOfMenshoes('Image', 'menJordan');
-            // });
+            document.getElementById('gotoJordanMenShoesDesktop').addEventListener('click',()=>{
+                model.getInforImageOfMenshoes('Image', 'menJordan');
+                model.getValueAndSortIncreaseInforImage('Image', 'menJordan');
+                model.getValueAndSortDecreaseInforImage('Image', 'menJordan');
+            });
+            document.getElementById('gotoJordanMenShoesMobile').addEventListener('click',()=>{
+                model.getInforImageOfMenshoes('Image', 'menJordan');
+                model.getValueAndSortIncreaseInforImage('Image', 'menJordan');
+                model.getValueAndSortDecreaseInforImage('Image', 'menJordan');
+            });
+            document.getElementById('gotoAllMenShoesDesktop').addEventListener('click',()=>{
+                model.getInforImageOfMenshoes('Image', 'menShoes');
+                model.getValueAndSortIncreaseInforImage('Image', 'menShoes');
+                model.getValueAndSortDecreaseInforImage('Image', 'menShoes');
+            });
+            document.getElementById('gotoAllMenShoesMobile').addEventListener('click',()=>{
+                model.getInforImageOfMenshoes('Image', 'menShoes');
+                model.getValueAndSortIncreaseInforImage('Image', 'menShoes');
+                model.getValueAndSortDecreaseInforImage('Image', 'menShoes');
+            });
             view.setProfileNameCheckout('exampleModalLabel1');
             controller.search();
             controller.clickGotoMen();
@@ -371,6 +388,26 @@ view.selectWebPage = (namePage) => {
             })
             document.getElementById('gotoBagDesktop').addEventListener('click', () => {
                 view.selectWebPage('singinPage');
+            });
+            document.getElementById('gotoJordanMenShoesDesktop').addEventListener('click',()=>{
+                model.getInforImageOfMenshoes('Image', 'menJordan');
+                model.getValueAndSortIncreaseInforImage('Image', 'menJordan');
+                model.getValueAndSortDecreaseInforImage('Image', 'menJordan');
+            });
+            document.getElementById('gotoJordanMenShoesMobile').addEventListener('click',()=>{
+                model.getInforImageOfMenshoes('Image', 'menJordan');
+                model.getValueAndSortIncreaseInforImage('Image', 'menJordan');
+                model.getValueAndSortDecreaseInforImage('Image', 'menJordan');
+            });
+            document.getElementById('gotoAllMenShoesDesktop').addEventListener('click',()=>{
+                model.getInforImageOfMenshoes('Image', 'menShoes');
+                model.getValueAndSortIncreaseInforImage('Image', 'menShoes');
+                model.getValueAndSortDecreaseInforImage('Image', 'menShoes');
+            });
+            document.getElementById('gotoAllMenShoesMobile').addEventListener('click',()=>{
+                model.getInforImageOfMenshoes('Image', 'menShoes');
+                model.getValueAndSortIncreaseInforImage('Image', 'menShoes');
+                model.getValueAndSortDecreaseInforImage('Image', 'menShoes');
             });
             controller.clickGotoMen();
             controller.clickExpandMobileMen();
@@ -992,7 +1029,7 @@ view.setHighLigthImg = (arr) => {
         });
     }
 }
-view.setMenShoesImg = (arr, arrf, arrb) => {
+view.setMenShoesImg = (collect,doc,arr, arrf, arrb) => {
     document.getElementById('men-shoes-product_items').innerHTML = '';
     var divData = '';
     let temporaryF = [];
@@ -1458,8 +1495,8 @@ view.setMenShoesImg = (arr, arrf, arrb) => {
     let classMenShoes = document.getElementById('title-men-shoes');
     classMenShoes.innerText = `Men's Shoes(${arr.length})`;
     document.getElementById('men-shoes-product_items').innerHTML = divData;
-    controller.clickFavorite();
-    controller.clickBag();
+    controller.clickFavorite(collect,doc);
+    controller.clickBag(collect,doc);
     var classColourImg = document.getElementsByClassName('colour-img');
     var classThumb = document.getElementsByClassName('box-colour-products');
     var classMainImg = document.getElementsByClassName('main-img');

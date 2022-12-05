@@ -735,7 +735,7 @@ controller.displaySortBy = () => {
         }
     });
 }
-controller.sortLowToHight = async (arr) => {
+controller.sortLowToHight = async (collect,doc,arr) => {
     let arrFvorite = [];
     let arrBag = [];
     if (firebase.auth().currentUser !== null) {
@@ -767,10 +767,10 @@ controller.sortLowToHight = async (arr) => {
     idPriceLowHigh.addEventListener('click', () => {
 
         let lowHighPriceProducts = quickSortIncrease(arr);
-        view.setMenShoesImg(lowHighPriceProducts, arrFvorite, arrBag)
+        view.setMenShoesImg(collect,doc,lowHighPriceProducts, arrFvorite, arrBag)
     });
 }
-controller.sortHightLow = async (arr) => {
+controller.sortHightLow = async (collect,doc,arr) => {
     let arrFvorite = [];
     let arrBag = [];
     if (firebase.auth().currentUser !== null) {
@@ -800,7 +800,7 @@ controller.sortHightLow = async (arr) => {
     let idPriceHighLow = document.getElementById('priceHighLow');
     idPriceHighLow.addEventListener('click', () => {
         let highLowPriceProducts = quickSortDecrease(arr);
-        view.setMenShoesImg(highLowPriceProducts, arrFvorite, arrBag);
+        view.setMenShoesImg(collect,doc,highLowPriceProducts, arrFvorite, arrBag);
     });
 }
 // -----------------------End Sort By ---------------------------------//
@@ -862,7 +862,7 @@ let quickSortDecrease = (arr) => {
 
 //----------------------------Start Favorite------------------------------//
 
-controller.clickFavorite = () => {
+controller.clickFavorite = (collect,doc) => {
     let idFavorite;
     let indexcolour;
     let boolF;
@@ -871,7 +871,7 @@ controller.clickFavorite = () => {
     for (let i = 0; i < targetId.length; i++) {
         targetId[i].addEventListener('click', async () => {
             if (firebase.auth().currentUser !== null) {
-                let newArr = await model.readInforFavoriteAndMenShoes('Image', 'menShoes', 'Favorite');
+                let newArr = await model.readInforFavoriteAndMenShoes(collect, doc, 'Favorite');
                 if (newArr[i].hasOwnProperty('status')) {
                     if (newArr[i].hasOwnProperty('thumburl')) {
                         if (classMainImg[i].src == newArr[i].url) {
@@ -998,7 +998,7 @@ controller.deleteFavorite = async () => {
     }
 }
 
-controller.clickBag = async () => {
+controller.clickBag = async (collect,doc) => {
     let idBag = 0;
     let indexcolour;
     let boolB;
@@ -1008,7 +1008,7 @@ controller.clickBag = async () => {
     for (let i = 0; i < targetId.length; i++) {
         targetId[i].addEventListener('click', async () => {
             if (firebase.auth().currentUser !== null) {
-                let newArr = await model.readInforBagAndMenShoes('Image', 'menShoes', 'Bag');
+                let newArr = await model.readInforBagAndMenShoes(collect,doc, 'Bag');
                 if (newArr[i].hasOwnProperty('status')) {
                     if (newArr[i].hasOwnProperty('thumburl')) {
                         if (classMainImg[i].src == newArr[i].url) {
