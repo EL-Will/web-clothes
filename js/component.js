@@ -191,7 +191,7 @@ component.homePageUnSingin = `
                         <span class="pre-link-label headline-3">Men</span>
                     </button>
                     <div class="nav-btn pre-link flex-btn"></div>
-                    <button class="nav-btn pre-link flex-btn" id="gotoMenShoes">
+                    <button class="nav-btn pre-link flex-btn" id="gotoAllMenShoesMobile">
                         <span class="pre-link-label headline-3">Shoes</span>
                         <svg aria-hidden="true" class="pre-chevron chev-root d-sm-b d-lg-h" focusable="false"
                             viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
@@ -199,13 +199,13 @@ component.homePageUnSingin = `
                             </path>
                         </svg>
                     </button>
-                    <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoJordanMenShoes">
+                    <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoJordanMenShoesMobile">
                         <span class="pre-link-label headline-4">Jordan</span>
                     </button>
-                    <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoRunningMenShoes">
+                    <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoRunningMenShoesMobile">
                         <span class="pre-link-label headline-4">Running</span>
                     </button>
-                    <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoFootballMenShoes">
+                    <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoFootballMenShoesMobile">
                         <span class="pre-link-label headline-4">Football</span>
                     </button>
                     <button class="nav-btn pre-link flex-btn" id="gotoMenClothing">
@@ -660,7 +660,7 @@ component.homePageSingin = `
                         <span class="pre-link-label headline-3">Men</span>
                     </button>
                     <div class="nav-btn pre-link flex-btn"></div>
-                    <button class="nav-btn pre-link flex-btn" id="gotoMenShoes">
+                    <button class="nav-btn pre-link flex-btn" id="gotoAllMenShoesMobile">
                         <span class="pre-link-label headline-3">Shoes</span>
                         <svg aria-hidden="true" class="pre-chevron chev-root d-sm-b d-lg-h" focusable="false"
                             viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
@@ -668,13 +668,13 @@ component.homePageSingin = `
                             </path>
                         </svg>
                     </button>
-                    <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoJordanMenShoes">
+                    <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoJordanMenShoesMobile">
                         <span class="pre-link-label headline-4">Jordan</span>
                     </button>
-                    <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoRunningMenShoes">
+                    <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoRunningMenShoesMobile">
                         <span class="pre-link-label headline-4">Running</span>
                     </button>
-                    <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoFootballMenShoes">
+                    <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoFootballMenShoesMobile">
                         <span class="pre-link-label headline-4">Football</span>
                     </button>
                     <button class="nav-btn pre-link flex-btn" id="gotoMenClothing">
@@ -2219,7 +2219,7 @@ component.bagPage = `
                 <span class="pre-link-label headline-3">Men</span>
             </button>
             <div class="nav-btn pre-link flex-btn"></div>
-            <button class="nav-btn pre-link flex-btn" id="gotoMenShoes">
+            <button class="nav-btn pre-link flex-btn" id="gotoAllMenShoesMobile">
                 <span class="pre-link-label headline-3">Shoes</span>
                 <svg aria-hidden="true" class="pre-chevron chev-root d-sm-b d-lg-h" focusable="false"
                     viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
@@ -2227,13 +2227,13 @@ component.bagPage = `
                     </path>
                 </svg>
             </button>
-            <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoJordanMenShoes">
+            <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoJordanMenShoesMobile">
                 <span class="pre-link-label headline-4">Jordan</span>
             </button>
-            <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoRunningMenShoes">
+            <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoRunningMenShoesMobile">
                 <span class="pre-link-label headline-4">Running</span>
             </button>
-            <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoFootballMenShoes">
+            <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoFootballMenShoesMobile">
                 <span class="pre-link-label headline-4">Football</span>
             </button>
             <button class="nav-btn pre-link flex-btn" id="gotoMenClothing">
@@ -2673,7 +2673,7 @@ component.favoritePage = `
                 <span class="pre-link-label headline-3">Men</span>
             </button>
             <div class="nav-btn pre-link flex-btn"></div>
-            <button class="nav-btn pre-link flex-btn" id="gotoMenShoes">
+            <button class="nav-btn pre-link flex-btn" id="gotoAllMenShoesMobile">
                 <span class="pre-link-label headline-3">Shoes</span>
                 <svg aria-hidden="true" class="pre-chevron chev-root d-sm-b d-lg-h" focusable="false"
                     viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
@@ -2681,13 +2681,13 @@ component.favoritePage = `
                     </path>
                 </svg>
             </button>
-            <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoJordanMenShoes">
+            <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoJordanMenShoesMobile">
                 <span class="pre-link-label headline-4">Jordan</span>
             </button>
-            <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoRunningMenShoes">
+            <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoRunningMenShoesMobile">
                 <span class="pre-link-label headline-4">Running</span>
             </button>
-            <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoFootballMenShoes">
+            <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoFootballMenShoesMobile">
                 <span class="pre-link-label headline-4">Football</span>
             </button>
             <button class="nav-btn pre-link flex-btn" id="gotoMenClothing">
@@ -3842,7 +3842,7 @@ component.detailProductPage = `
                 <span class="pre-link-label headline-3">Men</span>
             </button>
             <div class="nav-btn pre-link flex-btn"></div>
-            <button class="nav-btn pre-link flex-btn" id="gotoMenShoes">
+            <button class="nav-btn pre-link flex-btn" id="gotoAllMenShoesMobile">
                 <span class="pre-link-label headline-3">Shoes</span>
                 <svg aria-hidden="true" class="pre-chevron chev-root d-sm-b d-lg-h" focusable="false"
                     viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
@@ -3850,13 +3850,13 @@ component.detailProductPage = `
                     </path>
                 </svg>
             </button>
-            <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoJordanMenShoes">
+            <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoJordanMenShoesMobile">
                 <span class="pre-link-label headline-4">Jordan</span>
             </button>
-            <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoRunningMenShoes">
+            <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoRunningMenShoesMobile">
                 <span class="pre-link-label headline-4">Running</span>
             </button>
-            <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoFootballMenShoes">
+            <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoFootballMenShoesMobile">
                 <span class="pre-link-label headline-4">Football</span>
             </button>
             <button class="nav-btn pre-link flex-btn" id="gotoMenClothing">
@@ -4626,7 +4626,7 @@ component.header1Unsignin = `
                         <span class="pre-link-label headline-3">Men</span>
                     </button>
                     <div class="nav-btn pre-link flex-btn"></div>
-                    <button class="nav-btn pre-link flex-btn" id="gotoMenShoes">
+                    <button class="nav-btn pre-link flex-btn" id="gotoAllMenShoesMobile">
                         <span class="pre-link-label headline-3">Shoes</span>
                         <svg aria-hidden="true" class="pre-chevron chev-root d-sm-b d-lg-h" focusable="false"
                             viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
@@ -4634,13 +4634,13 @@ component.header1Unsignin = `
                             </path>
                         </svg>
                     </button>
-                    <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoJordanMenShoes">
+                    <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoJordanMenShoesMobile">
                         <span class="pre-link-label headline-4">Jordan</span>
                     </button>
-                    <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoRunningMenShoes">
+                    <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoRunningMenShoesMobile">
                         <span class="pre-link-label headline-4">Running</span>
                     </button>
-                    <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoFootballMenShoes">
+                    <button class="nav-btn pre-link flex-btn padding-left-48" id="gotoFootballMenShoesMobile">
                         <span class="pre-link-label headline-4">Football</span>
                     </button>
                     <button class="nav-btn pre-link flex-btn" id="gotoMenClothing">

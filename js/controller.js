@@ -1828,6 +1828,7 @@ controller.addToBagFromReviewPage = async () => {
     document.getElementById('addToBag').addEventListener('click', async () => {
         if (auth.currentUser != null) {
             let arrPro = await model.readAllProductFromFirestore();
+            console.log(arrPro);
             let arrProInBag = await model.readBag();
             let idImgBag = [];
             for (let i in arrProInBag) {
@@ -1857,8 +1858,20 @@ controller.addToBagFromReviewPage = async () => {
                 color = 0;
             }
             let check = false;
-            let index = nameUrl.indexOf(sourceImg);
-            let idB = arrPro[index].id;
+            let idB;
+            arrPro.forEach((item)=>{
+                if(item.url == sourceImg){
+                    idB = item.id;
+                }
+                else{
+                    if(item.hasOwnProperty('thumburl') == true){
+                        if(item.thumburl.indexOf(sourceImg) != -1){
+                            idB = item.id;
+                        }
+                    }
+                }
+            })
+            
             for (let i in idImgBag) {
                 if (idB == idImgBag[i].id) {
                     for (let j in idImgBag[i].indexcolor) {
@@ -1924,8 +1937,19 @@ controller.addToBagFromReviewPage = async () => {
                 color = 0;
             }
             let check = false;
-            let index = nameUrl.indexOf(sourceImg);
-            let idF = arrPro[index].id;
+            let idF;
+            arrPro.forEach((item)=>{
+                if(item.url == sourceImg){
+                    idF = item.id;
+                }
+                else{
+                    if(item.hasOwnProperty('thumburl') == true){
+                        if(item.thumburl.indexOf(sourceImg) != -1){
+                            idF = item.id;
+                        }
+                    }
+                }
+            })
             for (let i in idImgFavourite) {
                 if (idF == idImgFavourite[i].id) {
                     for (let j in idImgFavourite[i].indexcolor) {

@@ -1571,17 +1571,38 @@ model.writeSizeToBag = async (obj) => {
 }
 model.getInforFavorite = async (collect1, document, collect2) => {
     var arrInforImg = [];
+    var arrInforShoes = [];
     var arrFavorite = [];
     const accessInforImg = db.collection(collect1).doc(document);
     await accessInforImg.get().then((doc) => {
         if (doc.exists) {
-            arrInforImg = doc.data().image;
+            arrInforShoes = doc.data().image;
         } else {
         }
     }).catch((error) => {
         console.log("Error getting document:", error);
     });
-
+    // HightLight
+    var arrInforImgHL = [];
+    const accessInforImgHL = db.collection(collect1).doc('hightligths');
+    await accessInforImgHL.get().then((doc) => {
+        if (doc.exists) {
+            arrInforImgHL = doc.data().image;
+        } 
+    }).catch((error) => {
+        console.log("Error getting document:", error);
+    });
+    // MenJordan
+    var arrInforImgJordan = [];
+    const accessInforImgJordan = db.collection(collect1).doc('menJordan');
+    await accessInforImgJordan.get().then((doc) => {
+        if (doc.exists) {
+            arrInforImgJordan = doc.data().image;
+        } 
+    }).catch((error) => {
+        console.log("Error getting document:", error);
+    });
+    arrInforImg = arrInforShoes.concat(arrInforImgHL,arrInforImgJordan);
     let keyDoc = await firebase.auth().currentUser.uid;
     const accessListFavorite = db.collection(collect2).doc(keyDoc);
     await accessListFavorite.get().then((doc) => {

@@ -30,13 +30,19 @@ view.selectWebPage = (namePage) => {
             document.getElementById("gotoMenDesktop").addEventListener('click', () => {
                 view.selectWebPage('menShoesUnSigninPage');
                 model.getInforUser();
-            })
+            });
             document.getElementById('gotoFavouriteDesktop').addEventListener('click', () => {
                 view.selectWebPage('singinPage');
-            })
+            });
             document.getElementById('gotoBagDesktop').addEventListener('click', () => {
                 view.selectWebPage('singinPage');
-            })
+            });
+            document.getElementById('gotoJordanMenShoesMobile').addEventListener('click', () => {
+                view.selectWebPage('menJordanShoesUnSigninPage');
+            });
+            document.getElementById('gotoAllMenShoesMobile').addEventListener('click', () => {
+                view.selectWebPage('menShoesUnSigninPage');
+            });
             controller.functionVisualSearch();
             controller.clearSearch();
             controller.catchClickEvent();
@@ -53,13 +59,13 @@ view.selectWebPage = (namePage) => {
             controller.clickGotoKids();
             controller.clickExpandMobileKids();
             controller.clickGobackAllKids();
-            document.getElementById('gotoMenShoes').addEventListener('click',()=>{
+            document.getElementById('gotoMenDesktop').addEventListener('click', () => {
                 view.selectWebPage('menShoesUnSigninPage');
             });
-            document.getElementById('gotoSigninMobile').addEventListener('click',()=>{
+            document.getElementById('gotoSigninMobile').addEventListener('click', () => {
                 view.selectWebPage('singinPage');
             });
-            document.getElementById('gotoSignupMobile').addEventListener('click',()=>{
+            document.getElementById('gotoSignupMobile').addEventListener('click', () => {
                 view.selectWebPage('singupPage');
             });
             break;
@@ -84,7 +90,7 @@ view.selectWebPage = (namePage) => {
             document.getElementById('gotoFavouriteMobile').addEventListener('click', () => {
                 view.selectWebPage('favoritePage');
             });
-            
+
             document.getElementById('gotoChangePass').addEventListener('click', () => {
                 view.selectWebPage('changePasswordPage');
             });
@@ -97,11 +103,17 @@ view.selectWebPage = (namePage) => {
             document.getElementById('gotoProfileMobile').addEventListener('click', () => {
                 view.selectWebPage('profilePage');
             });
-            document.getElementById('gotoHistoryBuy').addEventListener('click',()=>{
+            document.getElementById('gotoHistoryBuy').addEventListener('click', () => {
                 view.selectWebPage('historyBuyPage');
             });
-            document.getElementById('gotoHistoryBuyMobile').addEventListener('click',()=>{
+            document.getElementById('gotoHistoryBuyMobile').addEventListener('click', () => {
                 view.selectWebPage('historyBuyPage');
+            });
+            document.getElementById('gotoJordanMenShoesMobile').addEventListener('click', () => {
+                view.selectWebPage('menJordanShoesSinginPage');
+            });
+            document.getElementById('gotoAllMenShoesMobile').addEventListener('click', () => {
+                view.selectWebPage('menShoesSinginPage');
             });
             controller.expandAccount();
             controller.closeAccount();
@@ -123,14 +135,14 @@ view.selectWebPage = (namePage) => {
             controller.clickGotoKids();
             controller.clickExpandMobileKids();
             controller.clickGobackAllKids();
-            document.getElementById('gotoMenShoes').addEventListener('click',()=>{
+            document.getElementById('gotoMenDesktop').addEventListener('click', () => {
                 view.selectWebPage('menShoesSinginPage');
             });
             controller.logout('logout-btn');
             controller.logout('gotoLogoutMobile');
             break;
         case "singinPage":
-            document.getElementById('app').innerHTML = (component.singinPage+ component.footer)
+            document.getElementById('app').innerHTML = (component.singinPage + component.footer)
             let singinForm = document.getElementById('form-singin');
             singinForm.addEventListener('submit', (e) => {
                 e.preventDefault();
@@ -190,12 +202,12 @@ view.selectWebPage = (namePage) => {
                     eye.setAttribute("class", 'fa-solid fa-eye-slash fixed-eye');
                 }
             });
-            document.getElementById('gotoHomepageUnsinginMobile').addEventListener('click',()=>{
+            document.getElementById('gotoHomepageUnsinginMobile').addEventListener('click', () => {
                 view.selectWebPage('homePageUnSingIn');
             });
             break;
         case "singupPage":
-            document.getElementById('app').innerHTML = (component.singupPage+ component.footer);
+            document.getElementById('app').innerHTML = (component.singupPage + component.footer);
             let singupForm = document.getElementById('form-singup');
             singupForm.addEventListener('submit', (e) => {
                 e.preventDefault();
@@ -267,12 +279,12 @@ view.selectWebPage = (namePage) => {
                 }
             });
             // ================== End show and hide password =====================//
-            document.getElementById('gotoHomepageUnsinginMobile').addEventListener('click',()=>{
+            document.getElementById('gotoHomepageUnsinginMobile').addEventListener('click', () => {
                 view.selectWebPage('homePageUnSingIn');
             });
             break;
         case "menShoesSinginPage":
-            document.getElementById('app').innerHTML = (component.menShoesSinginPage+ component.footer);
+            document.getElementById('app').innerHTML = (component.menShoesSinginPage + component.footer);
             model.getInforUser();
             model.getInforImageOfMenshoes('Image', 'menShoes');
             controller.stickyHeadMenShoes();
@@ -316,28 +328,28 @@ view.selectWebPage = (namePage) => {
             document.getElementById('gotoProfileMobile').addEventListener('click', () => {
                 view.selectWebPage('profilePage');
             });
-            document.getElementById('gotoHistoryBuy').addEventListener('click',()=>{
+            document.getElementById('gotoHistoryBuy').addEventListener('click', () => {
                 view.selectWebPage('historyBuyPage');
             });
-            document.getElementById('gotoHistoryBuyMobile').addEventListener('click',()=>{
+            document.getElementById('gotoHistoryBuyMobile').addEventListener('click', () => {
                 view.selectWebPage('historyBuyPage');
             });
-            document.getElementById('gotoJordanMenShoesDesktop').addEventListener('click',()=>{
+            document.getElementById('gotoJordanMenShoesDesktop').addEventListener('click', () => {
                 model.getInforImageOfMenshoes('Image', 'menJordan');
                 model.getValueAndSortIncreaseInforImage('Image', 'menJordan');
                 model.getValueAndSortDecreaseInforImage('Image', 'menJordan');
             });
-            document.getElementById('gotoJordanMenShoesMobile').addEventListener('click',()=>{
+            document.getElementById('gotoJordanMenShoesMobile').addEventListener('click', () => {
                 model.getInforImageOfMenshoes('Image', 'menJordan');
                 model.getValueAndSortIncreaseInforImage('Image', 'menJordan');
                 model.getValueAndSortDecreaseInforImage('Image', 'menJordan');
             });
-            document.getElementById('gotoAllMenShoesDesktop').addEventListener('click',()=>{
+            document.getElementById('gotoAllMenShoesDesktop').addEventListener('click', () => {
                 model.getInforImageOfMenshoes('Image', 'menShoes');
                 model.getValueAndSortIncreaseInforImage('Image', 'menShoes');
                 model.getValueAndSortDecreaseInforImage('Image', 'menShoes');
             });
-            document.getElementById('gotoAllMenShoesMobile').addEventListener('click',()=>{
+            document.getElementById('gotoAllMenShoesMobile').addEventListener('click', () => {
                 model.getInforImageOfMenshoes('Image', 'menShoes');
                 model.getValueAndSortIncreaseInforImage('Image', 'menShoes');
                 model.getValueAndSortDecreaseInforImage('Image', 'menShoes');
@@ -357,7 +369,7 @@ view.selectWebPage = (namePage) => {
             controller.logout('gotoLogoutMobile');
             break;
         case "menShoesUnSigninPage":
-            document.getElementById('app').innerHTML = (component.menShoesUnSigninPage+ component.footer);
+            document.getElementById('app').innerHTML = (component.menShoesUnSigninPage + component.footer);
             model.getInforImageOfMenshoes('Image', 'menShoes');
             controller.stickyHeadMenShoes();
             controller.displaySortBy();
@@ -389,22 +401,22 @@ view.selectWebPage = (namePage) => {
             document.getElementById('gotoBagDesktop').addEventListener('click', () => {
                 view.selectWebPage('singinPage');
             });
-            document.getElementById('gotoJordanMenShoesDesktop').addEventListener('click',()=>{
+            document.getElementById('gotoJordanMenShoesDesktop').addEventListener('click', () => {
                 model.getInforImageOfMenshoes('Image', 'menJordan');
                 model.getValueAndSortIncreaseInforImage('Image', 'menJordan');
                 model.getValueAndSortDecreaseInforImage('Image', 'menJordan');
             });
-            document.getElementById('gotoJordanMenShoesMobile').addEventListener('click',()=>{
+            document.getElementById('gotoJordanMenShoesMobile').addEventListener('click', () => {
                 model.getInforImageOfMenshoes('Image', 'menJordan');
                 model.getValueAndSortIncreaseInforImage('Image', 'menJordan');
                 model.getValueAndSortDecreaseInforImage('Image', 'menJordan');
             });
-            document.getElementById('gotoAllMenShoesDesktop').addEventListener('click',()=>{
+            document.getElementById('gotoAllMenShoesDesktop').addEventListener('click', () => {
                 model.getInforImageOfMenshoes('Image', 'menShoes');
                 model.getValueAndSortIncreaseInforImage('Image', 'menShoes');
                 model.getValueAndSortDecreaseInforImage('Image', 'menShoes');
             });
-            document.getElementById('gotoAllMenShoesMobile').addEventListener('click',()=>{
+            document.getElementById('gotoAllMenShoesMobile').addEventListener('click', () => {
                 model.getInforImageOfMenshoes('Image', 'menShoes');
                 model.getValueAndSortIncreaseInforImage('Image', 'menShoes');
                 model.getValueAndSortDecreaseInforImage('Image', 'menShoes');
@@ -419,15 +431,170 @@ view.selectWebPage = (namePage) => {
             controller.clickExpandMobileKids();
             controller.clickGobackAllKids();
             controller.search();
-            document.getElementById('gotoSigninMobile').addEventListener('click',()=>{
+            document.getElementById('gotoSigninMobile').addEventListener('click', () => {
                 view.selectWebPage('singinPage');
             });
-            document.getElementById('gotoSignupMobile').addEventListener('click',()=>{
+            document.getElementById('gotoSignupMobile').addEventListener('click', () => {
+                view.selectWebPage('singupPage');
+            });
+            break;
+        case "menJordanShoesSinginPage":
+            document.getElementById('app').innerHTML = (component.menShoesSinginPage + component.footer);
+            model.getInforUser();
+            model.getInforImageOfMenshoes('Image', 'menJordan');
+            controller.stickyHeadMenShoes();
+            controller.displaySortBy();
+            controller.expandAccount();
+            controller.closeAccount();
+            controller.functionVisualSearch();
+            controller.clearSearch();
+            controller.catchClickEvent();
+            controller.cancelSearch();
+            controller.functionExpandOption();
+            controller.functionCloseExpand();
+            controller.clickGlass();
+            model.getValueAndSortIncreaseInforImage('Image', 'menJordan');
+            model.getValueAndSortDecreaseInforImage('Image', 'menJordan');
+            model.getCountFromBag('Bag');
+            document.getElementById('goto-homepage-singin').addEventListener('click', () => {
+                view.selectWebPage('homePageSingIn');
+            });
+            document.getElementById('gotoHomePageSinginHeader').addEventListener('click', () => {
+                view.selectWebPage('homePageSingIn');
+            });
+            document.getElementById('gotoBagDesktop').addEventListener('click', () => {
+                view.selectWebPage('bagPage');
+            });
+            document.getElementById('gotoFavouriteDesktop').addEventListener('click', () => {
+                view.selectWebPage('favoritePage');
+            });
+            document.getElementById('gotoFavouriteMobile').addEventListener('click', () => {
+                view.selectWebPage('favoritePage');
+            });
+            document.getElementById('gotoChangePass').addEventListener('click', () => {
+                view.selectWebPage('changePasswordPage');
+            });
+            document.getElementById('gotoChangePasswordMobile').addEventListener('click', () => {
+                view.selectWebPage('changePasswordPage');
+            });
+            document.getElementById('gotoProfile').addEventListener('click', () => {
+                view.selectWebPage('profilePage');
+            });
+            document.getElementById('gotoProfileMobile').addEventListener('click', () => {
+                view.selectWebPage('profilePage');
+            });
+            document.getElementById('gotoHistoryBuy').addEventListener('click', () => {
+                view.selectWebPage('historyBuyPage');
+            });
+            document.getElementById('gotoHistoryBuyMobile').addEventListener('click', () => {
+                view.selectWebPage('historyBuyPage');
+            });
+            document.getElementById('gotoJordanMenShoesDesktop').addEventListener('click', () => {
+                model.getInforImageOfMenshoes('Image', 'menJordan');
+                model.getValueAndSortIncreaseInforImage('Image', 'menJordan');
+                model.getValueAndSortDecreaseInforImage('Image', 'menJordan');
+            });
+            document.getElementById('gotoJordanMenShoesMobile').addEventListener('click', () => {
+                model.getInforImageOfMenshoes('Image', 'menJordan');
+                model.getValueAndSortIncreaseInforImage('Image', 'menJordan');
+                model.getValueAndSortDecreaseInforImage('Image', 'menJordan');
+            });
+            document.getElementById('gotoAllMenShoesDesktop').addEventListener('click', () => {
+                model.getInforImageOfMenshoes('Image', 'menShoes');
+                model.getValueAndSortIncreaseInforImage('Image', 'menShoes');
+                model.getValueAndSortDecreaseInforImage('Image', 'menShoes');
+            });
+            document.getElementById('gotoAllMenShoesMobile').addEventListener('click', () => {
+                model.getInforImageOfMenshoes('Image', 'menShoes');
+                model.getValueAndSortIncreaseInforImage('Image', 'menShoes');
+                model.getValueAndSortDecreaseInforImage('Image', 'menShoes');
+            });
+            view.setProfileNameCheckout('exampleModalLabel1');
+            controller.search();
+            controller.clickGotoMen();
+            controller.clickExpandMobileMen();
+            controller.clickGobackAllMen();
+            controller.clickGotoWomen();
+            controller.clickExpandMobileWomen();
+            controller.clickGobackAllWomen();
+            controller.clickGotoKids();
+            controller.clickExpandMobileKids();
+            controller.clickGobackAllKids();
+            controller.logout('logout-btn');
+            controller.logout('gotoLogoutMobile');
+            break;
+        case "menJordanShoesUnSigninPage":
+            document.getElementById('app').innerHTML = (component.menShoesUnSigninPage + component.footer);
+            model.getInforImageOfMenshoes('Image', 'menJordan');
+            controller.stickyHeadMenShoes();
+            controller.displaySortBy();
+            controller.functionVisualSearch();
+            controller.clearSearch();
+            controller.catchClickEvent();
+            controller.cancelSearch();
+            controller.functionExpandOption();
+            controller.functionCloseExpand();
+            model.getValueAndSortIncreaseInforImage('Image', 'menJordan');
+            model.getValueAndSortDecreaseInforImage('Image', 'menJordan');
+            controller.clickGlass();
+            document.getElementById('sing-up-btn').addEventListener('click', () => {
+                view.selectWebPage('singupPage');
+            });
+            document.getElementById('sing-in-btn').addEventListener('click', () => {
+
+                view.selectWebPage('singinPage');
+            });
+            document.getElementById('goto-homepage-unsingin').addEventListener('click', () => {
+                view.selectWebPage('homePageUnSingIn');
+            });
+            document.getElementById('gotoHomePageUnSinginHeader').addEventListener('click', () => {
+                view.selectWebPage('homePageUnSingIn');
+            });
+            document.getElementById('gotoFavouriteDesktop').addEventListener('click', () => {
+                view.selectWebPage('singinPage');
+            })
+            document.getElementById('gotoBagDesktop').addEventListener('click', () => {
+                view.selectWebPage('singinPage');
+            });
+            document.getElementById('gotoJordanMenShoesDesktop').addEventListener('click', () => {
+                model.getInforImageOfMenshoes('Image', 'menJordan');
+                model.getValueAndSortIncreaseInforImage('Image', 'menJordan');
+                model.getValueAndSortDecreaseInforImage('Image', 'menJordan');
+            });
+            document.getElementById('gotoJordanMenShoesMobile').addEventListener('click', () => {
+                model.getInforImageOfMenshoes('Image', 'menJordan');
+                model.getValueAndSortIncreaseInforImage('Image', 'menJordan');
+                model.getValueAndSortDecreaseInforImage('Image', 'menJordan');
+            });
+            document.getElementById('gotoAllMenShoesDesktop').addEventListener('click', () => {
+                model.getInforImageOfMenshoes('Image', 'menShoes');
+                model.getValueAndSortIncreaseInforImage('Image', 'menShoes');
+                model.getValueAndSortDecreaseInforImage('Image', 'menShoes');
+            });
+            document.getElementById('gotoAllMenShoesMobile').addEventListener('click', () => {
+                model.getInforImageOfMenshoes('Image', 'menShoes');
+                model.getValueAndSortIncreaseInforImage('Image', 'menShoes');
+                model.getValueAndSortDecreaseInforImage('Image', 'menShoes');
+            });
+            controller.clickGotoMen();
+            controller.clickExpandMobileMen();
+            controller.clickGobackAllMen();
+            controller.clickGotoWomen();
+            controller.clickExpandMobileWomen();
+            controller.clickGobackAllWomen();
+            controller.clickGotoKids();
+            controller.clickExpandMobileKids();
+            controller.clickGobackAllKids();
+            controller.search();
+            document.getElementById('gotoSigninMobile').addEventListener('click', () => {
+                view.selectWebPage('singinPage');
+            });
+            document.getElementById('gotoSignupMobile').addEventListener('click', () => {
                 view.selectWebPage('singupPage');
             });
             break;
         case "bagPage":
-            document.getElementById('app').innerHTML = (component.bagPage+ component.footer);
+            document.getElementById('app').innerHTML = (component.bagPage + component.footer);
             model.getInforUser();
             model.getCountFromBag('Bag');
             controller.increaseBtn();
@@ -472,14 +639,20 @@ view.selectWebPage = (namePage) => {
             document.getElementById('gotoChangePasswordMobile').addEventListener('click', () => {
                 view.selectWebPage('changePasswordPage');
             });
-            document.getElementById('gotoMenShoes').addEventListener('click',()=>{
+            document.getElementById('gotoMenDesktop').addEventListener('click', () => {
                 view.selectWebPage('menShoesSinginPage');
             });
-            document.getElementById('gotoHistoryBuy').addEventListener('click',()=>{
+            document.getElementById('gotoHistoryBuy').addEventListener('click', () => {
                 view.selectWebPage('historyBuyPage');
             });
-            document.getElementById('gotoHistoryBuyMobile').addEventListener('click',()=>{
+            document.getElementById('gotoHistoryBuyMobile').addEventListener('click', () => {
                 view.selectWebPage('historyBuyPage');
+            });
+            document.getElementById('gotoJordanMenShoesMobile').addEventListener('click', () => {
+                view.selectWebPage('menJordanShoesSinginPage');
+            });
+            document.getElementById('gotoAllMenShoesMobile').addEventListener('click', () => {
+                view.selectWebPage('menShoesSinginPage');
             });
             view.setProfileNameCheckout('exampleModalLabel1');
             controller.clickGotoMen();
@@ -495,7 +668,7 @@ view.selectWebPage = (namePage) => {
             controller.logout('gotoLogoutMobile');
             break;
         case "favoritePage":
-            document.getElementById('app').innerHTML = (component.favoritePage+ component.footer);
+            document.getElementById('app').innerHTML = (component.favoritePage + component.footer);
             model.getInforUser();
             model.getCountFromBag('Bag');
             // model.getInforFavorite('Image', 'menShoes', 'Favorite');
@@ -535,14 +708,20 @@ view.selectWebPage = (namePage) => {
             document.getElementById('gotoChangePasswordMobile').addEventListener('click', () => {
                 view.selectWebPage('changePasswordPage');
             });
-            document.getElementById('gotoMenShoes').addEventListener('click',()=>{
+            document.getElementById('gotoMenDesktop').addEventListener('click', () => {
                 view.selectWebPage('menShoesSinginPage');
             });
-            document.getElementById('gotoHistoryBuy').addEventListener('click',()=>{
+            document.getElementById('gotoHistoryBuy').addEventListener('click', () => {
                 view.selectWebPage('historyBuyPage');
             });
-            document.getElementById('gotoHistoryBuyMobile').addEventListener('click',()=>{
+            document.getElementById('gotoHistoryBuyMobile').addEventListener('click', () => {
                 view.selectWebPage('historyBuyPage');
+            });
+            document.getElementById('gotoJordanMenShoesMobile').addEventListener('click', () => {
+                view.selectWebPage('menJordanShoesSinginPage');
+            });
+            document.getElementById('gotoAllMenShoesMobile').addEventListener('click', () => {
+                view.selectWebPage('menShoesSinginPage');
             });
             view.setProfileNameCheckout('exampleModalLabel1');
             controller.clickGotoMen();
@@ -558,7 +737,7 @@ view.selectWebPage = (namePage) => {
             controller.logout('gotoLogoutMobile');
             break;
         case "checkoutPage":
-            document.getElementById('app').innerHTML = (component.checkoutPage+ component.footer);
+            document.getElementById('app').innerHTML = (component.checkoutPage + component.footer);
             model.getTotalPriceFromBag('Bag');
             controller.clickRemoveFromBag();
             controller.getAddress();
@@ -574,15 +753,15 @@ view.selectWebPage = (namePage) => {
                 document.getElementById('body').classList.add('padding-hide');
             })
             let checkoutForm = document.getElementById('form-checkout');
-            checkoutForm.addEventListener('submit', async(e) => {
+            checkoutForm.addEventListener('submit', async (e) => {
                 console.log(1);
                 e.preventDefault();
                 let dataPro = await model.readInforBagAndSize('Image', 'menShoes', 'Bag');
                 let price = await model.getTotalPriceAndProductFromBag('Bag');
                 let dayKu = new Date();
-                let timeStamp = `${dayKu.getFullYear()}-${dayKu.getMonth() + 1}-${dayKu.getDate()}` ;
+                let timeStamp = `${dayKu.getFullYear()}-${dayKu.getMonth() + 1}-${dayKu.getDate()}`;
                 const data = {
-                    time:timeStamp,
+                    time: timeStamp,
                     firstname: checkoutForm.firstname.value,
                     lastname: checkoutForm.lastname.value,
                     city: checkoutForm.city.value,
@@ -606,14 +785,14 @@ view.selectWebPage = (namePage) => {
             // }
             // let moveNavbarIntersectionObs1 = new IntersectionObserver(moveNavbar1);
             // moveNavbarIntersectionObs1.observe(positionNvabar1);
-            document.getElementById('closeChatBtn').addEventListener('click',()=>{
+            document.getElementById('closeChatBtn').addEventListener('click', () => {
                 let value = document.getElementsByClassName('form-chat')[0];
                 value.removeAttribute('style');
             });
             model.notifyMessageAudio();
             break;
         case "changePasswordPage":
-            document.getElementById('app').innerHTML = (component.changePasswordPage+ component.footer);
+            document.getElementById('app').innerHTML = (component.changePasswordPage + component.footer);
             model.getInforUser();
             controller.expandAccount();
             controller.closeAccount();
@@ -674,7 +853,7 @@ view.selectWebPage = (namePage) => {
                     eye.setAttribute("class", 'fa-solid fa-eye-slash fixed-eye');
                 }
             });
-            document.getElementById('gotoHomepageSinginMobile').addEventListener('click',()=>{
+            document.getElementById('gotoHomepageSinginMobile').addEventListener('click', () => {
                 view.selectWebPage('homePageSingIn');
             });
             view.setProfileNameCheckout('exampleModalLabel1');
@@ -682,7 +861,7 @@ view.selectWebPage = (namePage) => {
             controller.logout('gotoLogoutMobile');
             break;
         case "profilePage":
-            document.getElementById('app').innerHTML = (component.profilePage+ component.footer);
+            document.getElementById('app').innerHTML = (component.profilePage + component.footer);
             model.getInforUser();
             controller.expandAccount();
             controller.closeAccount();
@@ -692,7 +871,7 @@ view.selectWebPage = (namePage) => {
             document.getElementById('gotoChangePass').addEventListener('click', () => {
                 view.selectWebPage('changePasswordPage');
             });
-            document.getElementById('gotoHistoryBuy').addEventListener('click',()=>{
+            document.getElementById('gotoHistoryBuy').addEventListener('click', () => {
                 view.selectWebPage('historyBuyPage');
             });
             document.getElementById('my-profile').addEventListener('mouseover', () => {
@@ -733,10 +912,10 @@ view.selectWebPage = (namePage) => {
                 view.setProfileNameCheckout('exampleModalLabel1');
                 model.notifyMessageAudio();
             }
-            
+
             break;
         case "detailProductPage":
-            document.getElementById('app').innerHTML = (component.detailProductPage+ component.footer);
+            document.getElementById('app').innerHTML = (component.detailProductPage + component.footer);
             model.getInforUser();
             model.getCountFromBag('Bag');
             controller.expandAccount();
@@ -811,14 +990,20 @@ view.selectWebPage = (namePage) => {
             document.getElementById('goto-homepage-singin').addEventListener('click', () => {
                 view.selectWebPage('homePageSingIn');
             });
-            document.getElementById('gotoMenShoes').addEventListener('click',()=>{
+            document.getElementById('gotoMenDesktop').addEventListener('click', () => {
                 view.selectWebPage('menShoesSinginPage');
             });
-            document.getElementById('gotoHistoryBuy').addEventListener('click',()=>{
+            document.getElementById('gotoHistoryBuy').addEventListener('click', () => {
                 view.selectWebPage('historyBuyPage');
             });
-            document.getElementById('gotoHistoryBuyMobile').addEventListener('click',()=>{
+            document.getElementById('gotoHistoryBuyMobile').addEventListener('click', () => {
                 view.selectWebPage('historyBuyPage');
+            });
+            document.getElementById('gotoJordanMenShoesMobile').addEventListener('click', () => {
+                view.selectWebPage('menJordanShoesSinginPage');
+            });
+            document.getElementById('gotoAllMenShoesMobile').addEventListener('click', () => {
+                view.selectWebPage('menShoesSinginPage');
             });
             view.setProfileNameCheckout('exampleModalLabel1');
             controller.clickMoreReview();
@@ -836,7 +1021,7 @@ view.selectWebPage = (namePage) => {
             controller.logout('gotoLogoutMobile');
             break;
         case "detailProductPageUnSignin":
-            document.getElementById('app').innerHTML = (component.navUnsignin + component.header1Unsignin + component.detailProductPageUnSignin+ component.footer);
+            document.getElementById('app').innerHTML = (component.navUnsignin + component.header1Unsignin + component.detailProductPageUnSignin + component.footer);
             controller.functionVisualSearch();
             controller.clearSearch();
             controller.catchClickEvent();
@@ -863,7 +1048,7 @@ view.selectWebPage = (namePage) => {
                     }
                 }
                 let fname = '';
-                if(auth.currentUser != null){
+                if (auth.currentUser != null) {
                     fname = auth.currentUser.displayName;
                 }
                 let data = {
@@ -897,13 +1082,13 @@ view.selectWebPage = (namePage) => {
             document.getElementById('gotoBagDesktop').addEventListener('click', () => {
                 view.selectWebPage('singinPage');
             });
-            document.getElementById('gotoMenShoes').addEventListener('click',()=>{
+            document.getElementById('gotoMenDesktop').addEventListener('click', () => {
                 view.selectWebPage('menShoesUnSigninPage');
             });
-            document.getElementById('gotoSigninMobile').addEventListener('click',()=>{
+            document.getElementById('gotoSigninMobile').addEventListener('click', () => {
                 view.selectWebPage('singinPage');
             });
-            document.getElementById('gotoSignupMobile').addEventListener('click',()=>{
+            document.getElementById('gotoSignupMobile').addEventListener('click', () => {
                 view.selectWebPage('singupPage');
             });
             document.getElementById('goto-homepage-unsingin').addEventListener('click', () => {
@@ -911,6 +1096,12 @@ view.selectWebPage = (namePage) => {
             });
             document.getElementById('gotoHomePageUnSinginHeader').addEventListener('click', () => {
                 view.selectWebPage('homePageUnSingIn');
+            });
+            document.getElementById('gotoJordanMenShoesMobile').addEventListener('click', () => {
+                view.selectWebPage('menJordanShoesUnSigninPage');
+            });
+            document.getElementById('gotoAllMenShoesMobile').addEventListener('click', () => {
+                view.selectWebPage('menShoesUnSigninPage');
             });
             controller.clickMoreReview();
             controller.clickGotoMen();
@@ -1017,19 +1208,19 @@ view.setHighLigthImg = (arr) => {
             changebreakPoint2();
             changebreakPoint3();
             changebreakPoint4();
-            if(auth.currentUser != null){
+            if (auth.currentUser != null) {
                 view.selectWebPage('detailProductPage');
                 view.setInforToReviewPage(arr[i]);
             }
-            else{
+            else {
                 view.selectWebPage('detailProductPageUnSignin');
                 view.setInforToReviewPage(arr[i]);
             }
-            
+
         });
     }
 }
-view.setMenShoesImg = (collect,doc,arr, arrf, arrb) => {
+view.setMenShoesImg = (collect, doc, arr, arrf, arrb) => {
     document.getElementById('men-shoes-product_items').innerHTML = '';
     var divData = '';
     let temporaryF = [];
@@ -1495,8 +1686,8 @@ view.setMenShoesImg = (collect,doc,arr, arrf, arrb) => {
     let classMenShoes = document.getElementById('title-men-shoes');
     classMenShoes.innerText = `Men's Shoes(${arr.length})`;
     document.getElementById('men-shoes-product_items').innerHTML = divData;
-    controller.clickFavorite(collect,doc);
-    controller.clickBag(collect,doc);
+    controller.clickFavorite(collect, doc);
+    controller.clickBag(collect, doc);
     var classColourImg = document.getElementsByClassName('colour-img');
     var classThumb = document.getElementsByClassName('box-colour-products');
     var classMainImg = document.getElementsByClassName('main-img');
@@ -1504,11 +1695,11 @@ view.setMenShoesImg = (collect,doc,arr, arrf, arrb) => {
     var classFavorBtn = document.getElementsByClassName('favorite-btn');
     for (let i = 0; i < classColourImg.length; i++) {
         classColourImg[i].addEventListener('click', () => {
-            if(auth.currentUser != null){
+            if (auth.currentUser != null) {
                 view.selectWebPage('detailProductPage');
                 view.setInforToReviewPage(arr[i]);
             }
-            else{
+            else {
                 view.selectWebPage('detailProductPageUnSignin');
                 view.setInforToReviewPage(arr[i]);
             }
@@ -1645,8 +1836,6 @@ view.setInforFavorite = (arr) => {
         </div>`
     }
     document.getElementById('men-shoes-product_items').innerHTML = divData;
-    // controller.clickEditBtn(arr);
-    // controller.clickFavorite(arr);
 }
 view.setInforBagToCheckout = (data) => {
     var divData = '';
@@ -1739,11 +1928,11 @@ view.showSearch = async (data) => {
             changebreakPoint2();
             changebreakPoint3();
             changebreakPoint4();
-            if(auth.currentUser != null){
+            if (auth.currentUser != null) {
                 view.selectWebPage('detailProductPage');
                 view.setInforToReviewPage(data[i]);
             }
-            else{
+            else {
                 view.selectWebPage('detailProductPageUnSignin');
                 view.setInforToReviewPage(data[i]);
             }
@@ -1857,7 +2046,7 @@ view.setInforToReviewPage = async (obj) => {
             divData2 += `<li class="padding-left-5"><img src="${soureImg}" alt="shoes" class="img-fluid thumb-color" style="z-index: -1;"></li>`
         }
         thumb.innerHTML = divData2;
-        controller.hoverThumbImg('thumb-color','mainImg');
+        controller.hoverThumbImg('thumb-color', 'mainImg');
     }
     let data = await model.readReview(obj.url);
     let count = 0;
@@ -1955,14 +2144,14 @@ view.setInforToReviewPage = async (obj) => {
     }
 
 }
-view.setHistoryBuy = (arr)=>{
+view.setHistoryBuy = (arr) => {
     var divData = '';
-    var divData2 ='';
-    var divData3 ='';
-    var divData4 ='';
-    for(let i in arr){
-        divData3 ='';
-        divData4 =`
+    var divData2 = '';
+    var divData3 = '';
+    var divData4 = '';
+    for (let i in arr) {
+        divData3 = '';
+        divData4 = `
         <div class="col-lg-4 col-md-12 col-sm-12 col-12 pr-48 pl-48-991">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12 p-d-0">
                 <p class="text-Summary">Summary</p>
@@ -1985,7 +2174,7 @@ view.setHistoryBuy = (arr)=>{
             <div class="under-line"></div>
         </div>
         `
-        for(let j in arr[i].product){
+        for (let j in arr[i].product) {
             divData3 += `
                 <div class="display-products col-lg-12 col-md-12 col-sm-12 col-12 p-d-0 mr-top-40" id="display-bag-item">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-12 p-d-0">
@@ -2032,7 +2221,7 @@ view.setHistoryBuy = (arr)=>{
         `;
         divData += divData2;
     }
-    document.getElementById('renderHistoryBuy').innerHTML=divData;
+    document.getElementById('renderHistoryBuy').innerHTML = divData;
 }
 export { boolSingin, boolSingup, arrShoeImage }
 export default view;
