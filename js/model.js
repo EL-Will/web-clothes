@@ -1658,7 +1658,10 @@ model.setAvatar = async (name, extention, files) => {
                 }).then(function () {
                     db.collection('users').doc(auth.currentUser.uid).update({
                         photoUri: downloadURL
-                    })
+                    });
+                    db.collection('listchat').doc(auth.currentUser.uid).update({
+                        photoUrl1: downloadURL
+                    });
                 });
             });
         }

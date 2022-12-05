@@ -322,6 +322,9 @@ view.selectWebPage = (namePage) => {
             document.getElementById('gotoHistoryBuyMobile').addEventListener('click',()=>{
                 view.selectWebPage('historyBuyPage');
             });
+            // document.getElementById('gotoJordanMenShoesDesktop').addEventListener('click',()=>{
+            //     model.getInforImageOfMenshoes('Image', 'menJordan');
+            // });
             view.setProfileNameCheckout('exampleModalLabel1');
             controller.search();
             controller.clickGotoMen();
@@ -899,6 +902,8 @@ view.selectWebPage = (namePage) => {
             document.getElementById('gotoProfile').addEventListener('click', () => {
                 view.selectWebPage('profilePage');
             });
+            view.setProfileNameCheckout('exampleModalLabel1');
+            controller.logout('logout-btn');
             break;
     }
 }
@@ -1709,7 +1714,6 @@ view.showSearch = async (data) => {
     }
 }
 view.displayListChat = (currentId, arr) => {
-    console.log(arr);
     for (let i = 0; i < arr.length; i++) {
         var divData = "";
         if (currentId === arr[i].uId1) {

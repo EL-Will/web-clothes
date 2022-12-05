@@ -1534,7 +1534,7 @@ component.menShoesSinginPage = `
                     <h3 class="men-shoes-wide"><b>Shoes</b></h3>
                 </div>
                 <div class="men-shoes-padding-64 men-shoes-large men-shoes-text-gray">
-                    <a href="#" class="men-shoes-item men-shoes-button">Jordan</a>
+                    <a id="gotoJordanMenShoesDesktop" class="men-shoes-item men-shoes-button">Jordan</a>
                     <a href="#" class="men-shoes-item men-shoes-button">Running</a>
                     <a href="#" class="men-shoes-item men-shoes-button">Football</a>
 
