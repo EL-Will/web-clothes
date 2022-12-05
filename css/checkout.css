@@ -152,9 +152,9 @@
     z-index: 1000;
     border-radius: 10px 10px 10px 10px;
     width:150%;
-    height: 400px;
+    height: calc(100% - 130px);
     right: 0px;
-    top: 225px;
+    top: 130px;
     opacity: 0;
     visibility: hidden;
     transform: translateY(200px);
