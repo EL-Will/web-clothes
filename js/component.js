@@ -1537,7 +1537,6 @@ component.menShoesSinginPage = `
                     <a id="gotoJordanMenShoesDesktop" class="men-shoes-item men-shoes-button">Jordan</a>
                     <a href="#" class="men-shoes-item men-shoes-button">Running</a>
                     <a href="#" class="men-shoes-item men-shoes-button">Football</a>
-
                 </div>
             </nav>
         </div>
