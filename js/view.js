@@ -1729,6 +1729,12 @@ view.clickBag = (classBag) => {
     classBag.classList.toggle('fill--bag');
 }
 view.setSumCountOfBag = (count) => {
+    if(count <10){
+        document.getElementById('countTotal').style.left = '8.5px';
+    }
+    else{
+        document.getElementById('countTotal').style.left = '5px';
+    }
     document.getElementById('countTotal').innerText = `${count}`;
 }
 view.setInforBag = (arr) => {

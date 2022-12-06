@@ -4005,11 +4005,8 @@ component.detailProductPage = `
 <div class="row format-row padding-top-20">
         <div class="col-lg-4 col-md-6 col-sm-12 col-12 padding-0 padding-left-48 padding-left48-new padding-right48-new padding-right-new padding-left-new">
             <img src="" alt="" class="resize-image mainImg">
-            <div class="box-notificaton">
-                <span class="content-information" id="contentInformation">Add To Bag</span>
-            </div>
         </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 col-12 padding-0 padding-left-12 padding-left48-new padding-right48-new padding-right-new padding-left-new padding-top-new margin-top-80">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12 padding-0 padding-left-12 padding-left48-new padding-right48-new padding-right-new padding-left-new padding-top-new">
             <div class="inforBag">
                 <span class="text-name nameproduct">Name</span>
                 <br>
@@ -4082,7 +4079,13 @@ component.detailProductPage = `
                     </div>
                 </div>
             </div>
-            <button class="add-to-bag" id="addToBag">Add to Bag</button>
+            <div class="box-notificaton">
+                <span class="content-information" id="contentInformation"></span>
+            </div>
+            <div class="margin-top-80">
+                <button class="add-to-bag" id="addToBag">Add to Bag</button>
+            </div>
+            
             <div class="padding-top-20">
                 <button class="add-to-favourites" id="addToFavourite">Add to Favourites</button>
             </div>
@@ -4130,7 +4133,10 @@ component.detailProductPage = `
             <div>
                 <span id="errorComment"></span>
             </div>
-            <div class="padding-top-20 hide-submit-comment submit-comment">
+            <div class="box-notificaton2">
+                <span class="content-information2" id="contentInformation2"></span>
+            </div>
+            <div class="padding-top-20 hide-submit-comment submit-comment margin-top2">
                 <button class="submit-review" id="submitReview">Submit</button>
             </div>
             </form>
@@ -4192,7 +4198,7 @@ component.detailProductPageUnSignin = `
                 <span class="content-information" id="contentInformation">Add To Bag</span>
             </div>
         </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 col-12 padding-0 padding-left-12 padding-left48-new padding-right48-new padding-right-new padding-left-new padding-top-new margin-top-80">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12 padding-0 padding-left-12 padding-left48-new padding-right48-new padding-right-new padding-left-new padding-top-new">
             <div class="inforBag">
                 <span class="text-name nameproduct">Name</span>
                 <br>

@@ -1700,6 +1700,12 @@ controller.checkStar = async (data) => {
         data.comment == "" ? (document.getElementById('errorComment').innerText = 'Please type a new comment') : (document.getElementById('errorComment').innerText = '');
         if (data.countstar > 0 && data.comment != "") {
             await model.wirteReview(data);
+            document.getElementById('contentInformation2').innerText = 'Submit Success';
+            let value = document.getElementsByClassName('box-notificaton2')[0];
+            value.style.transform = 'scale(1)';
+            setTimeout(() => {
+                value.removeAttribute('style');
+            }, 3000);
         }
     }
     else {
