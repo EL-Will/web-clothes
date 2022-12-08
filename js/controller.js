@@ -245,10 +245,11 @@ controller.catchClickEvent = () => {
 
         }
     });
-
 }
 controller.clickGlass = () => {
     document.getElementById('btnSearch').addEventListener('click', () => {
+        console.log(clickGlassSearch);
+        console.log(clickSearch);
         if (clickGlassSearch == false && clickSearch == false) {
             clickGlassSearch = true;
             clickSearch = false;
@@ -395,6 +396,10 @@ controller.clickGlass = () => {
                     document.getElementsByClassName('item5-3')[0].style.display = 'none';
                     document.getElementsByClassName('item5-4')[0].style.display = 'none';
                     document.getElementsByClassName('item5-5')[0].style.display = 'none';
+                }
+                else{
+                    clickGlassSearch = false;
+                    clickSearch = false;
                 }
             }
             var x10 = window.matchMedia("(min-width:992px)")
@@ -610,14 +615,14 @@ controller.functionCloseExpand = () => {
 controller.logout = (idLogout) => {
     document.getElementById(idLogout).addEventListener("click", () => {
         let value = document.getElementById('body');
-        if(value.className.indexOf('hide-padding') == -1){
+        if (value.className.indexOf('hide-padding') == -1) {
             value.classList.toggle('hide-padding');
         }
     });
     document.getElementById('quitePage').addEventListener('click', () => {
         model.getLogout();
         let value = document.getElementById('body');
-        if(value.className.indexOf('hide-padding') != -1){
+        if (value.className.indexOf('hide-padding') != -1) {
             value.classList.toggle('hide-padding');
         }
     })
@@ -743,7 +748,7 @@ controller.displaySortBy = () => {
         }
     });
 }
-controller.sortLowToHight = async (collect,doc,arr) => {
+controller.sortLowToHight = async (collect, doc, arr) => {
     let arrFvorite = [];
     let arrBag = [];
     if (firebase.auth().currentUser !== null) {
@@ -775,10 +780,10 @@ controller.sortLowToHight = async (collect,doc,arr) => {
     idPriceLowHigh.addEventListener('click', () => {
 
         let lowHighPriceProducts = quickSortIncrease(arr);
-        view.setMenShoesImg(collect,doc,lowHighPriceProducts, arrFvorite, arrBag)
+        view.setMenShoesImg(collect, doc, lowHighPriceProducts, arrFvorite, arrBag)
     });
 }
-controller.sortHightLow = async (collect,doc,arr) => {
+controller.sortHightLow = async (collect, doc, arr) => {
     let arrFvorite = [];
     let arrBag = [];
     if (firebase.auth().currentUser !== null) {
@@ -808,7 +813,7 @@ controller.sortHightLow = async (collect,doc,arr) => {
     let idPriceHighLow = document.getElementById('priceHighLow');
     idPriceHighLow.addEventListener('click', () => {
         let highLowPriceProducts = quickSortDecrease(arr);
-        view.setMenShoesImg(collect,doc,highLowPriceProducts, arrFvorite, arrBag);
+        view.setMenShoesImg(collect, doc, highLowPriceProducts, arrFvorite, arrBag);
     });
 }
 // -----------------------End Sort By ---------------------------------//
@@ -870,7 +875,7 @@ let quickSortDecrease = (arr) => {
 
 //----------------------------Start Favorite------------------------------//
 
-controller.clickFavorite = (collect,doc) => {
+controller.clickFavorite = (collect, doc) => {
     let idFavorite;
     let indexcolour;
     let boolF;
@@ -1006,7 +1011,7 @@ controller.deleteFavorite = async () => {
     }
 }
 
-controller.clickBag = async (collect,doc) => {
+controller.clickBag = async (collect, doc) => {
     let idBag = 0;
     let indexcolour;
     let boolB;
@@ -1016,7 +1021,7 @@ controller.clickBag = async (collect,doc) => {
     for (let i = 0; i < targetId.length; i++) {
         targetId[i].addEventListener('click', async () => {
             if (firebase.auth().currentUser !== null) {
-                let newArr = await model.readInforBagAndMenShoes(collect,doc, 'Bag');
+                let newArr = await model.readInforBagAndMenShoes(collect, doc, 'Bag');
                 if (newArr[i].hasOwnProperty('status')) {
                     if (newArr[i].hasOwnProperty('thumburl')) {
                         if (classMainImg[i].src == newArr[i].url) {
@@ -1873,19 +1878,19 @@ controller.addToBagFromReviewPage = async () => {
             }
             let check = false;
             let idB;
-            arrPro.forEach((item)=>{
-                if(item.url == sourceImg){
+            arrPro.forEach((item) => {
+                if (item.url == sourceImg) {
                     idB = item.id;
                 }
-                else{
-                    if(item.hasOwnProperty('thumburl') == true){
-                        if(item.thumburl.indexOf(sourceImg) != -1){
+                else {
+                    if (item.hasOwnProperty('thumburl') == true) {
+                        if (item.thumburl.indexOf(sourceImg) != -1) {
                             idB = item.id;
                         }
                     }
                 }
             })
-            
+
             for (let i in idImgBag) {
                 if (idB == idImgBag[i].id) {
                     for (let j in idImgBag[i].indexcolor) {
@@ -1952,13 +1957,13 @@ controller.addToBagFromReviewPage = async () => {
             }
             let check = false;
             let idF;
-            arrPro.forEach((item)=>{
-                if(item.url == sourceImg){
+            arrPro.forEach((item) => {
+                if (item.url == sourceImg) {
                     idF = item.id;
                 }
-                else{
-                    if(item.hasOwnProperty('thumburl') == true){
-                        if(item.thumburl.indexOf(sourceImg) != -1){
+                else {
+                    if (item.hasOwnProperty('thumburl') == true) {
+                        if (item.thumburl.indexOf(sourceImg) != -1) {
                             idF = item.id;
                         }
                     }
