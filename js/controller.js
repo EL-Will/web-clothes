@@ -1767,7 +1767,7 @@ controller.clickMoreReview = () => {
                         <div class="row format-row padding-top-20">
                             <div class="col-lg-2 col-md-3 col-sm-4 col-5 padding-0-567">
                                 <i class="fa-regular fa-star fill-star"></i>
-                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star fill-star"></i>
                                 <i class="fa-regular fa-star"></i>
                                 <i class="fa-regular fa-star"></i>
                                 <i class="fa-regular fa-star"></i>
@@ -1786,8 +1786,8 @@ controller.clickMoreReview = () => {
                         <div class="row format-row padding-top-20">
                             <div class="col-lg-2 col-md-3 col-sm-4 col-5 padding-0-567">
                                 <i class="fa-regular fa-star fill-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star fill-star"></i>
+                                <i class="fa-regular fa-star fill-star"></i>
                                 <i class="fa-regular fa-star"></i>
                                 <i class="fa-regular fa-star"></i>
                             </div>
@@ -1805,9 +1805,9 @@ controller.clickMoreReview = () => {
                         <div class="row format-row padding-top-20">
                             <div class="col-lg-2 col-md-3 col-sm-4 col-5 padding-0-567">
                                 <i class="fa-regular fa-star fill-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star fill-star"></i>
+                                <i class="fa-regular fa-star fill-star"></i>
+                                <i class="fa-regular fa-star fill-star"></i>
                                 <i class="fa-regular fa-star"></i>
                             </div>
                             <div class="col-lg-10 col-md-9 col-sm-8 col-7 padding-r-0-567">
@@ -1823,11 +1823,10 @@ controller.clickMoreReview = () => {
                             `
                         <div class="row format-row padding-top-20">
                             <div class="col-lg-2 col-md-3 col-sm-4 col-5 padding-0-567">
-                                <i class="fa-regular fa-star fill-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star fill-star"></i>
+                            <i class="fa-regular fa-star fill-star"></i>
+                            <i class="fa-regular fa-star fill-star"></i>
+                            <i class="fa-regular fa-star fill-star"></i>
                             </div>
                             <div class="col-lg-10 col-md-9 col-sm-8 col-7 padding-r-0-567">
                                 <span class="text-user">${data.content[i].username}&ensp;${data.content[i].time}</span>
