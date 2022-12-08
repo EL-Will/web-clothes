@@ -11,8 +11,8 @@
     filter: drop-shadow(0 4px 2px rgba(0,0,0,.25));
 }
 .format-img{
-    width:100%;
-    height: auto;
+    width:200px;
+    height: 200px;
     border-radius: 50%;
 }
 .pos-center{
