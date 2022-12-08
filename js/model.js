@@ -1588,7 +1588,7 @@ model.getInforFavorite = async (collect1, document, collect2) => {
     await accessInforImgHL.get().then((doc) => {
         if (doc.exists) {
             arrInforImgHL = doc.data().image;
-        } 
+        }
     }).catch((error) => {
         console.log("Error getting document:", error);
     });
@@ -1598,11 +1598,11 @@ model.getInforFavorite = async (collect1, document, collect2) => {
     await accessInforImgJordan.get().then((doc) => {
         if (doc.exists) {
             arrInforImgJordan = doc.data().image;
-        } 
+        }
     }).catch((error) => {
         console.log("Error getting document:", error);
     });
-    arrInforImg = arrInforShoes.concat(arrInforImgHL,arrInforImgJordan);
+    arrInforImg = arrInforShoes.concat(arrInforImgHL, arrInforImgJordan);
     let keyDoc = await firebase.auth().currentUser.uid;
     const accessListFavorite = db.collection(collect2).doc(keyDoc);
     await accessListFavorite.get().then((doc) => {
@@ -1806,7 +1806,7 @@ model.searchShoes = async (keyword) => {
             data3 = doc.data().image;
         }
     });
-    data = data1.concat(data2,data3);
+    data = data1.concat(data2, data3);
     let nameProArr = data.reduce((arr, item) => {
         return [...arr, item.name]
     }, []);
@@ -1878,18 +1878,33 @@ model.getListChat = async (idUser) => {
     if (email == 'thienbinh1155@gmail.com') {
         try {
             let arr = [];
-            const docRef = db.collection("listchat");
-            const snapshot = await docRef.get();
-            snapshot.forEach((doc) => {
-                let temporaryObj = JSON.parse(JSON.stringify(doc.data()));
-                let objUser = {
-                    ...temporaryObj,
-                    id: doc.id
-                }
-                arr.push(objUser);
-            });
-            view.displayListChat(currentId, arr);
-            controller.readMessages(idUser);
+            // const docRef = db.collection("listchat");
+            // const snapshot = await docRef.get();
+            // snapshot.forEach((doc) => {
+            //     let temporaryObj = JSON.parse(JSON.stringify(doc.data()));
+            //     let objUser = {
+            //         ...temporaryObj,
+            //         id: doc.id
+            //     }
+            //     arr.push(objUser);
+            // });
+            const docRef = await db.collection("listchat")
+                .onSnapshot((snapshot) => {
+                    snapshot.forEach((doc) => {
+                        let temporaryObj = JSON.parse(JSON.stringify(doc.data()));
+                        let objUser = {
+                            ...temporaryObj,
+                            id: doc.id
+                        }
+                        arr.push(objUser);
+                    })
+                    view.displayListChat(currentId, arr);
+                    controller.readMessages(idUser);
+                }, (error) => {
+
+                })
+            // view.displayListChat(currentId, arr);
+            // controller.readMessages(idUser);
         }
         catch (error) {
             console.log(error.message);
@@ -2363,7 +2378,7 @@ model.readAllProductFromFirestore = async () => {
         .catch((error) => {
             console.log(error.message);
         });
-    let allArr = arr1.concat(arr2,arr3);
+    let allArr = arr1.concat(arr2, arr3);
     return allArr;
 }
 model.readBag = async () => {

@@ -609,9 +609,17 @@ controller.functionCloseExpand = () => {
 }
 controller.logout = (idLogout) => {
     document.getElementById(idLogout).addEventListener("click", () => {
+        let value = document.getElementById('body');
+        if(value.className.indexOf('hide-padding') == -1){
+            value.classList.toggle('hide-padding');
+        }
     });
     document.getElementById('quitePage').addEventListener('click', () => {
         model.getLogout();
+        let value = document.getElementById('body');
+        if(value.className.indexOf('hide-padding') != -1){
+            value.classList.toggle('hide-padding');
+        }
     })
 };
 
