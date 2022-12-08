@@ -64,9 +64,9 @@ model.getSingin = async (data) => {
         });
         if (firebase.auth().currentUser.emailVerified == true) {
             view.selectWebPage('homePageSingIn');
-        await model.getInforUser();
+            await model.getInforUser();
         }
-        else{
+        else {
             alert('Please verify your email!');
         }
     }
@@ -1882,35 +1882,34 @@ model.getListChat = async (idUser) => {
     let currentId = auth.currentUser.uid;
     if (email == 'thienbinh1155@gmail.com') {
         try {
-            let arr = [];
-            const docRef = db.collection("listchat");
-            const snapshot = await docRef.get();
-            snapshot.forEach((doc) => {
-                let temporaryObj = JSON.parse(JSON.stringify(doc.data()));
-                let objUser = {
-                    ...temporaryObj,
-                    id: doc.id
-                }
-                arr.push(objUser);
-            });
-            view.displayListChat(currentId, arr);
-            controller.readMessages(idUser);
-            // const docRef = await db.collection("listchat")
-            //     .onSnapshot((snapshot) => {
-            //         let arr = [];
-            //         snapshot.forEach((doc) => {
-            //             let temporaryObj = JSON.parse(JSON.stringify(doc.data()));
-            //             let objUser = {
-            //                 ...temporaryObj,
-            //                 id: doc.id
-            //             }
-            //             arr.push(objUser);
-            //         })
-            //         view.displayListChat(currentId, arr);
-            //         controller.readMessages(idUser);
-            //     }, (error) => {
-
-            //     })
+            // let arr = [];
+            // const docRef = db.collection("listchat");
+            // const snapshot = await docRef.get();
+            // snapshot.forEach((doc) => {
+            //     let temporaryObj = JSON.parse(JSON.stringify(doc.data()));
+            //     let objUser = {
+            //         ...temporaryObj,
+            //         id: doc.id
+            //     }
+            //     arr.push(objUser);
+            // });
+            // view.displayListChat(currentId, arr);
+            // controller.readMessages(idUser);
+            const docRef = await db.collection("listchat")
+                .onSnapshot((snapshot) => {
+                    let arr = [];
+                    snapshot.forEach((doc) => {
+                        let temporaryObj = JSON.parse(JSON.stringify(doc.data()));
+                        let objUser = {
+                            ...temporaryObj,
+                            id: doc.id
+                        }
+                        arr.push(objUser);
+                    })
+                    view.displayListChat(currentId, arr);
+                    controller.readMessages(idUser);
+                }, (error) => {
+                })
         }
         catch (error) {
             console.log(error.message);
