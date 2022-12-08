@@ -2102,8 +2102,10 @@ model.getMessagesFromFirestore = async (idMessage, idUser) => {
                 .onSnapshot((doc) => {
                     if (doc.exists) {
                         let result = doc.data().message;
-                        view.initialMessage(idUser);
-                        view.displayMessages(result, firebase.auth().currentUser.email, idUser);
+                        if(result[result.length-1].email == auth.currentUser.email || result[result.length-1].sender == document.getElementById('head-name-meta').innerText){
+                            view.initialMessage(idUser);
+                            view.displayMessages(result, firebase.auth().currentUser.email, idUser);
+                        } 
                     }
                     else {
                         console.log("No such document!");

@@ -1397,10 +1397,11 @@ controller.readMessages = (idUser) => {
     console.log(targetId);
     for (let i = 0; i < targetId.length; i++) {
         targetId[i].addEventListener("click", async () => {
-            controller.idMessage = targetId[i].id
+            controller.idMessage = targetId[i].id;
             view.initialMessage(idUser);
-            await model.getMessagesFromFirestore(targetId[i].id, idUser);
             await model.getNameGuess(targetId[i].id);
+            await model.getMessagesFromFirestore(targetId[i].id, idUser);
+            
         })
     }
 }
