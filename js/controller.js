@@ -1827,6 +1827,7 @@ controller.clickMoreReview = () => {
                             <i class="fa-regular fa-star fill-star"></i>
                             <i class="fa-regular fa-star fill-star"></i>
                             <i class="fa-regular fa-star fill-star"></i>
+                            <i class="fa-regular fa-star fill-star"></i>
                             </div>
                             <div class="col-lg-10 col-md-9 col-sm-8 col-7 padding-r-0-567">
                                 <span class="text-user">${data.content[i].username}&ensp;${data.content[i].time}</span>
