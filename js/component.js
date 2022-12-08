@@ -3327,7 +3327,7 @@ component.profilePage = `
                                 <div class="col-lg-8 col-md-8 col-sm-8 col-8"></div>
                                 <div class="pd-r-0 col-lg-4 col-md-4 col-sm-4 col-4">
                                     <div class="box-savebtn">
-                                        <button type="submit" id="saveProfile" class="save-btn">SAVE</button>
+                                        <button type="button" id="saveProfile" class="save-btn">SAVE</button>
                                     </div>
                                 </div>
                             </div>
@@ -3432,7 +3432,7 @@ component.profilePage = `
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-3"> </div>
                                 <div class="mb-20 col-lg-8 col-md-8 col-sm-8 col-9">
                                     <div class="box-save-publicbtn">
-                                        <button type="submit" id="savePublicProfile" class="save-btn">SAVE</button>
+                                        <button type="button" id="savePublicProfile" class="save-btn">SAVE</button>
                                     </div>
                                 </div>
                             </div>
