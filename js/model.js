@@ -62,8 +62,13 @@ model.getSingin = async (data) => {
         await db.collection('users').doc(auth.currentUser.uid).update({
             pass: data.password
         });
-        view.selectWebPage('homePageSingIn');
+        if (firebase.auth().currentUser.emailVerified == true) {
+            view.selectWebPage('homePageSingIn');
         await model.getInforUser();
+        }
+        else{
+            alert('Please verify your email!');
+        }
     }
     catch (error) {
         const errorCode = error.code;
