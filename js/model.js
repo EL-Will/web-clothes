@@ -1877,7 +1877,7 @@ model.getListChat = async (idUser) => {
     let currentId = auth.currentUser.uid;
     if (email == 'thienbinh1155@gmail.com') {
         try {
-            let arr = [];
+            
             // const docRef = db.collection("listchat");
             // const snapshot = await docRef.get();
             // snapshot.forEach((doc) => {
@@ -1890,6 +1890,7 @@ model.getListChat = async (idUser) => {
             // });
             const docRef = await db.collection("listchat")
                 .onSnapshot((snapshot) => {
+                    let arr = [];
                     snapshot.forEach((doc) => {
                         let temporaryObj = JSON.parse(JSON.stringify(doc.data()));
                         let objUser = {

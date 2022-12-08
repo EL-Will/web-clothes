@@ -1946,6 +1946,7 @@ view.showSearch = async (data) => {
     }
 }
 view.displayListChat = (currentId, arr) => {
+    document.getElementById('history-chat').innerHTML = '';
     for (let i = 0; i < arr.length; i++) {
         var divData = "";
         if (currentId === arr[i].uId1) {
